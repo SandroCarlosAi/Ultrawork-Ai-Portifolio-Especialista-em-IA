@@ -3,722 +3,989 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sandro | UltraWork AI — Especialista em Inteligência Artificial</title>
+<title>Sandro Carlos Silva — UltraWork AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #050508;
-  --surface: #0c0c12;
-  --surface2: #13131e;
-  --border: rgba(255,255,255,0.07);
-  --border-glow: rgba(0,255,180,0.2);
-  --accent: #00ffb4;
-  --accent2: #7b61ff;
-  --accent3: #ff6b6b;
-  --text: #f0f0f5;
-  --muted: #6b6b80;
-  --muted2: #9898aa;
-  --font-head: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --bg: #fafaf8;
+  --bg2: #f3f3f0;
+  --ink: #0e0e0c;
+  --ink2: #2c2c28;
+  --muted: #8a8a82;
+  --muted2: #b8b8b0;
+  --accent: #0e0e0c;
+  --green: #1a6644;
+  --green-light: #e8f2ec;
+  --border: rgba(14,14,12,0.1);
+  --border2: rgba(14,14,12,0.06);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.7;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ─── CANVAS BG ─── */
-#bg-canvas {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.35;
-}
-
-/* ─── NAV ─── */
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 1.1rem 5vw;
+  z-index: 200;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(5,5,8,0.75);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 6vw;
+  background: rgba(250,250,248,0.88);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border2);
+  transition: padding 0.3s;
 }
 
-.nav-logo {
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
-  color: var(--text);
+.nav-brand {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
   text-decoration: none;
 }
 
-.nav-logo span { color: var(--accent); }
-
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   list-style: none;
 }
 
 .nav-links a {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  color: var(--muted2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
   text-decoration: none;
-  letter-spacing: 0.03em;
   transition: color 0.2s;
 }
 
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover { color: var(--ink); }
 
 .nav-cta {
-  background: var(--accent);
-  color: #000 !important;
-  padding: 0.45rem 1.1rem;
-  border-radius: 6px;
-  font-weight: 500 !important;
-  font-size: 0.875rem !important;
-  text-decoration: none;
-  transition: opacity 0.2s !important;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--ink);
+  text-decoration: none !important;
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
 }
-.nav-cta:hover { opacity: 0.85 !important; color: #000 !important; }
+.nav-cta:hover { opacity: 0.5 !important; }
 
-/* ─── SECTIONS ─── */
-section {
-  position: relative;
-  z-index: 1;
-}
-
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 5vw;
-}
-
-/* ─── HERO ─── */
+/* ── HERO ── */
 #hero {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  padding: 8rem 5vw 6rem;
-}
-
-.hero-inner {
-  max-width: 820px;
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--border-glow);
-  padding: 0.35rem 0.9rem;
-  border-radius: 100px;
-  margin-bottom: 2rem;
-  animation: fadeUp 0.8s ease both;
-}
-
-.hero-tag::before {
-  content: '';
-  width: 7px; height: 7px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--accent);
-}
-
-h1 {
-  font-family: var(--font-head);
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
-  animation: fadeUp 0.8s 0.1s ease both;
-}
-
-h1 em {
-  font-style: normal;
-  color: var(--accent);
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 6vw 7vh;
   position: relative;
+  overflow: hidden;
 }
 
-.hero-sub {
-  font-size: 1.15rem;
+.hero-bg-word {
+  position: absolute;
+  top: 50%;
+  right: -2vw;
+  transform: translateY(-54%);
+  font-family: var(--font-serif);
   font-weight: 300;
-  color: var(--muted2);
-  max-width: 560px;
-  line-height: 1.75;
-  margin-bottom: 2.5rem;
-  animation: fadeUp 0.8s 0.2s ease both;
+  font-size: clamp(18vw, 22vw, 28vw);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(14,14,12,0.055);
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: rise 1s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3.2rem, 7.5vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 14ch;
+  opacity: 0;
+  animation: rise 1s 0.25s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--green);
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border2);
+  gap: 3rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: rise 1s 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 38ch;
+  line-height: 1.7;
 }
 
 .hero-actions {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  animation: fadeUp 0.8s 0.3s ease both;
-}
-
-.btn-primary {
-  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--accent);
-  color: #000;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.85rem 1.8rem;
-  border-radius: 8px;
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0,255,180,0.25);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: var(--text);
-  font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 0.85rem 1.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.btn-secondary:hover {
-  border-color: var(--accent);
-  background: rgba(0,255,180,0.06);
-}
-
-.hero-stats {
-  display: flex;
-  gap: 3rem;
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--border);
-  animation: fadeUp 0.8s 0.4s ease both;
-}
-
-.stat-num {
-  font-family: var(--font-head);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.stat-num span { color: var(--accent); }
-
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 0.3rem;
-}
-
-/* ─── SECTION HEADER ─── */
-.section-header {
-  margin-bottom: 3.5rem;
-}
-
-.section-tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.section-title {
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--text);
-}
-
-.section-sub {
-  font-size: 1rem;
-  color: var(--muted2);
-  margin-top: 0.75rem;
-  max-width: 500px;
-}
-
-/* ─── ABOUT ─── */
-#sobre {
-  padding: 7rem 0;
-  background: var(--surface);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
-}
-
-.about-text p {
-  color: var(--muted2);
-  margin-bottom: 1.2rem;
-  font-weight: 300;
-  font-size: 1.05rem;
-}
-
-.about-text p strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.stack-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 1.5rem;
-}
-
-.stack-pill {
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 0.4rem 0.9rem;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  color: var(--muted2);
-  letter-spacing: 0.03em;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.stack-pill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.about-card {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-}
-
-.about-card-title {
-  font-family: var(--font-head);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-}
-
-.service-item {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.service-item:last-child { border-bottom: none; }
-
-.service-icon {
-  width: 36px; height: 36px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
   flex-shrink: 0;
 }
 
-.service-icon.green { background: rgba(0,255,180,0.1); }
-.service-icon.purple { background: rgba(123,97,255,0.15); }
-.service-icon.red { background: rgba(255,107,107,0.1); }
-.service-icon.blue { background: rgba(100,180,255,0.1); }
-
-.service-name {
-  font-family: var(--font-head);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.service-desc {
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin-top: 2px;
-}
-
-/* ─── PROJETOS ─── */
-#projetos {
-  padding: 7rem 0;
-}
-
-.filter-bar {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-}
-
-.filter-btn {
-  font-family: var(--font-body);
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 500;
-  padding: 0.5rem 1.1rem;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted2);
-  cursor: pointer;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.8rem;
+  border-radius: 2px;
   transition: all 0.2s;
+  cursor: pointer;
+  border: none;
 }
 
-.filter-btn:hover, .filter-btn.active {
-  background: var(--accent);
-  color: #000;
-  border-color: var(--accent);
+.btn-dark {
+  background: var(--ink);
+  color: var(--bg);
 }
+.btn-dark:hover { background: var(--ink2); }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
-}
-
-.project-card {
-  background: var(--surface);
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: border-color 0.25s, transform 0.25s;
-  cursor: default;
+}
+.btn-outline:hover { background: var(--bg2); }
+
+.hero-stats {
   display: flex;
-  flex-direction: column;
+  gap: 4rem;
+  opacity: 0;
+  animation: rise 1s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  padding-top: 4rem;
 }
 
-.project-card:hover {
-  border-color: rgba(0,255,180,0.3);
-  transform: translateY(-4px);
+.stat { }
+.stat-n {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+.stat-n sub {
+  font-size: 1.5rem;
+  vertical-align: baseline;
+  color: var(--green);
+}
+.stat-l {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.5rem;
 }
 
-.project-card.hidden { display: none; }
+/* ── MARQUEE ── */
+.marquee-wrap {
+  background: var(--ink);
+  color: var(--bg);
+  overflow: hidden;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
 
-.project-header {
-  padding: 1.5rem 1.5rem 0;
+.marquee-track {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.marquee-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTIONS ── */
+section { position: relative; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 1rem;
+}
+
+/* ── MANIFESTO ── */
+#manifesto {
+  padding: 10rem 0 8rem;
+  background: var(--bg);
+}
+
+.manifesto-inner {
+  max-width: 900px;
+}
+
+.manifesto-text {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.manifesto-text em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.manifesto-text .dim { color: var(--muted2); }
+
+.manifesto-footnote {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--muted);
+  margin-top: 3rem;
+  max-width: 44ch;
+  line-height: 1.7;
+}
+
+/* ── SOBRE ── */
+#sobre {
+  padding: 8rem 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border2);
+}
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: start;
+}
+
+.sobre-left { }
+
+.sobre-h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+.sobre-p {
+  font-size: 0.97rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.sobre-p strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.sobre-right { padding-top: 3rem; }
+
+.competencia {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border2);
+}
+
+.competencia:first-child { border-top: 1px solid var(--border2); }
+
+.comp-n {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 0.4rem;
+}
+
+.comp-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.comp-desc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+/* ── STACK ── */
+.stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2.5rem;
+}
+
+.pill {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 0.3rem 0.75rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.pill:hover { color: var(--ink); border-color: var(--ink2); }
+
+/* ── PROJETOS ── */
+#projetos {
+  padding: 8rem 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border2);
+}
+
+.projects-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
+  margin-bottom: 5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.project-emoji {
-  width: 48px; height: 48px;
-  border-radius: 12px;
+.proj-h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.proj-sub {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 36ch;
+  line-height: 1.7;
+  text-align: right;
+}
+
+/* featured project */
+.proj-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  background: var(--bg2);
+  transition: border-color 0.25s;
+}
+
+.proj-featured:hover { border-color: var(--border); }
+
+.proj-feat-visual {
+  background: var(--ink);
+  min-height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.project-status {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.7rem;
-  border-radius: 100px;
+.proj-feat-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(26,102,68,0.35) 0%, transparent 65%);
 }
 
-.status-live { background: rgba(0,255,180,0.1); color: var(--accent); border: 1px solid rgba(0,255,180,0.2); }
-.status-done { background: rgba(123,97,255,0.1); color: #a78bfa; border: 1px solid rgba(123,97,255,0.2); }
-.status-beta { background: rgba(255,180,0,0.1); color: #fbbf24; border: 1px solid rgba(255,180,0,0.2); }
-
-.project-body {
-  padding: 1.25rem 1.5rem 1.5rem;
-  flex: 1;
+.proj-feat-content {
+  padding: 3.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.project-name {
-  font-family: var(--font-head);
-  font-size: 1.25rem;
-  font-weight: 700;
+.proj-badge {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green);
+  border: 1px solid rgba(26,102,68,0.3);
+  border-radius: 2px;
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.proj-badge.done { color: var(--muted); border-color: var(--border); }
+
+.proj-feat-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 2rem;
   letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1rem;
 }
 
-.project-desc {
-  font-size: 0.875rem;
-  color: var(--muted2);
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
+.proj-feat-desc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.proj-highlight {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ink);
+  padding: 0.9rem 1rem;
+  border-left: 2px solid var(--green);
+  background: var(--green-light);
+  border-radius: 0 2px 2px 0;
+  margin-bottom: 1.5rem;
+}
+
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* grid of smaller projects */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.proj-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.proj-card:hover {
+  border-color: var(--border);
+  background: var(--bg);
+}
+
+.proj-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.proj-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.proj-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
   flex: 1;
 }
 
-.project-result {
-  background: var(--surface2);
-  border-left: 3px solid var(--accent);
-  padding: 0.65rem 0.9rem;
-  border-radius: 0 8px 8px 0;
-  font-size: 0.82rem;
-  color: var(--muted2);
-  margin-bottom: 1.25rem;
+.proj-result-sm {
+  font-size: 0.8rem;
+  color: var(--green);
+  font-weight: 400;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border2);
 }
 
-.project-result strong {
-  color: var(--accent);
-  font-weight: 600;
+/* ── IMPACTO ── */
+#impacto {
+  padding: 8rem 0;
+  background: var(--ink);
+  color: var(--bg);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.project-tags {
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-}
-
-.tag {
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 0.25rem 0.65rem;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  letter-spacing: 0.04em;
-}
-
-/* ─── RESULTS ─── */
-#resultados {
-  padding: 7rem 0;
-  background: var(--surface);
-}
-
-.results-grid {
+.impacto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
   overflow: hidden;
-  margin-top: 3.5rem;
+  margin-top: 5rem;
 }
 
-.result-item {
-  background: var(--surface2);
-  padding: 2.5rem 2rem;
+.impacto-item {
+  background: var(--ink);
+  padding: 3rem 2.5rem;
   text-align: center;
   transition: background 0.2s;
 }
 
-.result-item:hover { background: rgba(0,255,180,0.04); }
+.impacto-item:hover { background: #161614; }
 
-.result-num {
-  font-family: var(--font-head);
-  font-size: 3rem;
-  font-weight: 800;
+.impacto-n {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 300;
   letter-spacing: -0.04em;
-  color: var(--text);
   line-height: 1;
+  color: #fafaf8;
 }
 
-.result-num span { color: var(--accent); }
+.impacto-n span { color: #4ade9a; }
 
-.result-label {
-  font-size: 0.82rem;
-  color: var(--muted);
+.impacto-l {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 0.5rem;
+  color: rgba(250,250,248,0.38);
+  margin-top: 0.75rem;
 }
 
-/* ─── CTA ─── */
-#cta {
+.impacto-copy {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.impacto-copy .section-label { color: rgba(250,250,248,0.35); }
+
+.impacto-h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fafaf8;
+}
+
+.impacto-h2 em {
+  font-style: italic;
+  color: #4ade9a;
+}
+
+/* ── DIFERENCIAIS ── */
+#diferenciais {
   padding: 8rem 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border2);
+}
+
+.dif-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 8vw;
+  align-items: start;
+}
+
+.dif-sticky {
+  position: sticky;
+  top: 6rem;
+}
+
+.dif-h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+.dif-h2 em { font-style: italic; color: var(--green); }
+
+.dif-note {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.dif-list { display: flex; flex-direction: column; gap: 0; }
+
+.dif-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border2);
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  transition: padding-left 0.3s;
+}
+
+.dif-item:first-child { border-top: 1px solid var(--border2); }
+.dif-item:hover { padding-left: 0.5rem; }
+
+.dif-num {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--muted2);
+  padding-top: 0.2rem;
+}
+
+.dif-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.dif-desc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── VISÃO ── */
+#visao {
+  padding: 9rem 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border2);
   text-align: center;
 }
 
-.cta-inner {
-  max-width: 680px;
-  margin: 0 auto;
+.visao-inner { max-width: 780px; margin: 0 auto; }
+
+.visao-quote {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 3rem;
 }
 
-.cta-title {
-  font-family: var(--font-head);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 800;
+.visao-quote em { font-style: italic; color: var(--green); }
+
+.visao-sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 50ch;
+  margin: 0 auto 3rem;
+}
+
+/* ── CTA ── */
+#cta {
+  padding: 10rem 0;
+  background: var(--ink);
+  text-align: center;
+}
+
+.cta-inner { max-width: 700px; margin: 0 auto; }
+
+.cta-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.35);
+  margin-bottom: 2rem;
+}
+
+.cta-h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 1;
   letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
+  color: #fafaf8;
+  margin-bottom: 1.5rem;
 }
 
-.cta-title span { color: var(--accent); }
+.cta-h2 em { font-style: italic; color: #4ade9a; }
 
 .cta-sub {
-  font-size: 1.05rem;
-  color: var(--muted2);
-  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
   font-weight: 300;
+  color: rgba(250,250,248,0.45);
+  line-height: 1.8;
+  max-width: 44ch;
+  margin: 0 auto 3.5rem;
 }
 
-.btn-whatsapp {
+.btn-white {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #25d366;
-  color: #fff;
-  font-family: var(--font-head);
-  font-size: 1.05rem;
-  font-weight: 700;
-  padding: 1rem 2.2rem;
-  border-radius: 10px;
+  background: #fafaf8;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s;
-  letter-spacing: -0.01em;
+  padding: 1.1rem 2.5rem;
+  border-radius: 2px;
+  transition: opacity 0.2s;
 }
 
-.btn-whatsapp:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(37,211,102,0.3);
-}
+.btn-white:hover { opacity: 0.85; }
+.btn-white svg { width: 18px; height: 18px; }
 
-.btn-whatsapp svg { width: 22px; height: 22px; }
-
-/* ─── FOOTER ─── */
+/* ── FOOTER ── */
 footer {
-  border-top: 1px solid var(--border);
-  padding: 2rem 5vw;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 6vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 1;
-  background: var(--bg);
 }
 
-.footer-logo {
-  font-family: var(--font-head);
-  font-weight: 800;
+.foot-brand {
+  font-family: var(--font-serif);
   font-size: 1rem;
-  color: var(--muted);
+  font-weight: 400;
+  color: rgba(250,250,248,0.4);
+  text-decoration: none;
 }
 
-.footer-logo span { color: var(--accent); }
-
-.footer-copy {
-  font-size: 0.78rem;
-  color: var(--muted);
+.foot-copy {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(250,250,248,0.2);
 }
 
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+/* ── ANIMATIONS ── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(32px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
+.reveal.up { opacity: 1; transform: none; }
 
-/* ─── RESPONSIVE ─── */
-@media (max-width: 768px) {
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
   .nav-links { display: none; }
-  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-stats { gap: 1.5rem; }
-  .projects-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  .sobre-grid, .dif-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .proj-featured { grid-template-columns: 1fr; }
+  .proj-feat-visual { min-height: 180px; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .impacto-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 2.5rem; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; }
+  .proj-sub { text-align: left; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .impacto-grid { grid-template-columns: 1fr 1fr; }
+  .hero-bg-word { font-size: 40vw; }
 }
 </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Ultra<span>Work</span> AI</a>
+  <a href="#" class="nav-brand">UltraWork AI</a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#projetos">Projetos</a></li>
-    <li><a href="#resultados">Resultados</a></li>
-    <li><a href="#cta" class="nav-cta">Falar agora</a></li>
+    <li><a href="#diferenciais">Visão</a></li>
+    <li><a href="#cta" class="nav-cta">Conversar</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Especialista em IA · Belo Horizonte, MG</div>
-    <h1>Automação e IA<br>que <em>geram resultado</em><br>de verdade.</h1>
-    <p class="hero-sub">Transformo negócios locais com sistemas de Inteligência Artificial — agentes autônomos, apps SaaS, automações e conteúdo que vendem enquanto você dorme.</p>
+  <div class="hero-bg-word">Futuro</div>
+  <p class="hero-eyebrow">Sandro Carlos Silva — CEO · Belo Horizonte, MG</p>
+  <h1 class="hero-title">
+    Inteligência<br>
+    que <em>transforma</em><br>
+    negócios.
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">
+      Sistemas de IA que operam enquanto você dorme — da estratégia ao código, do agente ao resultado.
+    </p>
     <div class="hero-actions">
-      <a href="#cta" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Falar no WhatsApp
+      <a href="#cta" class="btn btn-dark">
+        Iniciar projeto
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-      <a href="#projetos" class="btn-secondary">
-        Ver projetos
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+      <a href="#projetos" class="btn btn-outline">Ver projetos</a>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">8<span>+</span></div>
-        <div class="stat-label">Projetos com IA</div>
-      </div>
-      <div>
-        <div class="stat-num">7<span>+</span></div>
-        <div class="stat-label">Ferramentas dominadas</div>
-      </div>
-      <div>
-        <div class="stat-num">3<span>x</span></div>
-        <div class="stat-label">ROI médio entregue</div>
-      </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-n">10<sub>+</sub></div>
+      <div class="stat-l">Projetos com IA</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">7<sub>+</sub></div>
+      <div class="stat-l">Agentes construídos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">24<sub>/7</sub></div>
+      <div class="stat-l">Operação autônoma</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Claude API <span class="marquee-dot"></span></span>
+    <span class="marquee-item">N8N Automação <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Apps SaaS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Agentes Autônomos <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Supabase <span class="marquee-dot"></span></span>
+    <span class="marquee-item">WhatsApp API <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Lovable <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sistemas Multi-Agente <span class="marquee-dot"></span></span>
+    <span class="marquee-item">HeyGen <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Veo 3 <span class="marquee-dot"></span></span>
+    <!-- duplicated for seamless loop -->
+    <span class="marquee-item">Claude API <span class="marquee-dot"></span></span>
+    <span class="marquee-item">N8N Automação <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Apps SaaS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Agentes Autônomos <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Supabase <span class="marquee-dot"></span></span>
+    <span class="marquee-item">WhatsApp API <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Lovable <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sistemas Multi-Agente <span class="marquee-dot"></span></span>
+    <span class="marquee-item">HeyGen <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Veo 3 <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section id="manifesto">
+  <div class="container">
+    <div class="manifesto-inner reveal">
+      <p class="section-label">Manifesto</p>
+      <p class="manifesto-text">
+        A maioria das empresas ainda opera como se fosse 2015.<br>
+        <span class="dim">Processos manuais. Equipes sobrecarregadas.</span><br>
+        Oportunidades que <em>escapam em silêncio.</em>
+      </p>
+      <p class="manifesto-footnote">
+        A UltraWork AI existe para mudar isso. Construímos a infraestrutura inteligente que transforma operações lentas em máquinas de resultado — com agentes que pensam, vendem e entregam, sem intervenção humana constante.
+      </p>
     </div>
   </div>
 </section>
@@ -726,66 +993,61 @@ footer {
 <!-- SOBRE -->
 <section id="sobre">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <div class="section-tag">Sobre mim</div>
-        <h2 class="section-title" style="margin-bottom:1.5rem">Sandro<br>Especialista IA & Automação</h2>
-        <p>Sou um <strong>empreendedor e especialista em Inteligência Artificial</strong> baseado em Belo Horizonte. Fundador da UltraWork AI, ajudo empresas e profissionais a multiplicarem seus resultados com sistemas inteligentes.</p>
-        <p>Meu diferencial é <strong>unir estratégia de negócio com tecnologia de ponta</strong> — não entrego só código, entrego sistemas que resolvem problemas reais e geram receita.</p>
-        <p>Da prospecção autônoma no WhatsApp ao app SaaS com agentes de IA, cada projeto nasce com obsessão por resultado mensurável.</p>
-        <div class="stack-grid" style="margin-top:2rem">
-          <span class="stack-pill">Claude API</span>
-          <span class="stack-pill">N8N</span>
-          <span class="stack-pill">Lovable</span>
-          <span class="stack-pill">Supabase</span>
-          <span class="stack-pill">HeyGen</span>
-          <span class="stack-pill">Suno</span>
-          <span class="stack-pill">Veo 3</span>
-          <span class="stack-pill">Meta Ads</span>
-          <span class="stack-pill">Gemini</span>
-          <span class="stack-pill">Runway</span>
-          <span class="stack-pill">Kling</span>
-          <span class="stack-pill">Gamma</span>
+    <div class="sobre-grid">
+      <div class="sobre-left reveal">
+        <p class="section-label">Fundador</p>
+        <h2 class="sobre-h2">Sandro<br>Carlos Silva</h2>
+        <p class="sobre-p">
+          Empreendedor com obsessão por resultado. Fundei a <strong>UltraWork AI</strong> com uma missão clara: tornar o poder da Inteligência Artificial acessível para empresas brasileiras que querem crescer de forma inteligente e escalável.
+        </p>
+        <p class="sobre-p">
+          Meu diferencial não é saber usar ferramentas de IA — é <strong>conectar tecnologia a negócio real</strong>. Cada sistema que construo nasce de um problema concreto e é medido por um resultado mensurável.
+        </p>
+        <p class="sobre-p">
+          De agentes de vendas autônomos no WhatsApp a apps SaaS com múltiplas IAs especializadas, entrego sistemas que operam, vendem e escalam — enquanto o cliente foca no que realmente importa.
+        </p>
+        <div class="stack-row">
+          <span class="pill">Claude API</span>
+          <span class="pill">N8N</span>
+          <span class="pill">Lovable</span>
+          <span class="pill">Supabase</span>
+          <span class="pill">React</span>
+          <span class="pill">HeyGen</span>
+          <span class="pill">Evolution API</span>
+          <span class="pill">Veo 3</span>
+          <span class="pill">Gemini</span>
+          <span class="pill">Runway</span>
+          <span class="pill">Kling</span>
+          <span class="pill">Meta Ads</span>
         </div>
       </div>
-      <div class="reveal" style="transition-delay:0.15s">
-        <div class="about-card">
-          <div class="about-card-title">Serviços & Soluções</div>
-          <div class="service-item">
-            <div class="service-icon green">🤖</div>
-            <div>
-              <div class="service-name">Agentes de IA & Automação</div>
-              <div class="service-desc">Sistemas multi-agente com N8N, Claude API e WhatsApp</div>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="service-icon purple">📱</div>
-            <div>
-              <div class="service-name">Apps SaaS com IA</div>
-              <div class="service-desc">Desenvolvimento com Lovable, React, TypeScript e Supabase</div>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="service-icon red">🎬</div>
-            <div>
-              <div class="service-name">Conteúdo & Vídeo com IA</div>
-              <div class="service-desc">Vídeos, posts, avatares e músicas gerados por IA</div>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="service-icon blue">🎯</div>
-            <div>
-              <div class="service-name">Marketing & Tráfego Pago</div>
-              <div class="service-desc">Meta Ads com criativo inteligente e copy gerado por IA</div>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="service-icon green">🎓</div>
-            <div>
-              <div class="service-name">Mentoria & Treinamentos</div>
-              <div class="service-desc">Capacitação em IA aplicada para equipes e empreendedores</div>
-            </div>
-          </div>
+
+      <div class="sobre-right reveal" style="transition-delay:0.15s">
+        <p class="section-label">O que construo</p>
+        <div class="competencia">
+          <p class="comp-n">01</p>
+          <p class="comp-title">Agentes de Vendas Autônomos</p>
+          <p class="comp-desc">Sistemas multi-agente que qualificam leads, calculam propostas, gerenciam objeções e fecham contratos — via WhatsApp, 24 horas por dia.</p>
+        </div>
+        <div class="competencia">
+          <p class="comp-n">02</p>
+          <p class="comp-title">Apps SaaS com IA Integrada</p>
+          <p class="comp-desc">Plataformas completas com React, TypeScript e Supabase — onde múltiplos agentes especializados trabalham em conjunto para o usuário final.</p>
+        </div>
+        <div class="competencia">
+          <p class="comp-n">03</p>
+          <p class="comp-title">Automação de Operações</p>
+          <p class="comp-desc">Fluxos inteligentes com N8N que eliminam trabalho repetitivo, integram sistemas e garantem que nada se perca entre equipes e ferramentas.</p>
+        </div>
+        <div class="competencia">
+          <p class="comp-n">04</p>
+          <p class="comp-title">Conteúdo & Vídeo Gerado por IA</p>
+          <p class="comp-desc">Estratégias de conteúdo e produção com HeyGen, Veo 3 e Runway — posts, vídeos e materiais que posicionam e vendem com consistência.</p>
+        </div>
+        <div class="competencia">
+          <p class="comp-n">05</p>
+          <p class="comp-title">Estratégia & Mentoria em IA</p>
+          <p class="comp-desc">Para líderes e equipes que precisam entender como usar IA de forma prática, com foco em resultado e sem desperdício de tempo.</p>
         </div>
       </div>
     </div>
@@ -795,173 +1057,140 @@ footer {
 <!-- PROJETOS -->
 <section id="projetos">
   <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag">Portfólio</div>
-      <h2 class="section-title">Projetos realizados<br>com Inteligência Artificial</h2>
-      <p class="section-sub">Cada projeto é um sistema real, construído com propósito e orientado a resultado.</p>
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-label">Projetos</p>
+        <h2 class="proj-h2">Sistemas reais.<br>Resultados concretos.</h2>
+      </div>
+      <p class="proj-sub">Cada projeto é uma prova de que IA e resultado não são conceitos separados.</p>
     </div>
 
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="saas">App SaaS</button>
-      <button class="filter-btn" data-filter="automacao">Automação</button>
-      <button class="filter-btn" data-filter="conteudo">Conteúdo IA</button>
-      <button class="filter-btn" data-filter="educacao">Educação</button>
-      <button class="filter-btn" data-filter="estrategia">Estratégia</button>
+    <!-- FEATURED: OlympIA -->
+    <div class="proj-featured reveal">
+      <div class="proj-feat-visual">🏋️</div>
+      <div class="proj-feat-content">
+        <div>
+          <span class="proj-badge">Em produção</span>
+          <h3 class="proj-feat-name">OlympIA — App SaaS de Fitness com IA</h3>
+          <p class="proj-feat-desc">
+            Plataforma completa com 7 agentes especializados — Fisiologista, Personal Trainer, Nutricionista, Especialista em Suplementação, Recuperação e Coach Comportamental. Gera planos de treino personalizados com periodização de 4 semanas, escalonamento de volume e nutrição com preços brasileiros reais.
+          </p>
+          <div class="proj-highlight">
+            Sistema multi-agente com orquestração autônoma — cada agente especializado contribui para o plano ideal do usuário.
+          </div>
+        </div>
+        <div class="proj-tags">
+          <span class="pill">Lovable</span>
+          <span class="pill">React</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">Supabase</span>
+          <span class="pill">Claude API</span>
+          <span class="pill">Multi-agente</span>
+        </div>
+      </div>
     </div>
 
-    <div class="projects-grid">
-
-      <!-- OlympIA -->
-      <div class="project-card reveal" data-category="saas">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(123,97,255,0.15)">🏋️</div>
-          <span class="project-status status-beta">Em produção</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">OlympIA</div>
-          <div class="project-desc">App SaaS de fitness com 7 agentes de IA especializados — Fisiologista, Personal, Nutricionista, Suplementação, Recuperação e Coach Comportamental. Gera planos de treino e nutrição personalizados com gamificação e social features.</div>
-          <div class="project-result"><strong>Destaque:</strong> Periodização de 4 semanas, escalonamento de volume por duração, preços brasileiros na nutrição.</div>
-          <div class="project-tags">
-            <span class="tag">Lovable</span>
-            <span class="tag">React</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">Claude API</span>
-            <span class="tag">Multi-agente</span>
+    <!-- FEATURED: SOLARIS -->
+    <div class="proj-featured reveal" style="transition-delay:0.1s">
+      <div class="proj-feat-visual" style="background:#0d1a0f;">☀️</div>
+      <div class="proj-feat-content">
+        <div>
+          <span class="proj-badge">Entregue</span>
+          <h3 class="proj-feat-name">SOLARIS SDR — Vendas Autônomas 24/7</h3>
+          <p class="proj-feat-desc">
+            Sistema autônomo de vendas via WhatsApp para o setor de energia solar. 7 agentes em cascata — qualificação de leads, cálculo de desconto na conta, gestão de objeções, follow-up automático e entrega ao CRM. Opera sem equipe comercial humana, sem folga e sem perda de lead.
+          </p>
+          <div class="proj-highlight">
+            SDR virtual que substitui um vendedor inteiro — operando 24h por dia, 7 dias por semana, sem custo fixo de equipe.
           </div>
+        </div>
+        <div class="proj-tags">
+          <span class="pill">N8N</span>
+          <span class="pill">Evolution API</span>
+          <span class="pill">Claude Sonnet</span>
+          <span class="pill">Supabase</span>
+          <span class="pill">WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="proj-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-icon">⚡</div>
+        <span class="proj-badge">Ativo</span>
+        <h3 class="proj-name">Super Agente de IA</h3>
+        <p class="proj-desc">Skill customizada do Claude que atua como Arquiteto Supremo de Sistemas IA — eleva o perfil do usuário para nível elite antes de gerar arquiteturas, modelos de monetização e roadmaps.</p>
+        <p class="proj-result-sm">Protocolo de Elevação automático integrado ao fluxo de trabalho.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Claude API</span>
+          <span class="pill">Prompt Engineering</span>
         </div>
       </div>
 
-      <!-- SOLARIS -->
-      <div class="project-card reveal" data-category="automacao">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(255,180,0,0.12)">☀️</div>
-          <span class="project-status status-done">Entregue</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">SOLARIS SDR</div>
-          <div class="project-desc">Sistema autônomo de vendas via WhatsApp para energia solar — 7 agentes cobrindo qualificação de leads, cálculo de desconto, gestão de objeções, follow-up automático e entrega ao CRM.</div>
-          <div class="project-result"><strong>Resultado:</strong> SDR virtual operando 24/7, sem custo de equipe comercial humana.</div>
-          <div class="project-tags">
-            <span class="tag">N8N</span>
-            <span class="tag">Evolution API</span>
-            <span class="tag">Claude Sonnet</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">WhatsApp</span>
-          </div>
+      <div class="proj-card reveal" style="transition-delay:0.08s">
+        <div class="proj-icon">🤖</div>
+        <span class="proj-badge">Ativo</span>
+        <h3 class="proj-name">Agentes IA — UltraWork AI</h3>
+        <p class="proj-desc">Série de agentes especializados para Instagram: Recrutador, Postador, Secretária Executiva, Orquestrador de Vendas e mais — com calendário de conteúdo e copy em português que converte.</p>
+        <p class="proj-result-sm">Posicionamento de autoridade em IA com conteúdo que converte.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">HeyGen</span>
+          <span class="pill">Claude API</span>
+          <span class="pill">Instagram</span>
         </div>
       </div>
 
-      <!-- Agentes UltraWork AI -->
-      <div class="project-card reveal" data-category="conteudo automacao">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(0,255,180,0.1)">🤖</div>
-          <span class="project-status status-live">Ativo</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">Agentes IA — UltraWork AI</div>
-          <div class="project-desc">Série de 6 posts para Instagram demonstrando agentes especializados: Recrutador, Postador de Conteúdo, Secretária Executiva, Orquestração, Vendas e mais — com calendário de conteúdo e legendas em português.</div>
-          <div class="project-result"><strong>Resultado:</strong> Posicionamento de autoridade em IA nas redes sociais com conteúdo que converte.</div>
-          <div class="project-tags">
-            <span class="tag">Instagram</span>
-            <span class="tag">Claude API</span>
-            <span class="tag">HeyGen</span>
-            <span class="tag">Conteúdo</span>
-          </div>
+      <div class="proj-card reveal" style="transition-delay:0.16s">
+        <div class="proj-icon">📈</div>
+        <span class="proj-badge done">Entregue</span>
+        <h3 class="proj-name">O Código do Day Trade</h3>
+        <p class="proj-desc">Produto educacional completo sobre mercado financeiro — SMC, Elliott Wave, Fibonacci, gestão de risco e psicologia do trader. Dashboard interativo de análise técnica incluído.</p>
+        <p class="proj-result-sm">Do conceito ao produto digital vendável em horas com IA generativa.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">IA Generativa</span>
+          <span class="pill">Hotmart</span>
+          <span class="pill">Trading</span>
         </div>
       </div>
 
-      <!-- Trading -->
-      <div class="project-card reveal" data-category="educacao">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(255,107,107,0.1)">📈</div>
-          <span class="project-status status-done">Entregue</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">O Código Estrutural do Day Trade</div>
-          <div class="project-desc">Produto educacional completo sobre mercado financeiro — cobrindo SMC, Elliott Wave, Fibonacci, gestão de risco e psicologia do trader. Material em DOCX + PowerPoint com análise técnica de BTC e BITH26.</div>
-          <div class="project-result"><strong>Destaque:</strong> Dashboard interativo de Elliott Wave + análise de Fibonacci aplicada a ativos reais.</div>
-          <div class="project-tags">
-            <span class="tag">Hotmart</span>
-            <span class="tag">IA Generativa</span>
-            <span class="tag">Trading</span>
-            <span class="tag">Produto Digital</span>
-          </div>
+      <div class="proj-card reveal" style="transition-delay:0.04s">
+        <div class="proj-icon">📖</div>
+        <span class="proj-badge done">Entregue</span>
+        <h3 class="proj-name">Mapa Bíblico da Prosperidade</h3>
+        <p class="proj-desc">Livro digital em 6 partes com programa de transformação financeira em 20 etapas. Gerado programaticamente com Node.js e formatação profissional — do conceito à entrega em horas.</p>
+        <p class="proj-result-sm">Produto digital pronto para venda em plataformas como Hotmart.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Node.js</span>
+          <span class="pill">IA Generativa</span>
+          <span class="pill">Hotmart</span>
         </div>
       </div>
 
-      <!-- Super Agente de IA -->
-      <div class="project-card reveal" data-category="automacao estrategia">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(123,97,255,0.15)">⚡</div>
-          <span class="project-status status-live">Ativo</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">Super Agente de IA</div>
-          <div class="project-desc">Skill customizada do Claude que atua como Arquiteto Supremo de Sistemas IA — eleva habilidades do usuário para nível elite antes de gerar arquiteturas de sistemas, modelos de monetização e roadmaps de evolução.</div>
-          <div class="project-result"><strong>Destaque:</strong> Protocolo de Elevação automático que transforma perfis medianos em experts antes de qualquer entrega.</div>
-          <div class="project-tags">
-            <span class="tag">Claude API</span>
-            <span class="tag">Prompt Engineering</span>
-            <span class="tag">Multi-agente</span>
-          </div>
+      <div class="proj-card reveal" style="transition-delay:0.12s">
+        <div class="proj-icon">🚀</div>
+        <span class="proj-badge">Ativo</span>
+        <h3 class="proj-name">Plano Estratégico UltraWork AI</h3>
+        <p class="proj-desc">Sistema de monetização com IA: menu de serviços, tabela de preços por tier, meta de receita, plano de 7 dias e script de prospecção via WhatsApp para negócios em BH.</p>
+        <p class="proj-result-sm">Estratégia orientada a clientes reais no mercado de BH.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Estratégia</span>
+          <span class="pill">WhatsApp</span>
+          <span class="pill">BH</span>
         </div>
       </div>
 
-      <!-- Mapa Bíblico -->
-      <div class="project-card reveal" data-category="conteudo educacao">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(255,180,0,0.1)">📖</div>
-          <span class="project-status status-done">Entregue</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">Mapa Bíblico da Prosperidade</div>
-          <div class="project-desc">Livro digital completo em 6 partes com programa de transformação financeira em 20 etapas, baseado em princípios bíblicos. Gerado programaticamente com Node.js e formatação profissional em Word.</div>
-          <div class="project-result"><strong>Resultado:</strong> Produto digital pronto para venda em plataformas como Hotmart — do conceito à entrega em horas.</div>
-          <div class="project-tags">
-            <span class="tag">IA Generativa</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Hotmart</span>
-            <span class="tag">Produto Digital</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- AI Career Strategy -->
-      <div class="project-card reveal" data-category="estrategia">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(0,255,180,0.08)">🚀</div>
-          <span class="project-status status-live">Ativo</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">Plano Estratégico UltraWork AI</div>
-          <div class="project-desc">Plano completo de monetização com IA — menu de serviços, tabela de preços por tier, breakdown de meta de receita, plano de ação em 7 dias e script de prospecção via WhatsApp para negócios locais em BH.</div>
-          <div class="project-result"><strong>Destaque:</strong> Estratégia orientada a R$ e clientes reais no mercado de Belo Horizonte.</div>
-          <div class="project-tags">
-            <span class="tag">Estratégia</span>
-            <span class="tag">Marketing</span>
-            <span class="tag">WhatsApp</span>
-            <span class="tag">BH</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Exercício Reference -->
-      <div class="project-card reveal" data-category="conteudo">
-        <div class="project-header">
-          <div class="project-emoji" style="background:rgba(0,200,255,0.1)">💪</div>
-          <span class="project-status status-done">Entregue</span>
-        </div>
-        <div class="project-body">
-          <div class="project-name">Enciclopédia de Treino IA</div>
-          <div class="project-desc">Base de dados interativa com 150+ exercícios, 500+ variações e 40+ técnicas avançadas de musculação. Programa PPL completo de hipertrofia gerado por IA e exportado como planilha Excel.</div>
-          <div class="project-result"><strong>Destaque:</strong> Widget interativo filtrável + documento Word completo para uso profissional.</div>
-          <div class="project-tags">
-            <span class="tag">IA Generativa</span>
-            <span class="tag">Fitness</span>
-            <span class="tag">Excel</span>
-            <span class="tag">Conteúdo</span>
-          </div>
+      <div class="proj-card reveal" style="transition-delay:0.2s">
+        <div class="proj-icon">💪</div>
+        <span class="proj-badge done">Entregue</span>
+        <h3 class="proj-name">Enciclopédia de Treino IA</h3>
+        <p class="proj-desc">Base de dados interativa com 150+ exercícios, 500+ variações e 40+ técnicas avançadas. Programa PPL completo de hipertrofia gerado por IA e exportado como planilha Excel.</p>
+        <p class="proj-result-sm">Widget interativo filtrável + documento completo para uso profissional.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Excel</span>
+          <span class="pill">IA Generativa</span>
+          <span class="pill">Fitness</span>
         </div>
       </div>
 
@@ -969,30 +1198,104 @@ footer {
   </div>
 </section>
 
-<!-- RESULTADOS -->
-<section id="resultados">
+<!-- IMPACTO -->
+<section id="impacto">
   <div class="container">
-    <div class="section-header reveal" style="text-align:center; max-width:480px; margin:0 auto 0">
-      <div class="section-tag">Números</div>
-      <h2 class="section-title">Impacto gerado<br>com IA</h2>
+    <div class="impacto-copy reveal">
+      <p class="section-label" style="color:rgba(250,250,248,0.35)">Impacto</p>
+      <h2 class="impacto-h2">IA medida em <em>resultado.</em></h2>
     </div>
-    <div class="results-grid reveal">
-      <div class="result-item">
-        <div class="result-num">24<span>/7</span></div>
-        <div class="result-label">Operação autônoma</div>
+    <div class="impacto-grid reveal">
+      <div class="impacto-item">
+        <div class="impacto-n">24<span>/7</span></div>
+        <div class="impacto-l">Operação autônoma</div>
       </div>
-      <div class="result-item">
-        <div class="result-num">7<span>+</span></div>
-        <div class="result-label">Sistemas multi-agente</div>
+      <div class="impacto-item">
+        <div class="impacto-n">7<span>+</span></div>
+        <div class="impacto-l">Sistemas multi-agente</div>
       </div>
-      <div class="result-item">
-        <div class="result-num">10<span>x</span></div>
-        <div class="result-label">Velocidade de entrega</div>
+      <div class="impacto-item">
+        <div class="impacto-n">10<span>x</span></div>
+        <div class="impacto-l">Velocidade de entrega</div>
       </div>
-      <div class="result-item">
-        <div class="result-num">0<span>$</span></div>
-        <div class="result-label">Código sem programar</div>
+      <div class="impacto-item">
+        <div class="impacto-n">0<span>€</span></div>
+        <div class="impacto-l">Código sem programar</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="dif-grid">
+      <div class="dif-sticky reveal">
+        <p class="section-label">Por que a UltraWork AI</p>
+        <h2 class="dif-h2">Não vendemos<br><em>promessa.</em><br>Entregamos sistema.</h2>
+        <p class="dif-note">
+          O mercado está cheio de consultores que falam de IA. A UltraWork AI constrói, entrega e mede — com responsabilidade técnica e orientação a resultado desde o primeiro dia.
+        </p>
+      </div>
+
+      <div class="dif-list reveal" style="transition-delay:0.15s">
+        <div class="dif-item">
+          <span class="dif-num">01</span>
+          <div>
+            <p class="dif-title">Estratégia + execução no mesmo lugar</p>
+            <p class="dif-desc">Não precisar coordenar uma agência de estratégia com um desenvolvedor. Recebo o desafio do negócio, desenho a solução e construo — do início ao resultado.</p>
+          </div>
+        </div>
+        <div class="dif-item">
+          <span class="dif-num">02</span>
+          <div>
+            <p class="dif-title">IA aplicada a negócio real, não a demos</p>
+            <p class="dif-desc">Cada sistema é construído para operar em produção, com casos de uso reais, integrações reais e métricas reais. Nada de protótipos que não saem do papel.</p>
+          </div>
+        </div>
+        <div class="dif-item">
+          <span class="dif-num">03</span>
+          <div>
+            <p class="dif-title">Velocidade de execução fora do comum</p>
+            <p class="dif-desc">Utilizando as melhores ferramentas de IA disponíveis, entrego em dias o que times tradicionais levam semanas para construir — sem abrir mão da qualidade.</p>
+          </div>
+        </div>
+        <div class="dif-item">
+          <span class="dif-num">04</span>
+          <div>
+            <p class="dif-title">Stack de ponta, sempre atualizado</p>
+            <p class="dif-desc">Claude API, N8N, Lovable, Supabase, HeyGen, Veo 3 — trabalho com as ferramentas que definem o estado da arte em IA aplicada. O mercado muda rápido; aqui a gente acompanha.</p>
+          </div>
+        </div>
+        <div class="dif-item">
+          <span class="dif-num">05</span>
+          <div>
+            <p class="dif-title">Baseado em Belo Horizonte, com visão global</p>
+            <p class="dif-desc">Conheço o mercado brasileiro — seus desafios, suas oportunidades e o ritmo certo. Construo soluções com contexto local e tecnologia global.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISÃO -->
+<section id="visao">
+  <div class="container">
+    <div class="visao-inner reveal">
+      <p class="section-label">Visão de futuro</p>
+      <p class="visao-quote">
+        "O Brasil tem talento. Tem mercado.<br>
+        Falta <em>infraestrutura inteligente</em><br>
+        para competir em escala global."
+      </p>
+      <p class="visao-sub">
+        A UltraWork AI está construindo essa infraestrutura — um sistema, um agente, uma empresa de cada vez. Nossa visão é ser a principal referência em IA aplicada a negócios no Brasil.
+      </p>
+      <a href="#cta" class="btn btn-dark" style="margin: 0 auto; display: inline-flex;">
+        Fazer parte dessa visão
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -1001,14 +1304,17 @@ footer {
 <section id="cta">
   <div class="container">
     <div class="cta-inner reveal">
-      <h2 class="cta-title">Pronto para <span>automatizar</span><br>seu negócio com IA?</h2>
-      <p class="cta-sub">Me chama no WhatsApp e vamos conversar sobre como a Inteligência Artificial pode transformar sua empresa nos próximos 30 dias.</p>
-      <a href="https://wa.me/5531999999999?text=Olá%20Sandro!%20Vi%20seu%20portfólio%20e%20quero%20saber%20mais%20sobre%20automação%20com%20IA!" class="btn-whatsapp" target="_blank" rel="noopener">
+      <p class="cta-tag">Próximo passo</p>
+      <h2 class="cta-h2">Pronto para <em>crescer</em><br>com inteligência?</h2>
+      <p class="cta-sub">
+        Me chama no WhatsApp. Em uma conversa, mostro como a IA pode transformar sua operação nos próximos 30 dias.
+      </p>
+      <a href="https://wa.me/5531999999999?text=Olá%20Sandro!%20Vi%20seu%20portfólio%20e%20quero%20saber%20mais." class="btn-white" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.532 5.857L.057 23.082a.75.75 0 0 0 .916.916l5.225-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.694 9.694 0 0 1-4.948-1.352l-.355-.21-3.678 1.04 1.04-3.678-.21-.355A9.694 9.694 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/>
         </svg>
-        Quero automatizar meu negócio
+        Conversar no WhatsApp
       </a>
     </div>
   </div>
@@ -1016,94 +1322,22 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Ultra<span>Work</span> AI</div>
-  <div class="footer-copy">© 2025 UltraWork AI · Belo Horizonte, MG · Feito com Inteligência Artificial</div>
+  <a href="#" class="foot-brand">UltraWork AI</a>
+  <p class="foot-copy">© 2025 UltraWork AI · Belo Horizonte, MG · Construído com Inteligência Artificial</p>
 </footer>
 
 <script>
-/* ── CANVAS PARTICLES ── */
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, dots = [];
-
-function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-}
-
-function initDots() {
-  dots = [];
-  const count = Math.floor((W * H) / 18000);
-  for (let i = 0; i < count; i++) {
-    dots.push({
-      x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-      r: Math.random() * 1.5 + 0.5
-    });
-  }
-}
-
-function drawDots() {
-  ctx.clearRect(0, 0, W, H);
-  for (let i = 0; i < dots.length; i++) {
-    const d = dots[i];
-    d.x += d.vx; d.y += d.vy;
-    if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
-    if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
-    ctx.beginPath();
-    ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(0,255,180,0.6)';
-    ctx.fill();
-    for (let j = i + 1; j < dots.length; j++) {
-      const d2 = dots[j];
-      const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
-      if (dist < 120) {
-        ctx.beginPath();
-        ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d2.x, d2.y);
-        ctx.strokeStyle = `rgba(0,255,180,${(1 - dist / 120) * 0.12})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(drawDots);
-}
-
-resize(); initDots(); drawDots();
-window.addEventListener('resize', () => { resize(); initDots(); });
-
-/* ── FILTERS ── */
-const filterBtns = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.project-card');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    cards.forEach(card => {
-      const cats = card.dataset.category || '';
-      if (filter === 'all' || cats.includes(filter)) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-  });
-});
-
-/* ── REVEAL ON SCROLL ── */
-const observer = new IntersectionObserver((entries) => {
+const io = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 60);
-      observer.unobserve(e.target);
+      const delay = parseFloat(e.target.style.transitionDelay || 0) * 1000;
+      setTimeout(() => e.target.classList.add('up'), delay > 0 ? 0 : i * 60);
+      io.unobserve(e.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.08 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
