@@ -425,183 +425,104 @@ section { position: relative; }
 .pill:hover { color: var(--ink); border-color: var(--ink2); }
 
 /* ── PROJETOS ── */
-#projetos {
-  padding: 8rem 0;
-  background: var(--bg);
-  border-top: 1px solid var(--border2);
-}
+<section id="projetos">
+  <div class="container">
 
-.projects-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 5rem;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-label">Projetos</p>
+        <h2 class="proj-h2">Sistemas reais.<br>Resultados concretos.</h2>
+      </div>
+      <p class="proj-sub">Cada projeto aqui não é conceito. É execução real.</p>
+    </div>
 
-.proj-h2 {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
+    <!-- PROJETO 1 -->
+    <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="proj-link reveal">
+      <div class="proj-featured">
 
-.proj-sub {
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--muted);
-  max-width: 36ch;
-  line-height: 1.7;
-  text-align: right;
-}
+        <div class="proj-feat-visual">
+          <img src="images/olympia.png" alt="OlympIA App">
+        </div>
 
-/* featured project */
-.proj-featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: 1px solid var(--border2);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 2px;
-  background: var(--bg2);
-  transition: border-color 0.25s;
-}
+        <div class="proj-feat-content">
+          <div>
+            <span class="proj-badge">Em produção</span>
+            <h3 class="proj-feat-name">OlympIA — IA para Fitness</h3>
+            <p class="proj-feat-desc">
+              Sistema com múltiplos agentes especializados que criam treinos, dieta e estratégias personalizadas automaticamente.
+            </p>
 
-.proj-featured:hover { border-color: var(--border); }
+            <div class="proj-highlight">
+              7 agentes trabalhando juntos para gerar resultado real.
+            </div>
+          </div>
 
-.proj-feat-visual {
-  background: var(--ink);
-  min-height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
-  position: relative;
-  overflow: hidden;
-}
+          <div>
+            <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="btn btn-dark">
+              Ver projeto ao vivo
+            </a>
+          </div>
+        </div>
 
-.proj-feat-visual::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(26,102,68,0.35) 0%, transparent 65%);
-}
+      </div>
+    </a>
 
-.proj-feat-content {
-  padding: 3.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    <!-- PROJETO 2 -->
+    <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="proj-link reveal">
+      <div class="proj-featured">
 
-.proj-badge {
-  display: inline-block;
-  font-size: 0.66rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--green);
-  border: 1px solid rgba(26,102,68,0.3);
-  border-radius: 2px;
-  padding: 0.25rem 0.6rem;
-  margin-bottom: 1.5rem;
-  width: fit-content;
-}
+        <div class="proj-feat-visual">
+          <img src="images/solaris.png" alt="Solaris SDR">
+        </div>
 
-.proj-badge.done { color: var(--muted); border-color: var(--border); }
+        <div class="proj-feat-content">
+          <div>
+            <span class="proj-badge">Entregue</span>
+            <h3 class="proj-feat-name">SOLARIS — Vendas 24/7</h3>
+            <p class="proj-feat-desc">
+              SDR autônomo via WhatsApp que qualifica leads, responde objeções e fecha vendas sem intervenção humana.
+            </p>
 
-.proj-feat-name {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: 2rem;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 1rem;
-}
+            <div class="proj-highlight">
+              Substitui um vendedor completo operando 24 horas por dia.
+            </div>
+          </div>
 
-.proj-feat-desc {
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.75;
-  flex: 1;
-  margin-bottom: 2rem;
-}
+          <div>
+            <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="btn btn-dark">
+              Ver projeto
+            </a>
+          </div>
+        </div>
 
-.proj-highlight {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--ink);
-  padding: 0.9rem 1rem;
-  border-left: 2px solid var(--green);
-  background: var(--green-light);
-  border-radius: 0 2px 2px 0;
-  margin-bottom: 1.5rem;
-}
+      </div>
+    </a>
 
-.proj-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+    <!-- GRID -->
+    <div class="proj-grid">
 
-/* grid of smaller projects */
-.proj-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 2px;
-}
+      <a href="#" class="proj-card reveal proj-link">
+        <img src="images/agente.png" class="proj-img">
+        <h3 class="proj-name">Super Agente IA</h3>
+        <p class="proj-desc">Arquitetura avançada de agentes inteligentes.</p>
+      </a>
 
-.proj-card {
-  background: var(--bg2);
-  border: 1px solid var(--border2);
-  border-radius: 2px;
-  padding: 2.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: border-color 0.25s, background 0.25s;
-}
+      <a href="#" class="proj-card reveal proj-link">
+        <img src="images/instagram.png" class="proj-img">
+        <h3 class="proj-name">Agentes para Instagram</h3>
+        <p class="proj-desc">Sistema de conteúdo automatizado.</p>
+      </a>
 
-.proj-card:hover {
-  border-color: var(--border);
-  background: var(--bg);
-}
+      <a href="#" class="proj-card reveal proj-link">
+        <img src="images/trade.png" class="proj-img">
+        <h3 class="proj-name">Day Trade IA</h3>
+        <p class="proj-desc">Produto digital completo com análise técnica.</p>
+      </a>
 
-.proj-icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
+    </div>
 
-.proj-name {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: 1.3rem;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  line-height: 1.2;
-}
-
-.proj-desc {
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.7;
-  flex: 1;
-}
-
-.proj-result-sm {
-  font-size: 0.8rem;
-  color: var(--green);
-  font-weight: 400;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border2);
-}
+  </div>
+</section>
 
 /* ── IMPACTO ── */
 #impacto {
