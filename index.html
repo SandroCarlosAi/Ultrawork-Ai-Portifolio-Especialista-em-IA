@@ -22,42 +22,7 @@
   --border2: rgba(14,14,12,0.06);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
-.proj-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
 }
-
-.proj-feat-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.proj-feat-visual {
-  position: relative;
-  overflow: hidden;
-}
-
-.proj-feat-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.35));
-}
-
-.proj-featured:hover img {
-  transform: scale(1.05);
-}
-
-.proj-img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 2px;
-  margin-bottom: 1rem;
-}}
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -460,104 +425,183 @@ section { position: relative; }
 .pill:hover { color: var(--ink); border-color: var(--ink2); }
 
 /* ── PROJETOS ── */
-<section id="projetos">
-  <div class="container">
+#projetos {
+  padding: 8rem 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border2);
+}
 
-    <div class="projects-header reveal">
-      <div>
-        <p class="section-label">Projetos</p>
-        <h2 class="proj-h2">Sistemas reais.<br>Resultados concretos.</h2>
-      </div>
-      <p class="proj-sub">Cada projeto aqui não é conceito. É execução real.</p>
-    </div>
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 
-    <!-- PROJETO 1 -->
-    <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="proj-link reveal">
-      <div class="proj-featured">
+.proj-h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
 
-        <div class="proj-feat-visual">
-          <img src="images/olympia.png" alt="OlympIA App">
-        </div>
+.proj-sub {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 36ch;
+  line-height: 1.7;
+  text-align: right;
+}
 
-        <div class="proj-feat-content">
-          <div>
-            <span class="proj-badge">Em produção</span>
-            <h3 class="proj-feat-name">OlympIA — IA para Fitness</h3>
-            <p class="proj-feat-desc">
-              Sistema com múltiplos agentes especializados que criam treinos, dieta e estratégias personalizadas automaticamente.
-            </p>
+/* featured project */
+.proj-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  background: var(--bg2);
+  transition: border-color 0.25s;
+}
 
-            <div class="proj-highlight">
-              7 agentes trabalhando juntos para gerar resultado real.
-            </div>
-          </div>
+.proj-featured:hover { border-color: var(--border); }
 
-          <div>
-            <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="btn btn-dark">
-              Ver projeto ao vivo
-            </a>
-          </div>
-        </div>
+.proj-feat-visual {
+  background: var(--ink);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
+}
 
-      </div>
-    </a>
+.proj-feat-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(26,102,68,0.35) 0%, transparent 65%);
+}
 
-    <!-- PROJETO 2 -->
-    <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="proj-link reveal">
-      <div class="proj-featured">
+.proj-feat-content {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-        <div class="proj-feat-visual">
-          <img src="images/solaris.png" alt="Solaris SDR">
-        </div>
+.proj-badge {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green);
+  border: 1px solid rgba(26,102,68,0.3);
+  border-radius: 2px;
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
 
-        <div class="proj-feat-content">
-          <div>
-            <span class="proj-badge">Entregue</span>
-            <h3 class="proj-feat-name">SOLARIS — Vendas 24/7</h3>
-            <p class="proj-feat-desc">
-              SDR autônomo via WhatsApp que qualifica leads, responde objeções e fecha vendas sem intervenção humana.
-            </p>
+.proj-badge.done { color: var(--muted); border-color: var(--border); }
 
-            <div class="proj-highlight">
-              Substitui um vendedor completo operando 24 horas por dia.
-            </div>
-          </div>
+.proj-feat-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
 
-          <div>
-            <a href="https://seuprojeto.com" target="_blank" rel="noopener" class="btn btn-dark">
-              Ver projeto
-            </a>
-          </div>
-        </div>
+.proj-feat-desc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: 2rem;
+}
 
-      </div>
-    </a>
+.proj-highlight {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ink);
+  padding: 0.9rem 1rem;
+  border-left: 2px solid var(--green);
+  background: var(--green-light);
+  border-radius: 0 2px 2px 0;
+  margin-bottom: 1.5rem;
+}
 
-    <!-- GRID -->
-    <div class="proj-grid">
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
 
-      <a href="#" class="proj-card reveal proj-link">
-        <img src="images/agente.png" class="proj-img">
-        <h3 class="proj-name">Super Agente IA</h3>
-        <p class="proj-desc">Arquitetura avançada de agentes inteligentes.</p>
-      </a>
+/* grid of smaller projects */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 2px;
+}
 
-      <a href="#" class="proj-card reveal proj-link">
-        <img src="images/instagram.png" class="proj-img">
-        <h3 class="proj-name">Agentes para Instagram</h3>
-        <p class="proj-desc">Sistema de conteúdo automatizado.</p>
-      </a>
+.proj-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.25s, background 0.25s;
+}
 
-      <a href="#" class="proj-card reveal proj-link">
-        <img src="images/trade.png" class="proj-img">
-        <h3 class="proj-name">Day Trade IA</h3>
-        <p class="proj-desc">Produto digital completo com análise técnica.</p>
-      </a>
+.proj-card:hover {
+  border-color: var(--border);
+  background: var(--bg);
+}
 
-    </div>
+.proj-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
 
-  </div>
-</section>
+.proj-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.proj-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.proj-result-sm {
+  font-size: 0.8rem;
+  color: var(--green);
+  font-weight: 400;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border2);
+}
 
 /* ── IMPACTO ── */
 #impacto {
@@ -1265,7 +1309,7 @@ footer {
       <p class="cta-sub">
         Me chama no WhatsApp. Em uma conversa, mostro como a IA pode transformar sua operação nos próximos 30 dias.
       </p>
-      <a href="https://wa.me/5531991801259?text=Olá%20Sandro!%20Vi%20seu%20portfólio%20e%20quero%20saber%20mais." class="btn-white" target="_blank" rel="noopener">
+      <a href="https://wa.me/5531999999999?text=Olá%20Sandro!%20Vi%20seu%20portfólio%20e%20quero%20saber%20mais." class="btn-white" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.532 5.857L.057 23.082a.75.75 0 0 0 .916.916l5.225-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.694 9.694 0 0 1-4.948-1.352l-.355-.21-3.678 1.04 1.04-3.678-.21-.355A9.694 9.694 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/>
