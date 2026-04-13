@@ -22,7 +22,42 @@
   --border2: rgba(14,14,12,0.06);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
+.proj-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
+
+.proj-feat-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.proj-feat-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.proj-feat-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.35));
+}
+
+.proj-featured:hover img {
+  transform: scale(1.05);
+}
+
+.proj-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}}
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
