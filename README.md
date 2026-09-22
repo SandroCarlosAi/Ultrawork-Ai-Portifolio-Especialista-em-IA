@@ -25,7 +25,7 @@ visão · contato
 | Tipografia | Cormorant Garamond (serifada) + DM Sans (sans) |
 | Animação | `IntersectionObserver` nativo para revelar seções |
 | 3D | WebGL escrito à mão, sem biblioteca (~6 KB) |
-| Imagens | Nenhuma na página — tudo tipografia, SVG e partículas |
+| Imagens | 15 em WebP, todas lazy (382 KB) — o resto é tipografia, SVG e partículas |
 | Publicação | GitHub Pages |
 
 ## A marca

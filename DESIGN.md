@@ -253,14 +253,40 @@ parado. O site continua bonito — só fica quieto.
 | Rolagem suave | Lenis (~7 KB) | ✅ | ✅ |
 | Parallax | `transform` no rAF | ✅ | Reduzido a 6% |
 
-### Por que nada de vídeo nem fotografia
+### Fotografia: sim, com regra. Vídeo: não.
+
+**A regra mudou** quando o conteúdo do site antigo foi portado. Antes o site
+tinha zero `<img>` e isso era tratado como princípio. Não era princípio — era
+consequência de não haver conteúdo visual. Prova visual de projeto entregue
+vale mais que pureza técnica.
+
+O que entrou, e sob quais condições:
+
+| Regra | Valor |
+|---|---|
+| Formato | **WebP**, sempre |
+| Largura máxima | 640px (retrato) · 520px (galeria) |
+| Carregamento | `loading="lazy"` em **todas**, sem exceção |
+| Dimensões | `width`/`height` declarados, para não empurrar o layout |
+| Teto do conjunto | **400 KB** somando tudo |
+
+Medido na migração: **16.198 KB → 382 KB**. As mesmas 15 imagens, 42× menores,
+sem perda visível. O site antigo fazia o visitante baixar 16 MB.
+
+**O orçamento passou a ter duas linhas:** o caminho crítico (HTML+CSS+JS, teto
+de 200 KB) e a mídia adiada (teto de 400 KB). Imagem que carrega depois da
+primeira pintura não compete com ela.
+
+### Vídeo continua fora
 
 Um vídeo de hero custa 2–8 MB e destrói o LCP no 4G. **As referências mais
 "milionárias" da lista não usam fotografia nenhuma** — a spec do Auros diz
 literalmente: *"No photography, lifestyle imagery, or people. Pure data-graphics
 and abstract forms."* Dala usa *"procedural particle visualizations"*.
 
-O site atual tem **zero** tags `<img>`. Isso não é falta — é vantagem.
+A galeria e o retrato são prova; vídeo de hero é peso. Um clipe custa 2–8 MB
+e destrói o carregamento no 4G — as mesmas 16 MB que a migração acabou de
+eliminar voltariam num arquivo só.
 
 Movimento aqui vem de **geometria procedural gerada na GPU**: pesa ~40 KB de
 código, roda a 60fps e nunca é um arquivo baixado. É assim que se tem imagem que

@@ -66,6 +66,7 @@
   --glow: #35d6ff;         /* 11,54:1 - mesma cor, todo o site e palco */
   --accent: #35d6ff;
   --green-light: rgba(53,214,255,0.12);
+  --sobre-ciano: var(--sobre-ciano);  /* texto sobre pilula ciano - 10,97:1 */
 
   /* --- LINHAS --- */
   --border: rgba(234,242,251,0.12);
@@ -334,10 +335,10 @@ body.noite #progresso { background: var(--glow); }
 }
 .btn:hover { transform: scale(1.02); }
 .btn:active { transform: scale(0.98); }
-.btn-dark { background: var(--glow); color: #04131a; font-weight: 400; }
+.btn-dark { background: var(--glow); color: var(--sobre-ciano); font-weight: 400; }
 .btn-outline { border: 1px solid var(--border); color: var(--ink); }
 .btn-outline:hover { border-color: var(--ink); }
-.no-escuro .btn-dark { background: var(--glow); color: #04131a; }
+.no-escuro .btn-dark { background: var(--glow); color: var(--sobre-ciano); }
 .no-escuro .btn-outline { border-color: var(--line-stage); color: var(--on-stage); }
 .no-escuro .btn-outline:hover { border-color: var(--glow); color: var(--glow); }
 
@@ -901,6 +902,202 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
 @media (prefers-reduced-motion: reduce) {
   .marca-u .circ, .marca-u .circ2 { animation: none !important; opacity: 0.8 !important; }
 }
+
+/* ══════════════════════════════════════════════════════
+   CONTEUDO PORTADO DO SITE ANTIGO
+   Foto, galeria e FAQ. As imagens vem em WebP, com largura
+   e altura declaradas para nao empurrar o layout ao chegar,
+   e loading="lazy": nenhuma bloqueia a primeira pintura.
+   ══════════════════════════════════════════════════════ */
+
+/* ── FOTO DO FUNDADOR ── */
+.retrato {
+  position: relative;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  max-width: 300px;
+  isolation: isolate;
+}
+.retrato img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(0.35) contrast(1.06);
+  transition: filter 420ms ease, transform 620ms cubic-bezier(0.16,1,0.3,1);
+}
+.retrato:hover img { filter: grayscale(0) contrast(1); transform: scale(1.03); }
+/* Varredura ciano: a luz passa uma vez quando o retrato entra na tela */
+.retrato::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(53,214,255,0.22) 50%, transparent 100%);
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.retrato.varrido::after { animation: varrer 1.6s cubic-bezier(0.4,0,0.2,1) forwards; }
+@keyframes varrer { to { transform: translateY(100%); } }
+
+/* ── SELO DE CONFIANCA NO HERO ── */
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.selo b { color: var(--glow); font-weight: 500; }
+.selo-ponto {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--glow);
+  box-shadow: 0 0 0 0 rgba(53,214,255,0.55);
+  animation: pulsar 2.4s ease-out infinite;
+}
+@keyframes pulsar {
+  0%   { box-shadow: 0 0 0 0 rgba(53,214,255,0.5); }
+  70%  { box-shadow: 0 0 0 9px rgba(53,214,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(53,214,255,0); }
+}
+
+/* ── GALERIA ── */
+#midia { padding: var(--section-y) 0; }
+.filtros { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.filtro {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 1rem;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color var(--micro), color var(--micro), background var(--micro);
+}
+.filtro:hover { border-color: var(--glow); color: var(--glow); }
+.filtro.ativo { background: var(--glow); border-color: var(--glow); color: var(--sobre-ciano); }
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+.peca {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg2);
+  transition: border-color var(--state), transform var(--state);
+}
+.peca:hover { border-color: rgba(53,214,255,0.40); transform: translateY(-3px); }
+.peca.oculta { display: none; }
+.peca img {
+  display: block;
+  width: 100%;
+  height: 178px;
+  object-fit: cover;
+  background: var(--bg3);
+  transition: transform 620ms cubic-bezier(0.16,1,0.3,1);
+}
+.peca:hover img { transform: scale(1.04); }
+.peca figcaption { padding: 1rem 1.125rem 1.25rem; display: block; }
+.peca-cat {
+  display: inline-block;
+  font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--glow);
+  margin-bottom: 0.5rem;
+}
+.peca figcaption b {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.125rem; font-weight: 400; letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.peca figcaption { font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
+
+/* ── LINK EXTERNO NO CARTAO DE PROJETO ── */
+.proj-link {
+  display: inline-flex; align-items: center; gap: 0.375rem;
+  margin-top: 0.5rem;
+  min-height: 44px;
+  font-size: 0.8125rem;
+  color: var(--glow);
+  transition: gap var(--micro);
+}
+.proj-link:hover { gap: 0.625rem; }
+
+/* ── FAQ ── */
+#faq { padding: var(--section-y) 0; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(2rem, 6vw, 6rem); }
+.faq-lado { position: sticky; top: 7rem; align-self: start; }
+.faq-lado .btn { margin-top: 1.75rem; }
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--ink);
+  transition: color var(--micro);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--glow); }
+.faq-mais {
+  position: relative;
+  flex: 0 0 auto;
+  width: 16px; height: 16px;
+}
+.faq-mais::before, .faq-mais::after {
+  content: '';
+  position: absolute; top: 50%; left: 0;
+  width: 16px; height: 1.5px;
+  background: var(--glow);
+  transition: transform var(--state);
+}
+.faq-mais::after { transform: rotate(90deg); }
+.faq-item[open] .faq-mais::after { transform: rotate(0deg); }
+.faq-corpo { padding-bottom: 1.75rem; max-width: 46rem; }
+.faq-corpo p { color: var(--ink2); font-size: 0.9375rem; margin-bottom: 0.875rem; }
+.faq-chave {
+  color: var(--glow) !important;
+  font-size: 0.875rem !important;
+  border-left: 2px solid var(--glow);
+  padding-left: 0.875rem;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 1024px) {
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-lado { position: static; }
+  .retrato { max-width: 240px; }
+}
+@media (max-width: 768px) {
+  .galeria { grid-template-columns: 1fr; }
+  .peca img { height: 200px; }
+  .filtros { gap: 0.375rem; }
+  .filtro { padding: 0.5rem 0.875rem; font-size: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .retrato.varrido::after { animation: none !important; }
+  .selo-ponto { animation: none !important; }
+  .peca img, .retrato img { transition: none !important; transform: none !important; }
+}
+
 </style>
 </head>
 <body>
@@ -949,7 +1146,8 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#projetos">Projetos</a></li>
-    <li><a href="#diferenciais">Visão</a></li>
+    <li><a href="#midia">Mídia</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#cta" class="nav-cta">Conversar</a></li>
   </ul>
 </nav>
@@ -975,6 +1173,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
       </a>
       <a href="#projetos" class="btn btn-outline">Ver projetos</a>
     </div>
+    <p class="selo"><span class="selo-ponto" aria-hidden="true"></span><b>Diagnóstico gratuito</b> · resposta em até 5 minutos</p>
   </div>
   <div class="hero-stats">
     <div class="stat">
@@ -1041,6 +1240,10 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
     <div class="sobre-grid">
       <div class="sobre-left reveal">
         <p class="section-label">Fundador</p>
+        <figure class="retrato">
+          <img src="midia/sandro-carlos.webp" width="640" height="857" loading="lazy" decoding="async"
+               alt="Sandro Carlos Silva, CEO da UltraWork AI">
+        </figure>
         <h2 class="sobre-h2 paralaxe">Sandro<br>Carlos Silva</h2>
         <p class="sobre-p">
           Empreendedor com obsessão por resultado. Fundei a <strong>UltraWork AI</strong> com uma missão clara: tornar o poder da Inteligência Artificial acessível para empresas brasileiras que querem crescer de forma inteligente e escalável.
@@ -1187,7 +1390,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
       <div class="proj-card reveal" style="transition-delay:0.16s">
         <div class="marca" data-semente="17" aria-hidden="true"></div>
         <span class="proj-badge done">Entregue</span>
-        <h3 class="proj-name">O Código do Day Trade</h3>
+        <h3 class="proj-name">O Código Secreto do Mercado Financeiro</h3>
         <p class="proj-desc">Produto educacional completo sobre mercado financeiro — SMC, Elliott Wave, Fibonacci, gestão de risco e psicologia do trader. Dashboard interativo de análise técnica incluído.</p>
         <p class="proj-result-sm">Do conceito ao produto digital vendável em horas com IA generativa.</p>
         <div class="proj-tags" style="margin-top:0.5rem">
@@ -1236,6 +1439,155 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
         </div>
       </div>
 
+      <div class="proj-card reveal" style="transition-delay:0.04s">
+        <div class="marca" data-semente="41" aria-hidden="true"></div>
+        <span class="proj-badge done">Entregue</span>
+        <h3 class="proj-name">Agente Pastor IA — Automação Pastoral</h3>
+        <p class="proj-desc">Workflow completo no N8N com 5 módulos especializados: geração de sermões, devocionais diários, estudos bíblicos, mensagens para redes sociais e aconselhamento cristão via WhatsApp — tudo orquestrado por IA.</p>
+        <p class="proj-result-sm">Pastor virtual com 5 módulos integrados operando sozinho.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">N8N</span>
+          <span class="pill">OpenAI</span>
+          <span class="pill">WhatsApp</span>
+          <span class="pill">Supabase</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.1s">
+        <div class="marca" data-semente="53" aria-hidden="true"></div>
+        <span class="proj-badge done">Entregue</span>
+        <h3 class="proj-name">FleetGPT — Gestor de Frota IA</h3>
+        <p class="proj-desc">Agente de IA especialista em gestão de frotas: planejamento estratégico, manutenção preditiva, roteirização inteligente, digital twins, compliance e ESG — com decisões em milissegundos.</p>
+        <p class="proj-result-sm">IA preditiva e digital twins para frotas de qualquer porte.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Claude API</span>
+          <span class="pill">IA Preditiva</span>
+          <span class="pill">Digital Twin</span>
+          <span class="pill">ESG</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.16s">
+        <div class="marca" data-semente="67" aria-hidden="true"></div>
+        <span class="proj-badge done">Entregue</span>
+        <h3 class="proj-name">Engenharia de Prompt — Treinamento</h3>
+        <p class="proj-desc">Treinamento completo e avançado com 6 módulos e 30+ técnicas — do zero ao domínio total de LLMs, incluindo o framework das 4 camadas para prompts de alto desempenho.</p>
+        <p class="proj-result-sm">Material profissional de referência em engenharia de prompt.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Claude API</span>
+          <span class="pill">Prompt Engineering</span>
+          <span class="pill">LLMs</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.06s">
+        <div class="marca" data-semente="71" aria-hidden="true"></div>
+        <span class="proj-badge">Ativo</span>
+        <h3 class="proj-name">Carla Sandra — Showcase Internacional</h3>
+        <p class="proj-desc">Site de apresentação para performer e coreógrafa internacional baseada em Berlim, com créditos em ZDF, ARD, RTL e Netflix. Portfólio, mídia e contato multilíngue.</p>
+        <p class="proj-result-sm">Cliente internacional atendido de Belo Horizonte.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Lovable</span>
+          <span class="pill">React</span>
+          <span class="pill">Multilíngue</span>
+        </div>
+        <a class="proj-link" href="https://carla-sandra-showcase.lovable.app/" target="_blank" rel="noopener">Ver o site
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.12s">
+        <div class="marca" data-semente="83" aria-hidden="true"></div>
+        <span class="proj-badge">Ativo</span>
+        <h3 class="proj-name">Blog UltraWork AI</h3>
+        <p class="proj-desc">Blog com artigos sobre IA aplicada, frameworks de prompt, automação e estratégia de negócios com inteligência artificial.</p>
+        <p class="proj-result-sm">Conteúdo educacional e posicionamento de autoridade.</p>
+        <div class="proj-tags" style="margin-top:0.5rem">
+          <span class="pill">Conteúdo</span>
+          <span class="pill">IA Aplicada</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIA ===== -->
+<section id="midia">
+  <div class="container">
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-label">Galeria · Mídia</p>
+        <h2 class="proj-h2 paralaxe">Não é promessa.<br>É o que já rodou.</h2>
+      </div>
+      <p class="proj-sub">Telas reais de projetos, demos de agentes em operação e material de apoio.</p>
+    </div>
+
+    <div class="filtros reveal" role="group" aria-label="Filtrar mídia por categoria">
+      <button class="filtro ativo" data-cat="todos" aria-pressed="true">Todos</button>
+      <button class="filtro" data-cat="app" aria-pressed="false">App</button>
+      <button class="filtro" data-cat="automacao" aria-pressed="false">Automação</button>
+      <button class="filtro" data-cat="ia" aria-pressed="false">IA</button>
+      <button class="filtro" data-cat="marketing" aria-pressed="false">Marketing</button>
+    </div>
+
+    <div class="galeria reveal" id="galeria">
+      <figure class="peca" data-cat="app">
+        <img src="midia/olympia-hero.webp" width="520" height="229" loading="lazy" decoding="async" alt="Tela inicial do OlympIA com a IA processando o plano do usuário">
+        <figcaption><span class="peca-cat">App</span><b>OlympIA — Tela Inicial</b>IA processando o plano personalizado do usuário</figcaption>
+      </figure>
+      <figure class="peca" data-cat="app">
+        <img src="midia/olympia-metodo.webp" width="520" height="229" loading="lazy" decoding="async" alt="Dashboard de treino do OlympIA com objetivo, progresso e checklist">
+        <figcaption><span class="peca-cat">App</span><b>OlympIA — Dashboard de Treino</b>Painel de objetivo, progresso e checklist diário</figcaption>
+      </figure>
+      <figure class="peca" data-cat="ia">
+        <img src="midia/prompt-capa.webp" width="520" height="293" loading="lazy" decoding="async" alt="Capa do treinamento de Engenharia de Prompt">
+        <figcaption><span class="peca-cat">IA</span><b>Engenharia de Prompt — Capa</b>Do zero ao domínio total de LLMs</figcaption>
+      </figure>
+      <figure class="peca" data-cat="ia">
+        <img src="midia/prompt-camadas.webp" width="520" height="293" loading="lazy" decoding="async" alt="Diagrama do framework de 4 camadas para prompts">
+        <figcaption><span class="peca-cat">IA</span><b>Framework das 4 Camadas</b>Estrutura para prompts de alto desempenho</figcaption>
+      </figure>
+      <figure class="peca" data-cat="ia">
+        <img src="midia/enciclopedia.webp" width="520" height="293" loading="lazy" decoding="async" alt="Capa da Enciclopédia de Treino com IA">
+        <figcaption><span class="peca-cat">IA</span><b>Enciclopédia de Treino IA</b>150+ exercícios, 500+ variações, 40+ técnicas</figcaption>
+      </figure>
+      <figure class="peca" data-cat="automacao">
+        <img src="midia/agente-marketing.webp" width="520" height="293" loading="lazy" decoding="async" alt="Demonstração do agente autônomo de marketing">
+        <figcaption><span class="peca-cat">Automação</span><b>Agente de Marketing</b>Agente autônomo de marketing em operação</figcaption>
+      </figure>
+      <figure class="peca" data-cat="automacao">
+        <img src="midia/agente-vendas.webp" width="520" height="293" loading="lazy" decoding="async" alt="Agente de IA qualificando leads e fechando vendas">
+        <figcaption><span class="peca-cat">Automação</span><b>Agente de Vendas</b>Qualificando leads e fechando vendas</figcaption>
+      </figure>
+      <figure class="peca" data-cat="automacao">
+        <img src="midia/agente-financeiro.webp" width="520" height="293" loading="lazy" decoding="async" alt="Automação financeira com IA gerando análise e relatórios">
+        <figcaption><span class="peca-cat">Automação</span><b>Agente Financeiro</b>Análise e relatórios automatizados</figcaption>
+      </figure>
+      <figure class="peca" data-cat="automacao">
+        <img src="midia/claude-agente.webp" width="520" height="293" loading="lazy" decoding="async" alt="Agente Claude integrado a fluxos operacionais">
+        <figcaption><span class="peca-cat">Automação</span><b>Claude — Agente Operacional</b>Integrado em fluxos operacionais</figcaption>
+      </figure>
+      <figure class="peca" data-cat="marketing">
+        <img src="midia/plano-estrategico.webp" width="520" height="293" loading="lazy" decoding="async" alt="Plano estratégico da UltraWork com menu de serviços e tiers">
+        <figcaption><span class="peca-cat">Marketing</span><b>Plano Estratégico UltraWork</b>Menu de serviços e tabela por tier</figcaption>
+      </figure>
+      <figure class="peca" data-cat="marketing">
+        <img src="midia/blog-ultrawork.webp" width="520" height="293" loading="lazy" decoding="async" alt="Blog da UltraWork AI com artigos sobre IA aplicada">
+        <figcaption><span class="peca-cat">Marketing</span><b>Blog UltraWork AI</b>Artigos sobre IA aplicada e automação</figcaption>
+      </figure>
+      <figure class="peca" data-cat="marketing">
+        <img src="midia/comercial-agentes.webp" width="520" height="293" loading="lazy" decoding="async" alt="Peça comercial dos agentes inteligentes UltraWork">
+        <figcaption><span class="peca-cat">Marketing</span><b>Comercial — Agentes IA</b>Peça comercial dos agentes UltraWork</figcaption>
+      </figure>
+      <figure class="peca" data-cat="marketing">
+        <img src="midia/astronauta.webp" width="520" height="293" loading="lazy" decoding="async" alt="Frame de vídeo cinematográfico de astronauta gerado por IA">
+        <figcaption><span class="peca-cat">Marketing</span><b>Astronauta — Cinematic AI</b>Geração de vídeo com IA generativa</figcaption>
+      </figure>
+      <figure class="peca" data-cat="marketing">
+        <img src="midia/bailarina.webp" width="520" height="293" loading="lazy" decoding="async" alt="Frame de vídeo de bailarina gerado por IA">
+        <figcaption><span class="peca-cat">Marketing</span><b>Bailarina — Cinematic AI</b>Movimento e arte digital por IA</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1340,6 +1692,62 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
         Fazer parte dessa visão
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-lado reveal">
+        <p class="section-label">FAQ</p>
+        <h2 class="dif-h2 paralaxe">Sem rodeio.<br>Respostas <em>diretas.</em></h2>
+        <p class="dif-note">As dúvidas que aparecem antes de fechar — respondidas antes de você precisar perguntar.</p>
+        <a href="https://wa.me/5531991801259?text=Ol%C3%A1%20Sandro!%20Vi%20seu%20portf%C3%B3lio%20e%20tenho%20uma%20d%C3%BAvida." class="btn btn-outline" target="_blank" rel="noopener">Ainda tem dúvida? Falar no WhatsApp</a>
+      </div>
+
+      <div class="faq-lista reveal" style="transition-delay:0.12s">
+        <details class="faq-item">
+          <summary>Como funciona na prática?<span class="faq-mais" aria-hidden="true"></span></summary>
+          <div class="faq-corpo">
+            <p>Você me chama no WhatsApp. Em 30 minutos eu mapeio seu negócio, identifico o gargalo principal e desenho a solução. Em 7 a 30 dias o sistema está rodando — agentes IA, automações, dashboard. Você acompanha tudo em tempo real.</p>
+            <p class="faq-chave">30 minutos para diagnóstico. 7 dias para o primeiro sistema rodando.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Preciso entender de tecnologia?<span class="faq-mais" aria-hidden="true"></span></summary>
+          <div class="faq-corpo">
+            <p>Não. Você precisa entender do seu negócio — eu cuido de toda a parte técnica. Entrego o sistema funcionando, treino sua equipe e mantenho a operação. Você só acompanha os resultados.</p>
+            <p class="faq-chave">Zero conhecimento técnico exigido.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Quanto tempo leva para ver resultado?<span class="faq-mais" aria-hidden="true"></span></summary>
+          <div class="faq-corpo">
+            <p>Sistemas simples (atendimento IA, automação básica): 7 dias e já gera resultado mensurável. Sistemas complexos com múltiplos agentes: até 30 dias. O ROI normalmente aparece nas primeiras 2 semanas de operação.</p>
+            <p class="faq-chave">Primeiro resultado mensurável em 7 dias.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Funciona para meu tipo de negócio?<span class="faq-mais" aria-hidden="true"></span></summary>
+          <div class="faq-corpo">
+            <p>Se você atende clientes, vende algo ou tem processo repetitivo — sim. Já implementei para varejo, e-commerce, indústria, serviços, SaaS e infoprodutores. O ideal é faturar acima de R$ 50 mil/mês para o ROI compensar rápido.</p>
+            <p class="faq-chave">Qualquer negócio com cliente, venda ou processo repetitivo.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Preciso de equipe técnica?<span class="faq-mais" aria-hidden="true"></span></summary>
+          <div class="faq-corpo">
+            <p>Não. O sistema é construído para operar autonomamente. Sua equipe atual continua focada no que faz bem — a IA assume o repetitivo, o operacional e o atendimento 24/7. Sem contratações, sem treinamentos longos.</p>
+            <p class="faq-chave">Sua equipe atual continua. A IA cuida do resto.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 </section>
@@ -2040,6 +2448,40 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
       }, { threshold: 0.05 }).observe(cv);
     }
   }
+
+  /* ── FILTROS DA GALERIA ──
+     Esconder por classe, nao remover do DOM: o leitor de tela
+     e o botao "voltar" continuam encontrando tudo. */
+  (function filtros() {
+    var botoes = document.querySelectorAll('.filtro');
+    var pecas = document.querySelectorAll('.peca');
+    if (!botoes.length) return;
+    botoes.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var cat = b.dataset.cat;
+        botoes.forEach(function (o) {
+          var on = o === b;
+          o.classList.toggle('ativo', on);
+          o.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        pecas.forEach(function (p) {
+          p.classList.toggle('oculta', cat !== 'todos' && p.dataset.cat !== cat);
+        });
+      });
+    });
+  })();
+
+  /* ── VARREDURA NO RETRATO, uma vez ── */
+  (function retrato() {
+    var r = document.querySelector('.retrato');
+    if (!r || quieto.matches || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      r.classList.add('varrido');
+      io.disconnect();
+    }, { threshold: 0.4 });
+    io.observe(r);
+  })();
 
   /* ── LIGAR: depois do conteudo, nunca antes ── */
   function ligar() {
