@@ -2,7 +2,7 @@
 /**
  * Vira o site para o domínio próprio, de uma vez só.
  *
- * Roda SÓ depois que o DNS de sandrocarlosia.com.br apontar para o
+ * Roda SÓ depois que o DNS de ultraworkai.com.br apontar para o
  * GitHub Pages. Antes disso, criar o arquivo CNAME faz o GitHub
  * redirecionar o endereço .github.io para o domínio — que ainda serve
  * o site antigo. O resultado seria ficar sem nenhum endereço no ar.
@@ -23,7 +23,7 @@ const path = require('path');
 const dns = require('dns').promises;
 
 const RAIZ = path.resolve(__dirname, '..');
-const DOMINIO = 'sandrocarlosia.com.br';
+const DOMINIO = 'ultraworkai.com.br';  // dominio da empresa; tem e-mail Google Workspace (MX) que NAO pode ser tocado
 const ANTIGA = 'https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/';
 const NOVA = `https://${DOMINIO}/`;
 const IPS_PAGES = ['185.199.108.153', '185.199.109.153', '185.199.110.153', '185.199.111.153'];
