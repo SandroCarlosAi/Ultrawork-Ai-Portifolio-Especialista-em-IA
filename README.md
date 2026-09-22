@@ -3,7 +3,7 @@
 Portfólio de **Sandro Carlos Silva**, CEO da UltraWork AI — especialista em
 Inteligência Artificial aplicada a negócios. Belo Horizonte, MG.
 
-🔗 **Site no ar:** https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/
+🔗 **Site no ar:** https://ultraworkai.com.br/
 
 ---
 

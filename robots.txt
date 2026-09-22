@@ -20,4 +20,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/sitemap.xml
+Sitemap: https://ultraworkai.com.br/sitemap.xml
