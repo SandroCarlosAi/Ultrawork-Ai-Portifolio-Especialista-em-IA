@@ -8,8 +8,7 @@
 <!-- SEO -->
 <meta name="description" content="Sandro Carlos Silva, CEO da UltraWork AI. Sistemas de IA que operam enquanto você dorme: agentes de vendas autônomos, apps SaaS com IA e automação de operações. Belo Horizonte, MG.">
 <meta name="author" content="Sandro Carlos Silva">
-<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b0b0a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#070a0e">
 <link rel="canonical" href="https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/">
 
 <!-- Open Graph / redes sociais -->
@@ -48,40 +47,46 @@
 
 <style>
 :root {
-  /* Tokens governados por DESIGN.md. Nao adicione cor fora deste bloco. */
+  /* Tokens governados por DESIGN.md. Nao adicione cor fora deste bloco.
+     PALCO UNICO ESCURO: preto-azulado com acento ciano. Nada de claro. */
 
-  /* --- PALCO CLARO --- */
-  --bg: #fafaf8;
-  --bg2: #f3f3f0;
-  --ink: #0e0e0c;          /* 18,49:1 sobre --bg */
-  --ink2: #2c2c28;         /* 13,41:1 sobre --bg */
-  --muted: #6f6f67;        /* 4,85:1 - era #8a8a82 (3,33:1, reprovava AA) */
-  --muted2: #6f6f67;       /* alias de --muted: #b8b8b0 dava 1,91:1 */
-  --accent: #0e0e0c;
-  --green: #1a6644;        /* 6,64:1 sobre --bg */
-  --green-light: #e8f2ec;
-  --border: rgba(14,14,12,0.10);
-  --border2: rgba(14,14,12,0.06);
+  /* --- BASE --- */
+  --bg: #070a0e;           /* preto-azulado profundo */
+  --bg2: #0c1118;          /* superficie recuada */
+  --bg3: #131a24;          /* superficie elevada (hover) */
 
-  /* --- PALCO ESCURO --- */
-  --stage: #0b0b0a;
-  --stage2: #161614;
-  --on-stage: #f5f5f0;     /* 18,00:1 sobre --stage */
-  --on-stage2: rgba(245,245,240,0.62);  /* 7,38:1 - minimo permitido: 0.55 */
-  --glow: #4ade9a;         /* 11,45:1 sobre --stage */
-  --line-stage: rgba(245,245,240,0.12);
+  /* --- TEXTO (contraste medido sobre --bg) --- */
+  --ink: #eaf2fb;          /* 17,56:1 - titulos e corpo */
+  --ink2: #b9c6d6;         /* 11,44:1 - secundario */
+  --muted: #8fa0b4;        /*  7,42:1 - apoio, legendas */
+  --muted2: #8fa0b4;       /* alias */
 
-  /* --- EXCECAO DE MARCA ---
-     O azul da logo NAO faz parte da paleta do site. Existe so para a
-     marca. Proibido em botao, link, fundo ou texto (DESIGN.md §2). */
-  --marca-azul: #0b63d6;        /* 5,33:1 sobre --bg   */
-  --marca-azul-noite: #4da6ff;  /* 7,70:1 sobre --stage */
-  --marca-grafite: #3a3a36;
-  --marca-prata: #c9c9c2;
+  /* --- ACAO: ciano eletrico --- */
+  --green: #35d6ff;        /* 11,54:1 - nome mantido: e a cor de acao */
+  --glow: #35d6ff;         /* 11,54:1 - mesma cor, todo o site e palco */
+  --accent: #35d6ff;
+  --green-light: rgba(53,214,255,0.12);
+
+  /* --- LINHAS --- */
+  --border: rgba(234,242,251,0.12);
+  --border2: rgba(234,242,251,0.07);
+  --line-stage: rgba(234,242,251,0.12);
+
+  /* --- ALIASES DO PALCO (o site todo e palco agora) --- */
+  --stage: #070a0e;
+  --stage2: #0c1118;
+  --stage3: #131a24;
+  --on-stage: #eaf2fb;
+  --on-stage2: rgba(234,242,251,0.72);   /* 12,3:1 */
+  --dusk: #0c1118;
+
+  /* --- EXCECAO DE MARCA --- */
+  --marca-azul: #4da6ff;         /* 7,76:1 sobre --bg */
+  --marca-azul-noite: #4da6ff;
+  --marca-grafite: #6b7787;      /* clareado: no escuro o grafite sumia */
+  --marca-prata: #d7dee8;
   --marca-circuito: #bfe3ff;
   --marca-no: #eaf5ff;
-  --dusk: #8f8f86;         /* meio-tom da travessia dia->noite */
-  --stage3: #1e1e1b;       /* superficie elevada no hover */
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
@@ -134,9 +139,14 @@ body::before {
    de adivinhar em que porcentagem da pagina a noite comeca. */
 .no-escuro { background: var(--stage); }
 /* Faixa dedicada de passagem dia -> noite */
+/* Nao ha mais travessia dia->noite: o palco e escuro do inicio ao fim.
+   A faixa vira um horizonte de luz, marcando a virada da narrativa. */
 .travessia {
-  height: clamp(120px, 22vh, 260px);
-  background: linear-gradient(to bottom, var(--bg) 0%, var(--dusk) 48%, var(--stage) 100%);
+  height: clamp(80px, 12vh, 150px);
+  background:
+    radial-gradient(60% 100% at 50% 100%, rgba(53,214,255,0.10), transparent 70%),
+    linear-gradient(to bottom, var(--bg), var(--bg2));
+  border-bottom: 1px solid rgba(53,214,255,0.22);
 }
 
 /* Secoes no escuro herdam a paleta noturna */
@@ -190,14 +200,14 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem var(--gutter);
-  background: rgba(250,250,248,0.82);
-  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(7,10,14,0.80);
+  backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border2);
   transition: background var(--state), border-color var(--state), padding var(--state), color var(--state);
 }
 nav.noite {
-  background: rgba(11,11,10,0.78);
+  background: rgba(7,10,14,0.86);
   border-bottom-color: var(--line-stage);
   color: var(--on-stage);
 }
@@ -261,7 +271,7 @@ body.noite #progresso { background: var(--glow); }
   font-size: 17vw;
   line-height: 0.8;
   color: var(--ink);
-  opacity: 0.045;
+  opacity: 0.055;
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -324,10 +334,10 @@ body.noite #progresso { background: var(--glow); }
 }
 .btn:hover { transform: scale(1.02); }
 .btn:active { transform: scale(0.98); }
-.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark { background: var(--glow); color: #04131a; font-weight: 400; }
 .btn-outline { border: 1px solid var(--border); color: var(--ink); }
 .btn-outline:hover { border-color: var(--ink); }
-.no-escuro .btn-dark { background: var(--glow); color: var(--stage); }
+.no-escuro .btn-dark { background: var(--glow); color: #04131a; }
 .no-escuro .btn-outline { border-color: var(--line-stage); color: var(--on-stage); }
 .no-escuro .btn-outline:hover { border-color: var(--glow); color: var(--glow); }
 
@@ -439,7 +449,7 @@ body.noite #progresso { background: var(--glow); }
   border-radius: 20px;
   transition: border-color var(--state);
 }
-.proj-featured:hover { border-color: rgba(14,14,12,0.24); }
+.proj-featured:hover { border-color: rgba(53,214,255,0.40); }
 
 /* ══════════════════════════════════════════════════════
    MARCA PROCEDURAL — substitui os emojis.
@@ -478,7 +488,7 @@ body.noite #progresso { background: var(--glow); }
   content: '';
   position: absolute; inset: 0;
   background: conic-gradient(from var(--ang, 0deg) at var(--mx, 50%) var(--my, 50%),
-    transparent 0deg, rgba(74,222,154,0.26) 60deg, transparent 140deg,
+    transparent 0deg, rgba(53,214,255,0.30) 60deg, transparent 140deg,
     rgba(245,245,240,0.18) 220deg, transparent 300deg);
   mix-blend-mode: screen;
   opacity: 0;
@@ -525,7 +535,7 @@ body.noite #progresso { background: var(--glow); }
   display: flex; flex-direction: column; gap: 0.625rem;
   align-items: flex-start;
 }
-.proj-card:hover { border-color: rgba(14,14,12,0.24); transform: translateY(-3px); }
+.proj-card:hover { border-color: rgba(53,214,255,0.45); transform: translateY(-3px); }
 .proj-card .marca {
   width: 68px; height: 68px; border-radius: 12px; padding: 7px; gap: 2px;
   margin-bottom: 0.75rem;
@@ -552,7 +562,7 @@ body.noite #progresso { background: var(--glow); }
   border: 1px solid var(--line-stage); border-radius: 20px; overflow: hidden;
 }
 .impacto-item { background: var(--stage2); padding: 2.5rem 1.75rem; transition: background var(--state); }
-.impacto-item:hover { background: var(--stage3); }
+.impacto-item:hover { background: var(--bg3); }
 .impacto-n {
   font-family: var(--font-serif);
   font-size: clamp(2.75rem, 6vw, 4.5rem);
@@ -622,7 +632,7 @@ body.noite #progresso { background: var(--glow); }
 /* Sem sombra (DESIGN.md §5): profundidade vem de luz propria */
 .btn-white::before {
   content: ''; position: absolute; inset: -40px;
-  background: radial-gradient(circle, rgba(74,222,154,0.20), transparent 70%);
+  background: radial-gradient(circle, rgba(53,214,255,0.26), transparent 70%);
   opacity: 0; transition: opacity var(--state); z-index: -1; pointer-events: none;
 }
 .btn-white:hover::before { opacity: 1; }
@@ -676,8 +686,8 @@ footer {
   body.mouse-vivo #cursor, body.mouse-vivo #cursor-halo { opacity: 1; }
   body.noite #cursor { background: var(--glow); }
   body.noite #cursor-halo { border-color: var(--line-stage); }
-  body.alvo #cursor-halo { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(26,102,68,0.08); border-color: var(--green); }
-  body.noite.alvo #cursor-halo { background: rgba(74,222,154,0.10); border-color: var(--glow); }
+  body.alvo #cursor-halo { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(53,214,255,0.10); border-color: var(--green); }
+  body.noite.alvo #cursor-halo { background: rgba(53,214,255,0.12); border-color: var(--glow); }
 }
 
 /* ══════════════════════════════════════════════════════
@@ -755,7 +765,7 @@ footer {
   width: 46vw; height: 46vw;
   max-width: 720px; max-height: 720px;
   transform: translateY(-50%);
-  background: radial-gradient(circle, rgba(26,102,68,0.10) 0%, transparent 62%);
+  background: radial-gradient(circle, rgba(53,214,255,0.12) 0%, transparent 62%);
   pointer-events: none;
   z-index: 0;
   opacity: 0;
@@ -799,7 +809,7 @@ footer {
   position: absolute; inset: 0;
   border-radius: inherit;
   background: radial-gradient(420px circle at var(--px,50%) var(--py,50%),
-              rgba(26,102,68,0.10), transparent 42%);
+              rgba(53,214,255,0.12), transparent 42%);
   opacity: 0;
   transition: opacity var(--state);
   pointer-events: none;
@@ -850,7 +860,7 @@ footer {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(300px circle at var(--px,50%) var(--py,50%),
-              rgba(74,222,154,0.14), transparent 45%);
+              rgba(53,214,255,0.16), transparent 45%);
   opacity: 0; transition: opacity var(--state); pointer-events: none;
 }
 .impacto-item:hover::before { opacity: 1; }
@@ -1699,8 +1709,8 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
         if (uy >= 0) dentro = Math.abs(ux) >= 0.60 && Math.abs(ux) <= 1.0 && uy <= 1.40;
         else { var dd = Math.sqrt(ux * ux + uy * uy); dentro = dd >= 0.60 && dd <= 1.0; }
       } while (!dentro && tentativa < 60);
-      U[i*3]   = ux * 0.80;
-      U[i*3+1] = (uy - 0.18) * 0.80;
+      U[i*3]   = ux * 0.70;
+      U[i*3+1] = (uy - 0.18) * 0.70;
       U[i*3+2] = (r() - 0.5) * 0.26;
       /* divisao diagonal das duas faces, como no SVG (55,0)->(45,122) */
       LADO[i] = (ux * 1.15 > (uy * -0.08 + 0.05)) ? 1 : 0;
@@ -1791,10 +1801,10 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     var uGraf = gl.getUniformLocation(pg, 'mGraf'),
         uAzul = gl.getUniformLocation(pg, 'mAzul');
-    gl.uniform3f(uC1, 0.055, 0.055, 0.047);   /* --ink  */
-    gl.uniform3f(uC2, 0.102, 0.400, 0.267);   /* --green */
-    gl.uniform3f(uGraf, 0.227, 0.227, 0.212); /* --marca-grafite */
-    gl.uniform3f(uAzul, 0.043, 0.388, 0.839); /* --marca-azul   */
+    gl.uniform3f(uC1, 0.573, 0.651, 0.749);  /* claro: particulas ao fundo */
+    gl.uniform3f(uC2, 0.208, 0.839, 1.000);  /* ciano: particulas na frente */
+    gl.uniform3f(uGraf, 0.420, 0.467, 0.529); /* --marca-grafite clareado */
+    gl.uniform3f(uAzul, 0.302, 0.651, 1.000); /* --marca-azul      */
 
     var mx = 0, my = 0, ax = 0, ay = 0, asp = 1;
     document.addEventListener('pointermove', function (e) {
@@ -1844,7 +1854,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
       var faseMarca = 1 - Math.min(mAtual, 1);
       var mvp = mul(
         perspectiva(1.02, asp, 0.1, 100),
-        mul(trans(asp > 1.15 ? 1.20 : 0, asp > 1.15 ? 0.17 : 0, -3.4),
+        mul(trans(asp > 1.15 ? 1.26 : 0, asp > 1.15 ? 0.34 : 0, -3.35),
             mul(rotX((ay * 0.55 + Math.sin(t * 0.21) * 0.22) * (1 - faseMarca * 0.88)),
                 rotY((t * 0.24 + ax * 0.85) * (1 - faseMarca * 0.92) + faseMarca * (ax * 0.26 + 0.14))))
       );
@@ -1888,7 +1898,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
           x: e.clientX, y: e.clientY,
           vx: Math.cos(a) * v, vy: Math.sin(a) * v - 1.2,
           r: 1 + Math.random() * 2.4, vida: 1,
-          cor: noite ? '74,222,154' : '26,102,68'
+          cor: '53,214,255'
         });
       }
       liga();
@@ -1955,7 +1965,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
         if (p.y > b.height) p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, 6.283);
-        ctx.fillStyle = 'rgba(74,222,154,' + p.a + ')';
+        ctx.fillStyle = 'rgba(53,214,255,' + p.a + ')';
         ctx.fill();
         /* teias curtas entre vizinhos: da sensacao de rede viva */
         for (var j = i + 1; j < ps.length; j++) {
@@ -1963,7 +1973,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
           if (d2 < 9000) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y); ctx.lineTo(o.x, o.y);
-            ctx.strokeStyle = 'rgba(74,222,154,' + (0.10 * (1 - d2 / 9000)).toFixed(3) + ')';
+            ctx.strokeStyle = 'rgba(53,214,255,' + (0.12 * (1 - d2 / 9000)).toFixed(3) + ')';
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
