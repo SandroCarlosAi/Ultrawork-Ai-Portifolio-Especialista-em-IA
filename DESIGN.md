@@ -75,16 +75,28 @@ A logo tem azul elétrico, distinto do ciano de ação. Continua sendo exceção
 
 ### A marca em três dimensões
 
-O símbolo não é imagem colada: é a primeira forma da nuvem de partículas do
-hero. Quem chega vê **o "U" montado** à direita — face esquerda prateada, face
-direita azul, divididas pela mesma diagonal do logotipo. Ao rolar, dissolve em
-torus knot e depois em constelação.
+O símbolo não é imagem colada nem aproximação desenhada: as partículas são
+**amostradas pixel a pixel do arquivo da logo** — forma E cor. Cada partícula
+carrega a cor exata do ponto correspondente da marca, então o braço esquerdo
+sai metálico e o direito sai azul com as trilhas de circuito.
+
+Quem chega vê **a marca montada** à direita. Ao rolar, ela dissolve em torus
+knot e depois em constelação.
+
+**Por que data URI e não arquivo:** imagem carregada de `file://` contamina o
+canvas e o navegador bloqueia a leitura de pixels — a marca real nunca
+apareceria ao abrir o site do disco. Como data URI funciona em qualquer
+contexto. Custo: 54 KB de base64; a página foi de 88 para 144 KB (teto 500).
+
+A fonte é `marca/u-particulas.png` (182×196, fundo removido), extraída de
+`marca/ultrawork-logo-3d.jpg`. **Se a logo mudar, regenere os dois** e refaça
+o data URI — senão a nuvem segue mostrando a marca antiga.
 
 - **Slot `a` do shader** = marca · **`u`** = nó · **`b`** = constelação
-- Geometria por amostragem de rejeição no mesmo perfil do SVG
-  (externo `1.0`, interno `0.60`), extrudada em Z
-- Partículas ao fundo em `#92a6bf`, na frente em ciano: a profundidade
-  aparece pela cor, não por sombra
+- Se a leitura de pixels falhar, entra uma marca procedural de reserva: o site
+  nunca fica sem símbolo
+- Nas outras duas formas, profundidade pela cor (claro ao fundo, ciano na
+  frente), nunca por sombra
 
 **O PNG de 2K da logo (1,78 MB) nunca entra na página** — pesa 20 vezes o site
 inteiro e serrilha ao escalar. Fica em `marca/` como referência. Na tela, a

@@ -39,8 +39,10 @@ bundler ou gerenciador de pacotes sem pedir.
   `--green`/`--glow` `#35d6ff` — nome antigo, papel de sempre.
 - Trocar o SVG da marca pelo PNG de `marca/ultrawork-logo.png`. O PNG é
   referência de identidade (1,78 MB); na tela a marca é vetor e partículas.
-- Alterar a geometria do símbolo "U" — nem no SVG, nem na amostragem 3D.
-  Proporção externa `1.0` / interna `0.60` é a identidade da marca.
+- Alterar a geometria do símbolo "U" no SVG da navegação e do rodapé.
+- Trocar a logo sem regenerar `marca/u-particulas.png` **e** o data URI
+  `MARCA_PNG` dentro do script. A nuvem 3D lê dali; esquecer isso deixa a
+  marca antiga no ar.
 - Inventar número, cliente, depoimento, prêmio ou porcentagem. Sem dado real,
   marque `[PREENCHER]`.
 - Commit na `main` ou deploy.
