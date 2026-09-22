@@ -2,39 +2,184 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Sandro Carlos Silva — UltraWork AI</title>
+
+<!-- SEO -->
+<meta name="description" content="Sandro Carlos Silva, CEO da UltraWork AI. Sistemas de IA que operam enquanto você dorme: agentes de vendas autônomos, apps SaaS com IA e automação de operações. Belo Horizonte, MG.">
+<meta name="author" content="Sandro Carlos Silva">
+<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0a" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/">
+
+<!-- Open Graph / redes sociais -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="UltraWork AI">
+<meta property="og:title" content="Sandro Carlos Silva — UltraWork AI">
+<meta property="og:description" content="Sistemas de IA que operam enquanto você dorme — da estratégia ao código, do agente ao resultado.">
+<meta property="og:url" content="https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/">
+<meta property="og:image" content="https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Inteligencia que transforma negocios — Sandro Carlos Silva, UltraWork AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sandrocarlosai.github.io/Ultrawork-Ai-Portifolio-Especialista-em-IA/og-image.png">
+<meta name="twitter:title" content="Sandro Carlos Silva — UltraWork AI">
+<meta name="twitter:description" content="Sistemas de IA que operam enquanto você dorme — da estratégia ao código, do agente ao resultado.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0a'/%3E%3Cpath d='M9 10v7.5a7 7 0 0 0 14 0V10' stroke='%234ade9a' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sandro Carlos Silva",
+  "jobTitle": "CEO — UltraWork AI",
+  "description": "Especialista em Inteligência Artificial aplicada a negócios.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressRegion": "MG", "addressCountry": "BR" },
+  "knowsAbout": ["Inteligência Artificial", "Agentes autônomos", "Automação de processos", "SaaS"]
+}
+</script>
+
 <style>
 :root {
+  /* Tokens governados por DESIGN.md. Nao adicione cor fora deste bloco. */
+
+  /* --- PALCO CLARO --- */
   --bg: #fafaf8;
   --bg2: #f3f3f0;
-  --ink: #0e0e0c;
-  --ink2: #2c2c28;
-  --muted: #8a8a82;
-  --muted2: #b8b8b0;
+  --ink: #0e0e0c;          /* 18,49:1 sobre --bg */
+  --ink2: #2c2c28;         /* 13,41:1 sobre --bg */
+  --muted: #6f6f67;        /* 4,85:1 - era #8a8a82 (3,33:1, reprovava AA) */
+  --muted2: #6f6f67;       /* alias de --muted: #b8b8b0 dava 1,91:1 */
   --accent: #0e0e0c;
-  --green: #1a6644;
+  --green: #1a6644;        /* 6,64:1 sobre --bg */
   --green-light: #e8f2ec;
-  --border: rgba(14,14,12,0.1);
+  --border: rgba(14,14,12,0.10);
   --border2: rgba(14,14,12,0.06);
+
+  /* --- PALCO ESCURO --- */
+  --stage: #0b0b0a;
+  --stage2: #161614;
+  --on-stage: #f5f5f0;     /* 18,00:1 sobre --stage */
+  --on-stage2: rgba(245,245,240,0.62);  /* 7,38:1 - minimo permitido: 0.55 */
+  --glow: #4ade9a;         /* 11,45:1 sobre --stage */
+  --line-stage: rgba(245,245,240,0.12);
+
+  /* --- EXCECAO DE MARCA ---
+     O azul da logo NAO faz parte da paleta do site. Existe so para a
+     marca. Proibido em botao, link, fundo ou texto (DESIGN.md §2). */
+  --marca-azul: #0b63d6;        /* 5,33:1 sobre --bg   */
+  --marca-azul-noite: #4da6ff;  /* 7,70:1 sobre --stage */
+  --marca-grafite: #3a3a36;
+  --marca-prata: #c9c9c2;
+  --marca-circuito: #bfe3ff;
+  --marca-no: #eaf5ff;
+  --dusk: #8f8f86;         /* meio-tom da travessia dia->noite */
+  --stage3: #1e1e1b;       /* superficie elevada no hover */
+
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* --- ESPACO (base 8) --- */
+  --gutter: clamp(20px, 6vw, 96px);
+  --section-y: clamp(96px, 12vh, 192px);
+  --maxw: 1280px;
+
+  /* --- MOVIMENTO --- */
+  --micro: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --state: 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  --reveal: 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
-  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-weight: 300;
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  position: relative;
 }
+
+/* ══════════════════════════════════════════════════════
+   PALCO: a travessia amanhecer -> noite.
+   Um unico gradiente do tamanho da pagina, pintado uma
+   vez. Nao custa nada por quadro — nao ha JS no meio.
+   ══════════════════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
+  pointer-events: none;
+}
+/* Cada secao escura pinta o proprio fundo: a travessia nao depende
+   de adivinhar em que porcentagem da pagina a noite comeca. */
+.no-escuro { background: var(--stage); }
+/* Faixa dedicada de passagem dia -> noite */
+.travessia {
+  height: clamp(120px, 22vh, 260px);
+  background: linear-gradient(to bottom, var(--bg) 0%, var(--dusk) 48%, var(--stage) 100%);
+}
+
+/* Secoes no escuro herdam a paleta noturna */
+.no-escuro { color: var(--on-stage); }
+.no-escuro .section-label { color: var(--on-stage2); }
+.no-escuro .pill { border-color: var(--line-stage); color: var(--on-stage2); }
+.no-escuro .pill:hover { border-color: var(--glow); color: var(--glow); }
+
+::selection { background: var(--glow); color: var(--stage); }
+
+a { color: inherit; text-decoration: none; }
+
+/* Foco sempre visivel — nunca remover (DESIGN.md §8) */
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.no-escuro :focus-visible { outline-color: var(--glow); }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+.section-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Canvas do hero — WebGL cru, sem biblioteca (DESIGN.md §7) */
+#tela-hero {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+#tela-hero.viva { opacity: 1; }
 
 /* ── NAV ── */
 nav {
@@ -44,863 +189,753 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 6vw;
-  background: rgba(250,250,248,0.88);
+  padding: 1.25rem var(--gutter);
+  background: rgba(250,250,248,0.82);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border2);
-  transition: padding 0.3s;
+  transition: background var(--state), border-color var(--state), padding var(--state), color var(--state);
 }
-
-.nav-brand {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: 1.1rem;
-  letter-spacing: 0.01em;
-  color: var(--ink);
-  text-decoration: none;
+nav.noite {
+  background: rgba(11,11,10,0.78);
+  border-bottom-color: var(--line-stage);
+  color: var(--on-stage);
 }
+nav.compacta { padding-top: 0.75rem; padding-bottom: 0.75rem; }
 
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-}
-
+.nav-brand { font-family: var(--font-serif); font-size: 1.25rem; letter-spacing: -0.01em; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a {
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
   color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
+  transition: color var(--micro);
+  display: inline-flex; align-items: center;
+  min-height: 44px;
 }
-
+nav.noite .nav-links a { color: var(--on-stage2); }
 .nav-links a:hover { color: var(--ink); }
+nav.noite .nav-links a:hover { color: var(--glow); }
 
 .nav-cta {
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 0 1.125rem;
   color: var(--ink) !important;
-  border-bottom: 1px solid var(--ink);
-  text-decoration: none !important;
-  padding-bottom: 1px;
-  transition: opacity 0.2s;
+  transition: background var(--micro), color var(--micro), border-color var(--micro), transform var(--micro);
 }
-.nav-cta:hover { opacity: 0.5 !important; }
+.nav-cta:hover { background: var(--ink); color: var(--bg) !important; transform: scale(1.02); }
+nav.noite .nav-cta { border-color: var(--glow); color: var(--glow) !important; }
+nav.noite .nav-cta:hover { background: var(--glow); color: var(--stage) !important; }
+
+/* Progresso de leitura */
+#progresso {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 100%;
+  transform: scaleX(var(--p, 0));
+  transform-origin: 0 50%;
+  background: var(--green);
+  z-index: 201;
+  transition: background var(--state);
+  will-change: transform;
+}
+body.noite #progresso { background: var(--glow); }
 
 /* ── HERO ── */
 #hero {
-  min-height: 100vh;
+  position: relative;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 6vw 7vh;
-  position: relative;
+  justify-content: center;
+  padding: 7rem var(--gutter) 2.5rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
   overflow: hidden;
 }
+#hero > *:not(#tela-hero):not(.hero-bg-word) { position: relative; z-index: 1; }
 
 .hero-bg-word {
   position: absolute;
-  top: 50%;
-  right: -2vw;
-  transform: translateY(-54%);
+  bottom: 4vh; right: -1vw;
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(18vw, 22vw, 28vw);
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(14,14,12,0.055);
-  letter-spacing: -0.04em;
-  user-select: none;
+  font-size: 17vw;
+  line-height: 0.8;
+  color: var(--ink);
+  opacity: 0.045;
   pointer-events: none;
-  line-height: 1;
-  white-space: nowrap;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.04em;
 }
 
 .hero-eyebrow {
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 2rem;
   opacity: 0;
-  animation: rise 1s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: sobe 1s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(3.2rem, 7.5vw, 9rem);
+  font-size: clamp(2.75rem, 7.2vw, 6.25rem);
+  font-weight: 400;
   line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  max-width: 14ch;
+  letter-spacing: -0.035em;
+  margin-bottom: 2.25rem;
+}
+.hero-title em { font-style: italic; color: var(--green); }
+.hero-title .linha { display: block; overflow: hidden; padding-bottom: 0.16em; margin-bottom: -0.16em; }
+.hero-title .linha > span {
+  display: block;
   opacity: 0;
-  animation: rise 1s 0.25s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: sobe 1s cubic-bezier(0.16,1,0.3,1) forwards;
 }
-
-.hero-title em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--green);
-}
+.hero-title .linha:nth-child(1) > span { animation-delay: 0.12s; }
+.hero-title .linha:nth-child(2) > span { animation-delay: 0.24s; }
+.hero-title .linha:nth-child(3) > span { animation-delay: 0.36s; }
 
 .hero-bottom {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border2);
-  gap: 3rem;
-  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2.75rem;
   opacity: 0;
-  animation: rise 1s 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: sobe 1s 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
 }
-
-.hero-desc {
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--muted);
-  max-width: 38ch;
-  line-height: 1.7;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-shrink: 0;
-}
+.hero-desc { max-width: 30rem; font-size: 1.125rem; line-height: 1.6; color: var(--ink2); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0.85rem 1.8rem;
-  border-radius: 2px;
-  transition: all 0.2s;
-  cursor: pointer;
-  border: none;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  transition: transform var(--micro), background var(--micro), color var(--micro), border-color var(--micro);
+  will-change: transform;
 }
-
-.btn-dark {
-  background: var(--ink);
-  color: var(--bg);
-}
-.btn-dark:hover { background: var(--ink2); }
-
-.btn-outline {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--border);
-}
-.btn-outline:hover { background: var(--bg2); }
+.btn:hover { transform: scale(1.02); }
+.btn:active { transform: scale(0.98); }
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-outline { border: 1px solid var(--border); color: var(--ink); }
+.btn-outline:hover { border-color: var(--ink); }
+.no-escuro .btn-dark { background: var(--glow); color: var(--stage); }
+.no-escuro .btn-outline { border-color: var(--line-stage); color: var(--on-stage); }
+.no-escuro .btn-outline:hover { border-color: var(--glow); color: var(--glow); }
 
 .hero-stats {
   display: flex;
-  gap: 4rem;
+  flex-wrap: wrap;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
   opacity: 0;
-  animation: rise 1s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
-  padding-top: 4rem;
+  animation: sobe 1s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
 }
-
-.stat { }
 .stat-n {
   font-family: var(--font-serif);
-  font-size: 3rem;
-  font-weight: 300;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   line-height: 1;
-  color: var(--ink);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
 }
-.stat-n sub {
-  font-size: 1.5rem;
-  vertical-align: baseline;
-  color: var(--green);
-}
-.stat-l {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 0.5rem;
+.stat-n sub { font-size: 0.4em; vertical-align: super; color: var(--green); font-family: var(--font-sans); }
+.stat-l { font-size: 0.8125rem; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.02em; }
+
+@keyframes sobe {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── MARQUEE ── */
 .marquee-wrap {
-  background: var(--ink);
-  color: var(--bg);
   overflow: hidden;
-  padding: 1.1rem 0;
+  padding: 1.25rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  background: var(--bg2);
 }
-
-.marquee-track {
-  display: flex;
-  gap: 0;
-  white-space: nowrap;
-  animation: marquee 28s linear infinite;
-}
-
+.marquee-track { display: flex; gap: 3rem; width: max-content; animation: desliza 45s linear infinite; }
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
 .marquee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 0 2rem;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.7;
+  display: flex; align-items: center; gap: 3rem;
+  font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap;
 }
+.marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--green); opacity: 0.55; }
+@keyframes desliza { to { transform: translateX(-50%); } }
 
-.marquee-dot {
-  width: 4px;
-  height: 4px;
-  background: var(--green);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* ── SECTIONS ── */
-section { position: relative; }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 6vw;
-}
-
-.section-label {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted2);
-  margin-bottom: 1rem;
-}
+/* ── REVELACAO ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--reveal), transform var(--reveal); }
+.reveal.up { opacity: 1; transform: none; }
 
 /* ── MANIFESTO ── */
-#manifesto {
-  padding: 10rem 0 8rem;
-  background: var(--bg);
-}
-
-.manifesto-inner {
-  max-width: 900px;
-}
-
+#manifesto { padding: var(--section-y) 0; }
+.manifesto-inner { max-width: 60rem; }
 .manifesto-text {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2rem, 3.5vw, 3.6rem);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--ink);
+  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
 }
-
-.manifesto-text em {
-  font-style: italic;
-  color: var(--green);
-}
-
-.manifesto-text .dim { color: var(--muted2); }
-
-.manifesto-footnote {
-  font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--muted);
-  margin-top: 3rem;
-  max-width: 44ch;
-  line-height: 1.7;
-}
+.manifesto-text .dim { color: var(--muted); }
+.manifesto-text em { font-style: italic; color: var(--green); }
+.manifesto-footnote { max-width: 38rem; margin-top: 2.5rem; color: var(--ink2); font-size: 1.0625rem; }
 
 /* ── SOBRE ── */
-#sobre {
-  padding: 8rem 0;
-  background: var(--bg2);
-  border-top: 1px solid var(--border2);
-}
-
-.sobre-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8vw;
-  align-items: start;
-}
-
-.sobre-left { }
-
+#sobre { padding: var(--section-y) 0; }
+.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); }
 .sobre-h2 {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400; line-height: 1; letter-spacing: -0.03em;
   margin-bottom: 2rem;
 }
+.sobre-p { margin-bottom: 1.25rem; color: var(--ink2); max-width: 34rem; }
+.sobre-p strong { font-weight: 500; color: var(--ink); }
 
-.sobre-p {
-  font-size: 0.97rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-}
-
-.sobre-p strong {
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.sobre-right { padding-top: 3rem; }
-
-.competencia {
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--border2);
-}
-
-.competencia:first-child { border-top: 1px solid var(--border2); }
-
-.comp-n {
-  font-family: var(--font-serif);
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted2);
-  margin-bottom: 0.4rem;
-}
-
-.comp-title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 0.3rem;
-}
-
-.comp-desc {
-  font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--muted);
-}
-
-/* ── STACK ── */
-.stack-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 2.5rem;
-}
-
+.stack-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
 .pill {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--muted);
+  font-size: 0.75rem; letter-spacing: 0.04em;
+  padding: 0.375rem 0.875rem;
   border: 1px solid var(--border);
-  border-radius: 2px;
-  padding: 0.3rem 0.75rem;
-  transition: color 0.2s, border-color 0.2s;
+  border-radius: 9999px;
+  color: var(--muted);
+  transition: border-color var(--micro), color var(--micro);
 }
+.pill:hover { border-color: var(--green); color: var(--green); }
 
-.pill:hover { color: var(--ink); border-color: var(--ink2); }
+.competencia { padding: 1.75rem 0; border-top: 1px solid var(--border); transition: padding-left var(--state); }
+.competencia:hover { padding-left: 0.75rem; }
+.comp-n { font-family: var(--font-serif); font-size: 0.875rem; color: var(--green); margin-bottom: 0.5rem; }
+.comp-title { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+.comp-desc { font-size: 0.9375rem; color: var(--muted); max-width: 30rem; }
 
 /* ── PROJETOS ── */
-#projetos {
-  padding: 8rem 0;
-  background: var(--bg);
-  border-top: 1px solid var(--border2);
-}
-
-.projects-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 5rem;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
+#projetos { padding: var(--section-y) 0; }
+.projects-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 4rem; }
 .proj-h2 {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400; line-height: 1; letter-spacing: -0.03em;
 }
+.proj-sub { max-width: 22rem; color: var(--muted); font-size: 0.9375rem; }
 
-.proj-sub {
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--muted);
-  max-width: 36ch;
-  line-height: 1.7;
-  text-align: right;
-}
-
-/* featured project */
 .proj-featured {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: 1px solid var(--border2);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 2px;
-  background: var(--bg2);
-  transition: border-color 0.25s;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color var(--state);
 }
+.proj-featured:hover { border-color: rgba(14,14,12,0.24); }
 
-.proj-featured:hover { border-color: var(--border); }
-
-.proj-feat-visual {
-  background: var(--ink);
-  min-height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
+/* ══════════════════════════════════════════════════════
+   MARCA PROCEDURAL — substitui os emojis.
+   Grade de celulas que se desmonta no hover e se remonta
+   ao sair. CSS transform puro: roda na GPU, 0 KB de rede
+   e nao consome contexto WebGL (o browser limita a ~16).
+   ══════════════════════════════════════════════════════ */
+.marca {
   position: relative;
+  aspect-ratio: 1;
+  border-radius: 16px;
   overflow: hidden;
+  background: var(--stage);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 2px;
+  padding: 10px;
+  isolation: isolate;
 }
-
-.proj-feat-visual::after {
+.marca i {
+  display: block;
+  background: var(--glow);
+  opacity: var(--o, 0.15);
+  border-radius: 2px;
+  transition: transform 620ms cubic-bezier(0.16,1,0.3,1), opacity 620ms ease;
+  will-change: transform;
+}
+.proj-featured:hover .marca i,
+.proj-card:hover .marca i {
+  transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(var(--s));
+  opacity: var(--o2, 0.85);
+}
+/* Brilho holografico que segue o ponteiro */
+.marca::after {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(26,102,68,0.35) 0%, transparent 65%);
+  position: absolute; inset: 0;
+  background: conic-gradient(from var(--ang, 0deg) at var(--mx, 50%) var(--my, 50%),
+    transparent 0deg, rgba(74,222,154,0.26) 60deg, transparent 140deg,
+    rgba(245,245,240,0.18) 220deg, transparent 300deg);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity var(--state);
+  pointer-events: none;
+  z-index: 2;
 }
+.proj-featured:hover .marca::after,
+.proj-card:hover .marca::after { opacity: 1; }
 
-.proj-feat-content {
-  padding: 3.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
+.proj-feat-content { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; }
 .proj-badge {
   display: inline-block;
-  font-size: 0.66rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--green);
-  border: 1px solid rgba(26,102,68,0.3);
-  border-radius: 2px;
-  padding: 0.25rem 0.6rem;
-  margin-bottom: 1.5rem;
-  width: fit-content;
-}
-
-.proj-badge.done { color: var(--muted); border-color: var(--border); }
-
-.proj-feat-name {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: 2rem;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--ink);
+  font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background: var(--green-light); color: var(--green);
   margin-bottom: 1rem;
 }
-
-.proj-feat-desc {
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.75;
-  flex: 1;
-  margin-bottom: 2rem;
+.proj-badge.done { background: var(--bg2); color: var(--muted); }
+.proj-feat-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+  font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 1rem;
 }
-
+.proj-feat-desc { color: var(--ink2); font-size: 0.9375rem; margin-bottom: 1.25rem; }
 .proj-highlight {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--ink);
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.25rem;
   border-left: 2px solid var(--green);
-  background: var(--green-light);
-  border-radius: 0 2px 2px 0;
-  margin-bottom: 1.5rem;
-}
-
-.proj-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-/* grid of smaller projects */
-.proj-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 2px;
-}
-
-.proj-card {
   background: var(--bg2);
-  border: 1px solid var(--border2);
-  border-radius: 2px;
-  padding: 2.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: border-color 0.25s, background 0.25s;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.875rem;
+  color: var(--ink2);
 }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
-.proj-card:hover {
-  border-color: var(--border);
-  background: var(--bg);
+.proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.proj-card {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color var(--state), transform var(--state);
+  display: flex; flex-direction: column; gap: 0.625rem;
+  align-items: flex-start;
 }
-
-.proj-icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.proj-name {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: 1.3rem;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  line-height: 1.2;
-}
-
-.proj-desc {
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.7;
-  flex: 1;
-}
-
-.proj-result-sm {
-  font-size: 0.8rem;
-  color: var(--green);
-  font-weight: 400;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border2);
-}
-
-/* ── IMPACTO ── */
-#impacto {
-  padding: 8rem 0;
-  background: var(--ink);
-  color: var(--bg);
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-.impacto-grid {
-  display: grid;
+.proj-card:hover { border-color: rgba(14,14,12,0.24); transform: translateY(-3px); }
+.proj-card .marca {
+  width: 68px; height: 68px; border-radius: 12px; padding: 7px; gap: 2px;
+  margin-bottom: 0.75rem;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 5rem;
+  grid-template-rows: repeat(4, 1fr);
 }
+.proj-name { font-family: var(--font-serif); font-size: 1.375rem; font-weight: 400; letter-spacing: -0.015em; }
+.proj-desc { font-size: 0.875rem; color: var(--muted); }
+.proj-result-sm { font-size: 0.8125rem; color: var(--green); }
 
-.impacto-item {
-  background: var(--ink);
-  padding: 3rem 2.5rem;
-  text-align: center;
-  transition: background 0.2s;
-}
-
-.impacto-item:hover { background: #161614; }
-
-.impacto-n {
-  font-family: var(--font-serif);
-  font-size: 4rem;
-  font-weight: 300;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: #fafaf8;
-}
-
-.impacto-n span { color: #4ade9a; }
-
-.impacto-l {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(250,250,248,0.38);
-  margin-top: 0.75rem;
-}
-
-.impacto-copy {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 2rem;
-}
-
-.impacto-copy .section-label { color: rgba(250,250,248,0.35); }
-
+/* ── IMPACTO (noite) ── */
+#impacto { padding: var(--section-y) 0; }
+.impacto-copy { margin-bottom: 3rem; }
 .impacto-h2 {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #fafaf8;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400; line-height: 1; letter-spacing: -0.03em;
+  color: var(--on-stage);
 }
-
-.impacto-h2 em {
-  font-style: italic;
-  color: #4ade9a;
+.impacto-h2 em { font-style: italic; color: var(--glow); }
+.impacto-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--line-stage);
+  border: 1px solid var(--line-stage); border-radius: 20px; overflow: hidden;
 }
-
-/* ── DIFERENCIAIS ── */
-#diferenciais {
-  padding: 8rem 0;
-  background: var(--bg);
-  border-top: 1px solid var(--border2);
+.impacto-item { background: var(--stage2); padding: 2.5rem 1.75rem; transition: background var(--state); }
+.impacto-item:hover { background: var(--stage3); }
+.impacto-n {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1; letter-spacing: -0.03em;
+  color: var(--on-stage);
+  font-variant-numeric: tabular-nums;
 }
+.impacto-n span.un { color: var(--glow); font-size: 0.42em; vertical-align: super; font-family: var(--font-sans); }
+.impacto-l { font-size: 0.8125rem; color: var(--on-stage2); margin-top: 0.75rem; letter-spacing: 0.02em; }
 
-.dif-grid {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 8vw;
-  align-items: start;
-}
-
-.dif-sticky {
-  position: sticky;
-  top: 6rem;
-}
-
+/* ── DIFERENCIAIS (noite) ── */
+#diferenciais { padding: var(--section-y) 0; }
+.dif-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 6vw, 6rem); }
+.dif-sticky { position: sticky; top: 7rem; align-self: start; }
 .dif-h2 {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 2rem;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 400; line-height: 1.02; letter-spacing: -0.03em;
+  color: var(--on-stage);
 }
+.dif-h2 em { font-style: italic; color: var(--glow); }
+.dif-note { margin-top: 1.75rem; color: var(--on-stage2); font-size: 0.9375rem; max-width: 26rem; }
+.dif-item { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; padding: 1.75rem 0; border-top: 1px solid var(--line-stage); }
+.dif-num { font-family: var(--font-serif); color: var(--glow); font-size: 0.875rem; }
+.dif-title { font-size: 1.125rem; font-weight: 500; color: var(--on-stage); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.dif-desc { font-size: 0.9375rem; color: var(--on-stage2); }
 
-.dif-h2 em { font-style: italic; color: var(--green); }
-
-.dif-note {
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.75;
-}
-
-.dif-list { display: flex; flex-direction: column; gap: 0; }
-
-.dif-item {
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border2);
-  display: grid;
-  grid-template-columns: 2rem 1fr;
-  gap: 1.5rem;
-  align-items: start;
-  transition: padding-left 0.3s;
-}
-
-.dif-item:first-child { border-top: 1px solid var(--border2); }
-.dif-item:hover { padding-left: 0.5rem; }
-
-.dif-num {
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--muted2);
-  padding-top: 0.2rem;
-}
-
-.dif-title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-}
-
-.dif-desc {
-  font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* ── VISÃO ── */
-#visao {
-  padding: 9rem 0;
-  background: var(--bg2);
-  border-top: 1px solid var(--border2);
-  text-align: center;
-}
-
-.visao-inner { max-width: 780px; margin: 0 auto; }
-
+/* ── VISAO (noite) ── */
+#visao { padding: var(--section-y) 0; text-align: center; }
+.visao-inner { max-width: 54rem; margin: 0 auto; }
 .visao-quote {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 3rem;
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  line-height: 1.18; letter-spacing: -0.025em;
+  color: var(--on-stage);
+  font-weight: 400;
 }
+.visao-quote em { font-style: italic; color: var(--glow); }
+.visao-sub { margin: 2rem auto 2.5rem; max-width: 36rem; color: var(--on-stage2); font-size: 1rem; }
 
-.visao-quote em { font-style: italic; color: var(--green); }
-
-.visao-sub {
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 50ch;
-  margin: 0 auto 3rem;
-}
-
-/* ── CTA ── */
-#cta {
-  padding: 10rem 0;
-  background: var(--ink);
-  text-align: center;
-}
-
-.cta-inner { max-width: 700px; margin: 0 auto; }
-
-.cta-tag {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(250,250,248,0.35);
-  margin-bottom: 2rem;
-}
-
+/* ── CTA (noite) ── */
+#cta { padding: var(--section-y) 0; text-align: center; position: relative; overflow: hidden; }
+.cta-inner { max-width: 44rem; margin: 0 auto; position: relative; z-index: 1; }
+.cta-tag { font-size: 0.8125rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-stage2); margin-bottom: 1.5rem; }
 .cta-h2 {
   font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2.4rem, 5vw, 5rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: #fafaf8;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  font-weight: 400; line-height: 1; letter-spacing: -0.035em;
+  color: var(--on-stage);
 }
-
-.cta-h2 em { font-style: italic; color: #4ade9a; }
-
-.cta-sub {
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: rgba(250,250,248,0.45);
-  line-height: 1.8;
-  max-width: 44ch;
-  margin: 0 auto 3.5rem;
-}
-
+.cta-h2 em { font-style: italic; color: var(--glow); }
+.cta-sub { margin: 1.75rem auto 2.5rem; max-width: 32rem; color: var(--on-stage2); }
 .btn-white {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #fafaf8;
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.1rem 2.5rem;
-  border-radius: 2px;
-  transition: opacity 0.2s;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex; align-items: center; gap: 0.625rem;
+  min-height: 52px;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  background: var(--glow); color: var(--stage);
+  font-size: 1rem; font-weight: 500;
+  transition: transform var(--micro);
+  will-change: transform;
 }
+.btn-white svg { width: 20px; height: 20px; }
+.btn-white:hover { transform: scale(1.03); }
+/* Sem sombra (DESIGN.md §5): profundidade vem de luz propria */
+.btn-white::before {
+  content: ''; position: absolute; inset: -40px;
+  background: radial-gradient(circle, rgba(74,222,154,0.20), transparent 70%);
+  opacity: 0; transition: opacity var(--state); z-index: -1; pointer-events: none;
+}
+.btn-white:hover::before { opacity: 1; }
 
-.btn-white:hover { opacity: 0.85; }
-.btn-white svg { width: 18px; height: 18px; }
+#tela-particulas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none; opacity: 0; transition: opacity 1s ease;
+}
+#tela-particulas.viva { opacity: 1; }
 
 /* ── FOOTER ── */
 footer {
-  background: var(--ink);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 2.5rem 6vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 3rem var(--gutter);
+  border-top: 1px solid var(--line-stage);
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;
+  max-width: var(--maxw); margin: 0 auto;
+}
+.foot-brand { font-family: var(--font-serif); font-size: 1.125rem; color: rgba(245,245,240,0.62); transition: color var(--micro); }
+.foot-brand:hover { color: var(--glow); }
+.foot-copy { font-size: 0.8125rem; color: rgba(245,245,240,0.55); }
+
+/* ══════════════════════════════════════════════════════
+   CURSOR — so desktop com ponteiro fino (DESIGN.md §9)
+   ══════════════════════════════════════════════════════ */
+#cursor, #cursor-halo { display: none; }
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  #cursor {
+    display: block;
+    opacity: 0;
+    transition: opacity var(--micro), background var(--state);
+    position: fixed; top: 0; left: 0;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+    z-index: 9999;
+    pointer-events: none;
+    transition: background var(--state);
+  }
+  #cursor-halo {
+    display: block;
+    opacity: 0;
+    position: fixed; top: 0; left: 0;
+    width: 38px; height: 38px;
+    margin: -19px 0 0 -19px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    z-index: 9998;
+    pointer-events: none;
+    transition: width var(--state), height var(--state), margin var(--state), border-color var(--state), background var(--state);
+  }
+  body.mouse-vivo #cursor, body.mouse-vivo #cursor-halo { opacity: 1; }
+  body.noite #cursor { background: var(--glow); }
+  body.noite #cursor-halo { border-color: var(--line-stage); }
+  body.alvo #cursor-halo { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(26,102,68,0.08); border-color: var(--green); }
+  body.noite.alvo #cursor-halo { background: rgba(74,222,154,0.10); border-color: var(--glow); }
 }
 
-.foot-brand {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(250,250,248,0.4);
-  text-decoration: none;
+/* ══════════════════════════════════════════════════════
+   MOBILE — projetado para 375px primeiro (DESIGN.md §9)
+   ══════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .sobre-grid, .dif-grid { grid-template-columns: 1fr; }
+  .dif-sticky { position: static; }
+  .proj-grid { grid-template-columns: repeat(2, 1fr); }
+  .proj-featured { grid-template-columns: 240px 1fr; gap: 2rem; }
 }
 
-.foot-copy {
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  color: rgba(250,250,248,0.2);
-}
-
-/* ── ANIMATIONS ── */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(32px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
-}
-
-.reveal.up { opacity: 1; transform: none; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .sobre-grid, .dif-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .proj-featured { grid-template-columns: 1fr; }
-  .proj-feat-visual { min-height: 180px; }
+@media (max-width: 768px) {
+  :root { --section-y: clamp(72px, 9vh, 120px); }
+  #hero { padding-top: 7rem; }
+  .proj-featured { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.5rem; }
+  .proj-featured .marca { max-width: 180px; }
   .proj-grid { grid-template-columns: 1fr; }
-  .impacto-grid { grid-template-columns: 1fr 1fr; }
-  .hero-stats { gap: 2.5rem; }
+  .impacto-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-bg-word { font-size: 44vw; bottom: 1vw; }
+  .nav-links { gap: 1.25rem; }
+  .nav-links li:not(:last-child) { display: none; }
   .hero-bottom { flex-direction: column; align-items: flex-start; }
-  .proj-sub { text-align: left; }
-  footer { flex-direction: column; gap: 1rem; text-align: center; }
+  .hero-stats { gap: 2rem 3rem; }
+  footer { flex-direction: column; align-items: flex-start; }
+  .projects-header { margin-bottom: 2.5rem; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 420px) {
+  :root { --gutter: 20px; }
+  .hero-title { font-size: clamp(2.75rem, 13vw, 3.75rem); }
   .impacto-grid { grid-template-columns: 1fr 1fr; }
-  .hero-bg-word { font-size: 40vw; }
+  .impacto-item { padding: 1.75rem 1.25rem; }
+  .hero-actions { width: 100%; }
+  .btn, .btn-white { width: 100%; justify-content: center; }
+  .marquee-item { font-size: 0.8125rem; gap: 2rem; }
+  .marquee-track { gap: 2rem; }
+  .stat-n { font-size: 2.25rem; }
+}
+
+/* ══════════════════════════════════════════════════════
+   MOVIMENTO REDUZIDO — obrigatorio (DESIGN.md §6)
+   Tudo no estado final. O site continua bonito, so quieto.
+   ══════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-eyebrow, .hero-bottom, .hero-stats, .hero-title .linha > span { opacity: 1 !important; transform: none !important; }
+  .marquee-track { animation: none !important; }
+  #tela-hero, #tela-particulas { display: none !important; }
+  .marca i { transform: none !important; }
+  #cursor, #cursor-halo { display: none !important; }
+}
+
+/* ══════════════════════════════════════════════════════
+   CAMADA ULTRA — 3D, magnetismo e profundidade.
+   Tudo aqui e adicional: sem JS, sem WebGL ou com
+   movimento reduzido, o site abaixo continua inteiro.
+   ══════════════════════════════════════════════════════ */
+
+/* O canvas 3D ocupa a tela toda do hero e fica ATRAS do texto */
+#tela-hero { opacity: 0; transition: opacity 1.6s ease; }
+#tela-hero.viva { opacity: 1; }
+
+/* Halo de luz do objeto 3D — profundidade sem sombra (DESIGN.md §5) */
+#hero::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: 8%;
+  width: 46vw; height: 46vw;
+  max-width: 720px; max-height: 720px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(26,102,68,0.10) 0%, transparent 62%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+#hero.ligado::after { opacity: 1; }
+
+/* ── TITULO QUE SE DESMONTA ──
+   Cada letra e uma camada propria. No hover o titulo
+   se despedaca em 3D e volta ao sair. */
+.hero-title .ch {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  transition: transform 700ms cubic-bezier(0.16,1,0.3,1), opacity 700ms ease;
+  will-change: transform;
+}
+.hero-title:hover .ch {
+  transform: translate3d(var(--cx,0), var(--cy,0), var(--cz,0)) rotate(var(--cr,0deg));
+  opacity: 0.82;
+}
+
+/* ── CARTOES COM TILT 3D ──
+   O cartao inclina na direcao do ponteiro. Perspectiva
+   real, nao sombra falsa. */
+.proj-card, .proj-featured {
+  transform-style: preserve-3d;
+  transform: perspective(900px)
+             rotateX(var(--rx, 0deg))
+             rotateY(var(--ry, 0deg))
+             translateZ(0);
+  transition: transform 260ms cubic-bezier(0.4,0,0.2,1), border-color var(--state);
+}
+.proj-card:hover, .proj-featured:hover { transition-duration: 90ms; }
+.proj-card .marca, .proj-featured .marca { transform: translateZ(42px); }
+.proj-card > *:not(.marca), .proj-featured > *:not(.marca) { transform: translateZ(14px); }
+
+/* Brilho que varre o cartao seguindo o ponteiro */
+.proj-card, .proj-featured { position: relative; isolation: isolate; }
+.proj-card::after, .proj-featured::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--px,50%) var(--py,50%),
+              rgba(26,102,68,0.10), transparent 42%);
+  opacity: 0;
+  transition: opacity var(--state);
+  pointer-events: none;
+  z-index: -1;
+}
+.proj-card:hover::after, .proj-featured:hover::after { opacity: 1; }
+
+/* ── MARCA: mais viva, com profundidade por celula ── */
+.marca { transform-style: preserve-3d; }
+.marca i { transition: transform 720ms cubic-bezier(0.16,1,0.3,1), opacity 620ms ease; }
+.proj-featured:hover .marca i, .proj-card:hover .marca i {
+  transform: translate3d(var(--dx), var(--dy), var(--dz, 0px)) rotate(var(--r)) scale(var(--s));
+}
+
+/* ── BOTOES MAGNETICOS ── */
+.magnetico {
+  transform: translate3d(var(--mgx,0), var(--mgy,0), 0) scale(var(--mgs,1));
+  transition: transform 320ms cubic-bezier(0.16,1,0.3,1);
+  will-change: transform;
+}
+.magnetico.puxando { transition-duration: 90ms; }
+
+/* ── CURSOR maior e com mistura ── */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  #cursor-halo {
+    width: 46px; height: 46px; margin: -23px 0 0 -23px;
+    backdrop-filter: invert(4%);
+    -webkit-backdrop-filter: invert(4%);
+  }
+  body.alvo #cursor-halo { width: 82px; height: 82px; margin: -41px 0 0 -41px; }
+  body.alvo #cursor { width: 3px; height: 3px; }
+}
+
+/* ── EXPLOSAO DE PARTICULAS NO CLIQUE ── */
+#tela-estouro {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+}
+
+/* ── TITULOS DE SECAO COM PARALLAX LEVE (max 12%, DESIGN.md §6) ── */
+.paralaxe { transform: translate3d(0, var(--plx, 0px), 0); will-change: transform; }
+
+/* ── NUMEROS DO IMPACTO COM LUZ PROPRIA ── */
+.impacto-item { position: relative; overflow: hidden; }
+.impacto-item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(300px circle at var(--px,50%) var(--py,50%),
+              rgba(74,222,154,0.14), transparent 45%);
+  opacity: 0; transition: opacity var(--state); pointer-events: none;
+}
+.impacto-item:hover::before { opacity: 1; }
+.impacto-n { position: relative; }
+
+/* ── Movimento reduzido desliga TUDO desta camada ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title .ch,
+  .proj-card, .proj-featured,
+  .proj-card .marca, .proj-featured .marca,
+  .proj-card > *, .proj-featured > *,
+  .magnetico, .paralaxe { transform: none !important; }
+  #hero::after, #tela-estouro { display: none !important; }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   MARCA — SVG vetorial, nitido em qualquer tela.
+   O PNG de 2K da logo pesa 1,78MB: 20x o site inteiro
+   (88KB) e serrilha ao escalar. Em vetor: ~1,5KB.
+   ══════════════════════════════════════════════════════ */
+.marca-u { width: auto; display: block; overflow: visible; }
+.nav-brand { display: inline-flex; align-items: center; gap: 0.6rem; }
+.nav-brand .marca-u { height: 30px; }
+.marca-txt { font-family: var(--font-serif); font-size: 1.25rem; letter-spacing: -0.01em; white-space: nowrap; }
+.marca-txt b { font-weight: 400; }
+.marca-txt i { font-style: normal; color: var(--marca-azul); }
+nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite); }
+
+/* O circuito pulsa devagar — sinal de vida, nao piscada */
+.marca-u .circ { animation: pulso 3.6s ease-in-out infinite; }
+.marca-u .circ2 { animation: pulso 3.6s ease-in-out 1.2s infinite; }
+@keyframes pulso { 0%,100% { opacity: 0.45 } 50% { opacity: 1 } }
+
+.foot-brand { display: inline-flex; align-items: center; gap: 0.6rem; }
+.foot-brand .marca-u { height: 34px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marca-u .circ, .marca-u .circ2 { animation: none !important; opacity: 0.8 !important; }
 }
 </style>
 </head>
 <body>
 
+<div id="progresso" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-halo" aria-hidden="true"></div>
+
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand">UltraWork AI</a>
+<nav id="nav">
+  <a href="#hero" class="nav-brand"><svg class="marca-u" viewBox="0 0 100 122" role="img" aria-label="UltraWork AI">
+  <defs>
+    <clipPath id="u-n"><path d="M10,4 V64 A40,40 0 0 0 90,64 V4 H66 V64 A16,16 0 0 1 34,64 V4 Z"/></clipPath>
+    <clipPath id="esq-n"><polygon points="0,0 55,0 45,122 0,122"/></clipPath>
+    <clipPath id="dir-n"><polygon points="55,0 100,0 100,122 45,122"/></clipPath>
+    <linearGradient id="met-n" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="var(--marca-prata)"/>
+      <stop offset="0.45" stop-color="var(--marca-grafite)"/>
+      <stop offset="1" stop-color="var(--marca-prata)"/>
+    </linearGradient>
+    <linearGradient id="azu-n" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="var(--marca-azul-noite)"/>
+      <stop offset="1" stop-color="var(--marca-azul)"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#u-n)">
+    <rect x="0" y="0" width="100" height="122" fill="url(#met-n)" clip-path="url(#esq-n)"/>
+    <rect x="0" y="0" width="100" height="122" fill="url(#azu-n)" clip-path="url(#dir-n)"/>
+    <g clip-path="url(#dir-n)" fill="none" stroke="var(--marca-circuito)" stroke-width="1.6" stroke-linecap="round">
+      <path class="circ" d="M74,10 V30 H82 V52"/>
+      <path class="circ2" d="M84,16 V40 H76 V60 H70"/>
+      <path class="circ" d="M72,70 H80 V86"/>
+      <path class="circ2" d="M62,92 H72 V78"/>
+    </g>
+    <g clip-path="url(#dir-n)" fill="var(--marca-no)">
+      <circle class="circ" cx="82" cy="52" r="2.4"/>
+      <circle class="circ2" cx="70" cy="60" r="2.2"/>
+      <circle class="circ" cx="80" cy="86" r="2.2"/>
+      <circle class="circ2" cx="62" cy="92" r="2"/>
+      <circle class="circ" cx="74" cy="10" r="2"/>
+    </g>
+  </g>
+  <path d="M10,4 V64 A40,40 0 0 0 90,64 V4 H66 V64 A16,16 0 0 1 34,64 V4 Z"
+        fill="none" stroke="var(--marca-prata)" stroke-width="1.2" opacity="0.55"/>
+</svg><span class="marca-txt"><b>UltraWork</b> <i>AI</i></span></a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#projetos">Projetos</a></li>
@@ -911,12 +946,13 @@ footer {
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-word">Futuro</div>
+  <canvas id="tela-hero" aria-hidden="true"></canvas>
+  <div class="hero-bg-word" aria-hidden="true">Futuro</div>
   <p class="hero-eyebrow">Sandro Carlos Silva — CEO · Belo Horizonte, MG</p>
   <h1 class="hero-title">
-    Inteligência<br>
-    que <em>transforma</em><br>
-    negócios.
+    <span class="linha"><span>Inteligência</span></span>
+    <span class="linha"><span>que <em>transforma</em></span></span>
+    <span class="linha"><span>negócios.</span></span>
   </h1>
   <div class="hero-bottom">
     <p class="hero-desc">
@@ -925,18 +961,18 @@ footer {
     <div class="hero-actions">
       <a href="#cta" class="btn btn-dark">
         Iniciar projeto
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="#projetos" class="btn btn-outline">Ver projetos</a>
     </div>
   </div>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-n">10<sub>+</sub></div>
+      <div class="stat-n"><span data-conta="10">10</span><sub>+</sub></div>
       <div class="stat-l">Projetos com IA</div>
     </div>
     <div class="stat">
-      <div class="stat-n">7<sub>+</sub></div>
+      <div class="stat-n"><span data-conta="7">7</span><sub>+</sub></div>
       <div class="stat-l">Agentes construídos</div>
     </div>
     <div class="stat">
@@ -959,7 +995,6 @@ footer {
     <span class="marquee-item">Sistemas Multi-Agente <span class="marquee-dot"></span></span>
     <span class="marquee-item">HeyGen <span class="marquee-dot"></span></span>
     <span class="marquee-item">Veo 3 <span class="marquee-dot"></span></span>
-    <!-- duplicated for seamless loop -->
     <span class="marquee-item">Claude API <span class="marquee-dot"></span></span>
     <span class="marquee-item">N8N Automação <span class="marquee-dot"></span></span>
     <span class="marquee-item">Apps SaaS <span class="marquee-dot"></span></span>
@@ -978,7 +1013,7 @@ footer {
   <div class="container">
     <div class="manifesto-inner reveal">
       <p class="section-label">Manifesto</p>
-      <p class="manifesto-text">
+      <p class="manifesto-text paralaxe">
         A maioria das empresas ainda opera como se fosse 2015.<br>
         <span class="dim">Processos manuais. Equipes sobrecarregadas.</span><br>
         Oportunidades que <em>escapam em silêncio.</em>
@@ -996,7 +1031,7 @@ footer {
     <div class="sobre-grid">
       <div class="sobre-left reveal">
         <p class="section-label">Fundador</p>
-        <h2 class="sobre-h2">Sandro<br>Carlos Silva</h2>
+        <h2 class="sobre-h2 paralaxe">Sandro<br>Carlos Silva</h2>
         <p class="sobre-p">
           Empreendedor com obsessão por resultado. Fundei a <strong>UltraWork AI</strong> com uma missão clara: tornar o poder da Inteligência Artificial acessível para empresas brasileiras que querem crescer de forma inteligente e escalável.
         </p>
@@ -1041,12 +1076,12 @@ footer {
         </div>
         <div class="competencia">
           <p class="comp-n">04</p>
-          <p class="comp-title">Conteúdo & Vídeo Gerado por IA</p>
+          <p class="comp-title">Conteúdo &amp; Vídeo Gerado por IA</p>
           <p class="comp-desc">Estratégias de conteúdo e produção com HeyGen, Veo 3 e Runway — posts, vídeos e materiais que posicionam e vendem com consistência.</p>
         </div>
         <div class="competencia">
           <p class="comp-n">05</p>
-          <p class="comp-title">Estratégia & Mentoria em IA</p>
+          <p class="comp-title">Estratégia &amp; Mentoria em IA</p>
           <p class="comp-desc">Para líderes e equipes que precisam entender como usar IA de forma prática, com foco em resultado e sem desperdício de tempo.</p>
         </div>
       </div>
@@ -1060,14 +1095,13 @@ footer {
     <div class="projects-header reveal">
       <div>
         <p class="section-label">Projetos</p>
-        <h2 class="proj-h2">Sistemas reais.<br>Resultados concretos.</h2>
+        <h2 class="proj-h2 paralaxe">Sistemas reais.<br>Resultados concretos.</h2>
       </div>
       <p class="proj-sub">Cada projeto é uma prova de que IA e resultado não são conceitos separados.</p>
     </div>
 
-    <!-- FEATURED: OlympIA -->
     <div class="proj-featured reveal">
-      <div class="proj-feat-visual">🏋️</div>
+      <div class="marca" data-semente="7" aria-hidden="true"></div>
       <div class="proj-feat-content">
         <div>
           <span class="proj-badge">Em produção</span>
@@ -1090,9 +1124,8 @@ footer {
       </div>
     </div>
 
-    <!-- FEATURED: SOLARIS -->
     <div class="proj-featured reveal" style="transition-delay:0.1s">
-      <div class="proj-feat-visual" style="background:#0d1a0f;">☀️</div>
+      <div class="marca" data-semente="21" aria-hidden="true"></div>
       <div class="proj-feat-content">
         <div>
           <span class="proj-badge">Entregue</span>
@@ -1114,11 +1147,10 @@ footer {
       </div>
     </div>
 
-    <!-- GRID -->
     <div class="proj-grid">
 
       <div class="proj-card reveal">
-        <div class="proj-icon">⚡</div>
+        <div class="marca" data-semente="3" aria-hidden="true"></div>
         <span class="proj-badge">Ativo</span>
         <h3 class="proj-name">Super Agente de IA</h3>
         <p class="proj-desc">Skill customizada do Claude que atua como Arquiteto Supremo de Sistemas IA — eleva o perfil do usuário para nível elite antes de gerar arquiteturas, modelos de monetização e roadmaps.</p>
@@ -1130,7 +1162,7 @@ footer {
       </div>
 
       <div class="proj-card reveal" style="transition-delay:0.08s">
-        <div class="proj-icon">🤖</div>
+        <div class="marca" data-semente="11" aria-hidden="true"></div>
         <span class="proj-badge">Ativo</span>
         <h3 class="proj-name">Agentes IA — UltraWork AI</h3>
         <p class="proj-desc">Série de agentes especializados para Instagram: Recrutador, Postador, Secretária Executiva, Orquestrador de Vendas e mais — com calendário de conteúdo e copy em português que converte.</p>
@@ -1143,7 +1175,7 @@ footer {
       </div>
 
       <div class="proj-card reveal" style="transition-delay:0.16s">
-        <div class="proj-icon">📈</div>
+        <div class="marca" data-semente="17" aria-hidden="true"></div>
         <span class="proj-badge done">Entregue</span>
         <h3 class="proj-name">O Código do Day Trade</h3>
         <p class="proj-desc">Produto educacional completo sobre mercado financeiro — SMC, Elliott Wave, Fibonacci, gestão de risco e psicologia do trader. Dashboard interativo de análise técnica incluído.</p>
@@ -1156,7 +1188,7 @@ footer {
       </div>
 
       <div class="proj-card reveal" style="transition-delay:0.04s">
-        <div class="proj-icon">📖</div>
+        <div class="marca" data-semente="29" aria-hidden="true"></div>
         <span class="proj-badge done">Entregue</span>
         <h3 class="proj-name">Mapa Bíblico da Prosperidade</h3>
         <p class="proj-desc">Livro digital em 6 partes com programa de transformação financeira em 20 etapas. Gerado programaticamente com Node.js e formatação profissional — do conceito à entrega em horas.</p>
@@ -1169,7 +1201,7 @@ footer {
       </div>
 
       <div class="proj-card reveal" style="transition-delay:0.12s">
-        <div class="proj-icon">🚀</div>
+        <div class="marca" data-semente="5" aria-hidden="true"></div>
         <span class="proj-badge">Ativo</span>
         <h3 class="proj-name">Plano Estratégico UltraWork AI</h3>
         <p class="proj-desc">Sistema de monetização com IA: menu de serviços, tabela de preços por tier, meta de receita, plano de 7 dias e script de prospecção via WhatsApp para negócios em BH.</p>
@@ -1182,7 +1214,7 @@ footer {
       </div>
 
       <div class="proj-card reveal" style="transition-delay:0.2s">
-        <div class="proj-icon">💪</div>
+        <div class="marca" data-semente="13" aria-hidden="true"></div>
         <span class="proj-badge done">Entregue</span>
         <h3 class="proj-name">Enciclopédia de Treino IA</h3>
         <p class="proj-desc">Base de dados interativa com 150+ exercícios, 500+ variações e 40+ técnicas avançadas. Programa PPL completo de hipertrofia gerado por IA e exportado como planilha Excel.</p>
@@ -1198,36 +1230,38 @@ footer {
   </div>
 </section>
 
+<div class="travessia" aria-hidden="true"></div>
+
 <!-- IMPACTO -->
-<section id="impacto">
+<section id="impacto" class="no-escuro">
   <div class="container">
     <div class="impacto-copy reveal">
-      <p class="section-label" style="color:rgba(250,250,248,0.35)">Impacto</p>
-      <h2 class="impacto-h2">IA medida em <em>resultado.</em></h2>
+      <p class="section-label">Impacto</p>
+      <h2 class="impacto-h2 paralaxe">IA medida em <em>resultado.</em></h2>
     </div>
     <div class="impacto-grid reveal">
       <div class="impacto-item">
-        <div class="impacto-n">24<span>/7</span></div>
+        <div class="impacto-n">24<span class="un">/7</span></div>
         <div class="impacto-l">Operação autônoma</div>
       </div>
       <div class="impacto-item">
-        <div class="impacto-n">7<span>+</span></div>
+        <div class="impacto-n"><span data-conta="7">7</span><span class="un">+</span></div>
         <div class="impacto-l">Sistemas multi-agente</div>
       </div>
       <div class="impacto-item">
-        <div class="impacto-n">10<span>x</span></div>
+        <div class="impacto-n"><span data-conta="10">10</span><span class="un">x</span></div>
         <div class="impacto-l">Velocidade de entrega</div>
       </div>
       <div class="impacto-item">
-        <div class="impacto-n">0<span>€</span></div>
-        <div class="impacto-l">Código sem programar</div>
+        <div class="impacto-n">0</div>
+        <div class="impacto-l">Linhas de código escritas à mão</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- DIFERENCIAIS -->
-<section id="diferenciais">
+<section id="diferenciais" class="no-escuro">
   <div class="container">
     <div class="dif-grid">
       <div class="dif-sticky reveal">
@@ -1280,28 +1314,29 @@ footer {
 </section>
 
 <!-- VISÃO -->
-<section id="visao">
+<section id="visao" class="no-escuro">
   <div class="container">
     <div class="visao-inner reveal">
       <p class="section-label">Visão de futuro</p>
-      <p class="visao-quote">
+      <blockquote class="visao-quote">
         "O Brasil tem talento. Tem mercado.<br>
         Falta <em>infraestrutura inteligente</em><br>
         para competir em escala global."
-      </p>
+      </blockquote>
       <p class="visao-sub">
         A UltraWork AI está construindo essa infraestrutura — um sistema, um agente, uma empresa de cada vez. Nossa visão é ser a principal referência em IA aplicada a negócios no Brasil.
       </p>
-      <a href="#cta" class="btn btn-dark" style="margin: 0 auto; display: inline-flex;">
+      <a href="#cta" class="btn btn-dark">
         Fazer parte dessa visão
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="cta">
+<section id="cta" class="no-escuro">
+  <canvas id="tela-particulas" aria-hidden="true"></canvas>
   <div class="container">
     <div class="cta-inner reveal">
       <p class="cta-tag">Próximo passo</p>
@@ -1310,7 +1345,7 @@ footer {
         Me chama no WhatsApp. Em uma conversa, mostro como a IA pode transformar sua operação nos próximos 30 dias.
       </p>
       <a href="https://wa.me/5531991801259?text=Olá%20Sandro!%20Vi%20seu%20portfólio%20e%20quero%20saber%20mais." class="btn-white" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.532 5.857L.057 23.082a.75.75 0 0 0 .916.916l5.225-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.694 9.694 0 0 1-4.948-1.352l-.355-.21-3.678 1.04 1.04-3.678-.21-.355A9.694 9.694 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/>
         </svg>
@@ -1321,23 +1356,641 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <a href="#" class="foot-brand">UltraWork AI</a>
-  <p class="foot-copy">© 2025 UltraWork AI · Belo Horizonte, MG · Construído com Inteligência Artificial</p>
+<footer class="no-escuro">
+  <a href="#hero" class="foot-brand"><svg class="marca-u" viewBox="0 0 100 122" role="img" aria-label="UltraWork AI">
+  <defs>
+    <clipPath id="u-f"><path d="M10,4 V64 A40,40 0 0 0 90,64 V4 H66 V64 A16,16 0 0 1 34,64 V4 Z"/></clipPath>
+    <clipPath id="esq-f"><polygon points="0,0 55,0 45,122 0,122"/></clipPath>
+    <clipPath id="dir-f"><polygon points="55,0 100,0 100,122 45,122"/></clipPath>
+    <linearGradient id="met-f" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="var(--marca-prata)"/>
+      <stop offset="0.45" stop-color="var(--marca-grafite)"/>
+      <stop offset="1" stop-color="var(--marca-prata)"/>
+    </linearGradient>
+    <linearGradient id="azu-f" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="var(--marca-azul-noite)"/>
+      <stop offset="1" stop-color="var(--marca-azul)"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#u-f)">
+    <rect x="0" y="0" width="100" height="122" fill="url(#met-f)" clip-path="url(#esq-f)"/>
+    <rect x="0" y="0" width="100" height="122" fill="url(#azu-f)" clip-path="url(#dir-f)"/>
+    <g clip-path="url(#dir-f)" fill="none" stroke="var(--marca-circuito)" stroke-width="1.6" stroke-linecap="round">
+      <path class="circ" d="M74,10 V30 H82 V52"/>
+      <path class="circ2" d="M84,16 V40 H76 V60 H70"/>
+      <path class="circ" d="M72,70 H80 V86"/>
+      <path class="circ2" d="M62,92 H72 V78"/>
+    </g>
+    <g clip-path="url(#dir-f)" fill="var(--marca-no)">
+      <circle class="circ" cx="82" cy="52" r="2.4"/>
+      <circle class="circ2" cx="70" cy="60" r="2.2"/>
+      <circle class="circ" cx="80" cy="86" r="2.2"/>
+      <circle class="circ2" cx="62" cy="92" r="2"/>
+      <circle class="circ" cx="74" cy="10" r="2"/>
+    </g>
+  </g>
+  <path d="M10,4 V64 A40,40 0 0 0 90,64 V4 H66 V64 A16,16 0 0 1 34,64 V4 Z"
+        fill="none" stroke="var(--marca-prata)" stroke-width="1.2" opacity="0.55"/>
+</svg><span class="marca-txt"><b>UltraWork</b> <i>AI</i></span></a>
+  <p class="foot-copy">© 2026 UltraWork AI · Belo Horizonte, MG · Construído com Inteligência Artificial</p>
 </footer>
 
 <script>
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      const delay = parseFloat(e.target.style.transitionDelay || 0) * 1000;
-      setTimeout(() => e.target.classList.add('up'), delay > 0 ? 0 : i * 60);
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
+(function () {
+  'use strict';
 
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  /* ════════════════════════════════════════════════════
+     CAPACIDADE — quem recebe o que (DESIGN.md §7).
+     Todo efeito e camada adicional: o site ja esta pronto
+     e bonito sem nenhum deles.
+     ════════════════════════════════════════════════════ */
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var nucleos = navigator.hardwareConcurrency || 8;
+  var memoria = navigator.deviceMemory || 8;
+  /* Fraco de verdade e <=2 nucleos. Um notebook de 4 nucleos roda 14 mil
+     particulas sem suar — a trava antiga desligava o 3D na metade das
+     maquinas do mundo. Aqui ela so REDUZ a densidade. */
+  var fraco  = nucleos <= 2 || memoria <= 2;
+  var medio  = nucleos <= 4 || memoria <= 4;
+  var largo  = window.matchMedia('(min-width: 768px)');
+  var fino   = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1024px)');
+  function podePesado() { return !quieto.matches && !fraco && largo.matches; }
+
+  /* ── 1. REVELACAO POR ROLAGEM ── */
+  var alvos = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !quieto.matches) {
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e, i) {
+        if (!e.isIntersecting) return;
+        var atraso = parseFloat(e.target.style.transitionDelay) || 0;
+        setTimeout(function () { e.target.classList.add('up'); }, atraso > 0 ? 0 : i * 60);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+    alvos.forEach(function (el) { obs.observe(el); });
+  } else {
+    alvos.forEach(function (el) { el.classList.add('up'); });
+  }
+
+  /* ── 2. CONTADORES ── */
+  var numeros = document.querySelectorAll('[data-conta]');
+  if ('IntersectionObserver' in window && !quieto.matches) {
+    var obsN = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, fim = parseInt(el.dataset.conta, 10), t0 = 0;
+        function passo(t) {
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / 900, 1);
+          el.textContent = Math.round(fim * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(passo);
+        }
+        requestAnimationFrame(passo);
+        obsN.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    numeros.forEach(function (el) { obsN.observe(el); });
+  }
+
+  /* ════════════════════════════════════════════════════
+     3. TITULO QUE SE DESMONTA
+     Cada letra vira uma camada com deslocamento 3D proprio.
+     So o texto e fatiado: o <em> e a estrutura ficam de pe,
+     entao leitor de tela e SEO nao percebem diferenca.
+     ════════════════════════════════════════════════════ */
+  (function fatiaTitulo() {
+    if (quieto.matches || !fino.matches) return;
+    var h1 = document.querySelector('.hero-title');
+    if (!h1) return;
+    var s = 1337;
+    function r() { s = (s * 9301 + 49297) % 233280; return s / 233280; }
+
+    var textos = [];
+    (function anda(no) {
+      for (var i = 0; i < no.childNodes.length; i++) {
+        var f = no.childNodes[i];
+        if (f.nodeType === 3 && f.nodeValue.trim()) textos.push(f);
+        else if (f.nodeType === 1) anda(f);
+      }
+    })(h1);
+
+    textos.forEach(function (no) {
+      var frag = document.createDocumentFragment();
+      no.nodeValue.split('').forEach(function (letra) {
+        if (letra === ' ') { frag.appendChild(document.createTextNode(' ')); return; }
+        var sp = document.createElement('span');
+        sp.className = 'ch';
+        sp.textContent = letra;
+        sp.style.setProperty('--cx', ((r() - 0.5) * 34).toFixed(1) + 'px');
+        sp.style.setProperty('--cy', ((r() - 0.5) * 30).toFixed(1) + 'px');
+        sp.style.setProperty('--cz', ((r() - 0.5) * 90).toFixed(0) + 'px');
+        sp.style.setProperty('--cr', ((r() - 0.5) * 24).toFixed(1) + 'deg');
+        sp.style.transitionDelay = (r() * 120).toFixed(0) + 'ms';
+        frag.appendChild(sp);
+      });
+      no.parentNode.replaceChild(frag, no);
+    });
+  })();
+
+  /* ── 4. MARCAS PROCEDURAIS (agora com profundidade) ── */
+  document.querySelectorAll('.marca').forEach(function (m) {
+    var s = parseInt(m.dataset.semente, 10) || 1;
+    var lado = m.closest('.proj-card') ? 4 : 6;
+    var n = lado * lado;
+    var estado = s * 9301 + 49297;
+    function r() { estado = (estado * 9301 + 49297) % 233280; return estado / 233280; }
+
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var c = document.createElement('i');
+      var v = r();
+      c.style.setProperty('--o',  (v > 0.55 ? 0.12 + v * 0.55 : 0.06).toFixed(2));
+      c.style.setProperty('--o2', (v > 0.45 ? 0.55 + v * 0.45 : 0.14).toFixed(2));
+      c.style.setProperty('--dx', ((r() - 0.5) * 30).toFixed(1) + 'px');
+      c.style.setProperty('--dy', ((r() - 0.5) * 30).toFixed(1) + 'px');
+      c.style.setProperty('--dz', ((r() - 0.5) * 70).toFixed(0) + 'px');
+      c.style.setProperty('--r',  ((r() - 0.5) * 64).toFixed(1) + 'deg');
+      c.style.setProperty('--s',  (0.5 + r() * 0.85).toFixed(2));
+      c.style.transitionDelay = (r() * 180).toFixed(0) + 'ms';
+      frag.appendChild(c);
+    }
+    m.appendChild(frag);
+  });
+
+  /* ════════════════════════════════════════════════════
+     5. TILT 3D + BRILHO — cartoes e itens de impacto
+     ════════════════════════════════════════════════════ */
+  if (fino.matches && !quieto.matches) {
+    document.querySelectorAll('.proj-card, .proj-featured').forEach(function (el) {
+      el.addEventListener('pointermove', function (ev) {
+        var b = el.getBoundingClientRect();
+        var x = (ev.clientX - b.left) / b.width;
+        var y = (ev.clientY - b.top) / b.height;
+        el.style.setProperty('--ry', ((x - 0.5) * 13).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', ((0.5 - y) * 11).toFixed(2) + 'deg');
+        el.style.setProperty('--px', (x * 100).toFixed(1) + '%');
+        el.style.setProperty('--py', (y * 100).toFixed(1) + '%');
+        var m = el.querySelector('.marca');
+        if (m) {
+          m.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+          m.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+          m.style.setProperty('--ang', (x * 360).toFixed(0) + 'deg');
+        }
+      }, { passive: true });
+      el.addEventListener('pointerleave', function () {
+        el.style.setProperty('--ry', '0deg');
+        el.style.setProperty('--rx', '0deg');
+      });
+    });
+
+    document.querySelectorAll('.impacto-item').forEach(function (el) {
+      el.addEventListener('pointermove', function (ev) {
+        var b = el.getBoundingClientRect();
+        el.style.setProperty('--px', (((ev.clientX - b.left) / b.width) * 100).toFixed(1) + '%');
+        el.style.setProperty('--py', (((ev.clientY - b.top) / b.height) * 100).toFixed(1) + '%');
+      }, { passive: true });
+    });
+
+    /* ── BOTOES MAGNETICOS ── */
+    document.querySelectorAll('.btn, .btn-white, .nav-cta').forEach(function (el) {
+      el.classList.add('magnetico');
+      el.addEventListener('pointermove', function (ev) {
+        var b = el.getBoundingClientRect();
+        var dx = ev.clientX - (b.left + b.width / 2);
+        var dy = ev.clientY - (b.top + b.height / 2);
+        el.classList.add('puxando');
+        el.style.setProperty('--mgx', (dx * 0.28).toFixed(1) + 'px');
+        el.style.setProperty('--mgy', (dy * 0.42).toFixed(1) + 'px');
+        el.style.setProperty('--mgs', '1.06');
+      }, { passive: true });
+      el.addEventListener('pointerleave', function () {
+        el.classList.remove('puxando');
+        el.style.setProperty('--mgx', '0px');
+        el.style.setProperty('--mgy', '0px');
+        el.style.setProperty('--mgs', '1');
+      });
+    });
+  }
+
+  /* ── 6. PROGRESSO + TRAVESSIA DIA -> NOITE + PARALAXE ── */
+  var nav = document.getElementById('nav');
+  var barra = document.getElementById('progresso');
+  var impacto = document.getElementById('impacto');
+  var paralaxes = quieto.matches ? [] : document.querySelectorAll('.paralaxe');
+  var pendente = false;
+  var rolagem = 0;
+
+  function aoRolar() {
+    var y = window.scrollY || window.pageYOffset;
+    rolagem = y;
+    var alt = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.setProperty('--p', alt > 0 ? (y / alt).toFixed(4) : 0);
+    nav.classList.toggle('compacta', y > 80);
+
+    var noite = impacto ? impacto.getBoundingClientRect().top <= 72 : false;
+    nav.classList.toggle('noite', noite);
+    document.body.classList.toggle('noite', noite);
+
+    for (var i = 0; i < paralaxes.length; i++) {
+      var el = paralaxes[i];
+      var b = el.getBoundingClientRect();
+      if (b.bottom < -200 || b.top > innerHeight + 200) continue;
+      var centro = (b.top + b.height / 2 - innerHeight / 2) / innerHeight;
+      el.style.setProperty('--plx', (centro * -34).toFixed(1) + 'px');  /* < 12% */
+    }
+    pendente = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!pendente) { pendente = true; requestAnimationFrame(aoRolar); }
+  }, { passive: true });
+  aoRolar();
+
+  /* ── 7. CURSOR ── */
+  if (fino.matches && !quieto.matches) {
+    var pt = document.getElementById('cursor');
+    var halo = document.getElementById('cursor-halo');
+    var px = innerWidth / 2, py = innerHeight / 2, hx = px, hy = py;
+
+    document.addEventListener('pointermove', function (e) {
+      if (!document.body.classList.contains('mouse-vivo')) document.body.classList.add('mouse-vivo');
+      px = e.clientX; py = e.clientY;
+      pt.style.transform = 'translate(' + (px - 3) + 'px,' + (py - 3) + 'px)';
+    }, { passive: true });
+
+    (function segue() {
+      hx += (px - hx) * 0.16;
+      hy += (py - hy) * 0.16;
+      halo.style.transform = 'translate(' + hx.toFixed(1) + 'px,' + hy.toFixed(1) + 'px)';
+      requestAnimationFrame(segue);
+    })();
+
+    document.querySelectorAll('a, button, .proj-card, .proj-featured, .competencia, .impacto-item').forEach(function (el) {
+      el.addEventListener('pointerenter', function () { document.body.classList.add('alvo'); });
+      el.addEventListener('pointerleave', function () { document.body.classList.remove('alvo'); });
+    });
+  }
+
+  /* ════════════════════════════════════════════════════
+     8. OBJETO 3D DO HERO — WebGL cru, com perspectiva.
+     Nuvem de ~14 mil particulas que forma um torus knot,
+     gira nos tres eixos, responde ao ponteiro e SE
+     TRANSFORMA em esfera conforme a pagina rola.
+     Escrito a mao: three.js pesaria ~150KB e estouraria o
+     teto de 120KB de JS do DESIGN.md §7. Isto: ~6KB.
+     ════════════════════════════════════════════════════ */
+  function hero3D() {
+    var cv = document.getElementById('tela-hero');
+    if (!cv) return;
+    var gl;
+    try {
+      gl = cv.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: false })
+        || cv.getContext('experimental-webgl');
+    } catch (e) { return; }
+    if (!gl) return;
+
+    /* ---- algebra 4x4 (so o que precisamos) ---- */
+    /* Produto a*b em COLUNA-MAIOR, que e como o WebGL le uma mat4.
+       A versao row-major daqui invertia a ordem das transformacoes:
+       projetava antes de rotacionar e jogava tudo fora da tela. */
+    function mul(a, b) {
+      var o = new Float32Array(16);
+      for (var c = 0; c < 4; c++) for (var r = 0; r < 4; r++) {
+        o[c * 4 + r] = a[r] * b[c * 4] + a[4 + r] * b[c * 4 + 1] + a[8 + r] * b[c * 4 + 2] + a[12 + r] * b[c * 4 + 3];
+      }
+      return o;
+    }
+    function perspectiva(fov, asp, near, far) {
+      var f = 1 / Math.tan(fov / 2), nf = 1 / (near - far);
+      return new Float32Array([f / asp,0,0,0, 0,f,0,0, 0,0,(far + near) * nf,-1, 0,0,2 * far * near * nf,0]);
+    }
+    function rotY(a) { var c = Math.cos(a), s = Math.sin(a); return new Float32Array([c,0,-s,0, 0,1,0,0, s,0,c,0, 0,0,0,1]); }
+    function rotX(a) { var c = Math.cos(a), s = Math.sin(a); return new Float32Array([1,0,0,0, 0,c,s,0, 0,-s,c,0, 0,0,0,1]); }
+    function trans(x, y, z) { return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, x,y,z,1]); }
+
+    /* ---- as duas formas ---- */
+    var N = fraco ? 4200 : (medio ? 9000 : 15000);
+    var A = new Float32Array(N * 3);   // torus knot
+    var U = new Float32Array(N * 3);   // simbolo "U" da marca
+    var B = new Float32Array(N * 3);   // esfera / constelacao
+    var LADO = new Float32Array(N);    // 0 = face grafite, 1 = face azul
+    var sem = 99991;
+    function r() { sem = (sem * 9301 + 49297) % 233280; return sem / 233280; }
+
+    for (var i = 0; i < N; i++) {
+      /* torus knot (p=2, q=3) com espessura dada por ruido radial */
+      var t = (i / N) * Math.PI * 2 * 3;
+      var p = 2, q = 3;
+      var rr = Math.cos(q * t) + 2.2;
+      var cx = rr * Math.cos(p * t), cy = rr * Math.sin(p * t), cz = -Math.sin(q * t) * 1.4;
+      var ang = r() * Math.PI * 2, rad = Math.pow(r(), 0.5) * 0.30;
+      A[i*3]   = (cx + Math.cos(ang) * rad) * 0.40;
+      A[i*3+1] = (cy + Math.sin(ang) * rad) * 0.40;
+      A[i*3+2] = (cz + (r() - 0.5) * 0.5)   * 0.40;
+
+      /* SIMBOLO "U": amostragem por rejeicao dentro do perfil da marca.
+         Bracos verticais + base circular, com a mesma proporcao do SVG
+         (externo 1.0, interno 0.60). A espessura em Z da o volume. */
+      var ux, uy, tentativa = 0;
+      do {
+        ux = (r() * 2 - 1) * 1.02;
+        uy = r() * 2.5 - 1.06;
+        tentativa++;
+        var dentro;
+        if (uy >= 0) dentro = Math.abs(ux) >= 0.60 && Math.abs(ux) <= 1.0 && uy <= 1.40;
+        else { var dd = Math.sqrt(ux * ux + uy * uy); dentro = dd >= 0.60 && dd <= 1.0; }
+      } while (!dentro && tentativa < 60);
+      U[i*3]   = ux * 0.80;
+      U[i*3+1] = (uy - 0.18) * 0.80;
+      U[i*3+2] = (r() - 0.5) * 0.26;
+      /* divisao diagonal das duas faces, como no SVG (55,0)->(45,122) */
+      LADO[i] = (ux * 1.15 > (uy * -0.08 + 0.05)) ? 1 : 0;
+
+      /* esfera de Fibonacci — distribuicao uniforme de verdade */
+      var k = i + 0.5;
+      var phi = Math.acos(1 - 2 * k / N);
+      var th = Math.PI * (1 + Math.sqrt(5)) * k;
+      var er = 1.05 + r() * 0.08;
+      B[i*3]   = Math.cos(th) * Math.sin(phi) * er;
+      B[i*3+1] = Math.sin(th) * Math.sin(phi) * er;
+      B[i*3+2] = Math.cos(phi) * er;
+    }
+
+    var vs =
+      'attribute vec3 a; attribute vec3 u; attribute vec3 b; attribute float sd; attribute float lado;' +
+      'uniform mat4 mvp; uniform float m; uniform float t; uniform vec2 mo;' +
+      'varying float prof; varying float bri; varying float fase; varying float lad;' +
+      'void main(){' +
+      /* m: 0 = no, 1 = marca, 2 = constelacao */
+      '  vec3 p = m < 1.0 ? mix(a, u, m) : mix(u, b, m - 1.0);' +
+      '  fase = 1.0 - min(m, 1.0);' +   /* 1 quando a marca esta montada */
+      '  lad = lado;' +
+      /* respiracao: a nuvem pulsa devagar */
+      '  float w = sin(t*0.6 + sd*6.28) * 0.035 * (1.0 - fase*0.82);' +
+      '  p += normalize(p + vec3(0.0001)) * w;' +
+      /* o ponteiro empurra a superficie */
+      '  vec2 d = p.xy - mo*1.25;' +
+      '  float pull = exp(-dot(d,d)*2.2);' +
+      '  p.xy += normalize(d + vec2(0.0001)) * pull * 0.22 * (1.0 - fase*0.6);' +
+      '  p.z  += pull * 0.30 * (1.0 - fase*0.6);' +
+      '  vec4 pos = mvp * vec4(p, 1.0);' +
+      '  gl_Position = pos;' +
+      '  prof = clamp((3.9 - pos.w) * 0.55, 0.0, 1.0);' +
+      '  bri = pull;' +
+      '  gl_PointSize = (1.2 + prof*2.9 + pull*5.5) * (1.0 + sd*0.5);' +
+      '}';
+
+    var fs =
+      'precision mediump float;' +
+      'varying float prof; varying float bri; varying float fase; varying float lad;' +
+      'uniform vec3 c1; uniform vec3 c2; uniform vec3 mGraf; uniform vec3 mAzul;' +
+      'void main(){' +
+      '  vec2 q = gl_PointCoord - 0.5;' +
+      '  float al = smoothstep(0.5, 0.05, length(q));' +
+      '  vec3 base = mix(c1, c2, clamp(prof*0.85 + bri, 0.0, 1.0));' +
+      /* as duas faces da marca aparecem conforme ela se monta */
+      '  vec3 marca = mix(mGraf, mAzul, lad);' +
+      '  vec3 cor = mix(base, marca, fase);' +
+      '  gl_FragColor = vec4(cor, al * (0.13 + prof*0.80 + bri*0.85) * (1.0 + fase*0.45));' +
+      '}';
+
+    function compila(tipo, src) {
+      var s = gl.createShader(tipo);
+      gl.shaderSource(s, src); gl.compileShader(s);
+      return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+    }
+    var v = compila(gl.VERTEX_SHADER, vs), f2 = compila(gl.FRAGMENT_SHADER, fs);
+    if (!v || !f2) return;
+    var pg = gl.createProgram();
+    gl.attachShader(pg, v); gl.attachShader(pg, f2); gl.linkProgram(pg);
+    if (!gl.getProgramParameter(pg, gl.LINK_STATUS)) return;
+    gl.useProgram(pg);
+
+    function buffer(dados, nome, tam) {
+      var bf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, bf);
+      gl.bufferData(gl.ARRAY_BUFFER, dados, gl.STATIC_DRAW);
+      var loc = gl.getAttribLocation(pg, nome);
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, tam, gl.FLOAT, false, 0, 0);
+    }
+    var S = new Float32Array(N);
+    for (var j = 0; j < N; j++) S[j] = Math.random();
+    /* A marca e a PRIMEIRA forma (slot 'a'): aparece montada no topo
+       e se dissolve em no e depois em constelacao ao rolar. */
+    buffer(U, 'a', 3); buffer(A, 'u', 3); buffer(B, 'b', 3);
+    buffer(S, 'sd', 1); buffer(LADO, 'lado', 1);
+
+    var uMvp = gl.getUniformLocation(pg, 'mvp'),
+        uM   = gl.getUniformLocation(pg, 'm'),
+        uT   = gl.getUniformLocation(pg, 't'),
+        uMo  = gl.getUniformLocation(pg, 'mo'),
+        uC1  = gl.getUniformLocation(pg, 'c1'),
+        uC2  = gl.getUniformLocation(pg, 'c2');
+
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    var uGraf = gl.getUniformLocation(pg, 'mGraf'),
+        uAzul = gl.getUniformLocation(pg, 'mAzul');
+    gl.uniform3f(uC1, 0.055, 0.055, 0.047);   /* --ink  */
+    gl.uniform3f(uC2, 0.102, 0.400, 0.267);   /* --green */
+    gl.uniform3f(uGraf, 0.227, 0.227, 0.212); /* --marca-grafite */
+    gl.uniform3f(uAzul, 0.043, 0.388, 0.839); /* --marca-azul   */
+
+    var mx = 0, my = 0, ax = 0, ay = 0, asp = 1;
+    document.addEventListener('pointermove', function (e) {
+      mx = (e.clientX / innerWidth) * 2 - 1;
+      my = -((e.clientY / innerHeight) * 2 - 1);
+    }, { passive: true });
+
+    function ajusta() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+      var b = cv.getBoundingClientRect();
+      cv.width = Math.max(1, Math.round(b.width * dpr));
+      cv.height = Math.max(1, Math.round(b.height * dpr));
+      gl.viewport(0, 0, cv.width, cv.height);
+      asp = b.width / Math.max(b.height, 1);
+    }
+    window.addEventListener('resize', ajusta, { passive: true });
+    ajusta();
+    cv.classList.add('viva');
+    var hero = document.getElementById('hero');
+    if (hero) hero.classList.add('ligado');
+
+    var vivo = true, rodando = false, t0 = performance.now(), mAtual = 0;
+    document.addEventListener('visibilitychange', function () { vivo = !document.hidden; if (vivo) liga(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        vivo = es[0].isIntersecting && !document.hidden;
+        if (vivo) liga();
+      }, { threshold: 0 }).observe(cv);
+    }
+
+    function quadro(now) {
+      if (!vivo) { rodando = false; return; }
+      var t = (now - t0) / 1000;
+      ax += (mx - ax) * 0.05;
+      ay += (my - ay) * 0.05;
+
+      /* A rolagem comanda a narrativa da nuvem:
+         0.00 vh -> torus knot (hero)
+         0.62 vh -> a MARCA se monta, com as duas faces
+         1.70 vh -> se dissolve em constelacao          */
+      var vh = innerHeight;
+      var alvo = Math.min(rolagem / (vh * 0.55), 1)
+               + Math.max(0, Math.min((rolagem - vh * 0.55) / (vh * 0.95), 1));
+      mAtual += (alvo - mAtual) * 0.07;
+
+      /* camera: giro continuo + inclinacao pelo ponteiro */
+      var faseMarca = 1 - Math.min(mAtual, 1);
+      var mvp = mul(
+        perspectiva(1.02, asp, 0.1, 100),
+        mul(trans(asp > 1.15 ? 1.20 : 0, asp > 1.15 ? 0.17 : 0, -3.4),
+            mul(rotX((ay * 0.55 + Math.sin(t * 0.21) * 0.22) * (1 - faseMarca * 0.88)),
+                rotY((t * 0.24 + ax * 0.85) * (1 - faseMarca * 0.92) + faseMarca * (ax * 0.26 + 0.14))))
+      );
+      gl.uniformMatrix4fv(uMvp, false, mvp);
+      gl.uniform1f(uM, mAtual);
+      gl.uniform1f(uT, t);
+      gl.uniform2f(uMo, ax, ay);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.POINTS, 0, N);
+      requestAnimationFrame(quadro);
+    }
+    function liga() { if (!rodando) { rodando = true; requestAnimationFrame(quadro); } }
+    liga();
+  }
+
+  /* ════════════════════════════════════════════════════
+     9. EXPLOSAO DE PARTICULAS NO CLIQUE
+     ════════════════════════════════════════════════════ */
+  function estouro() {
+    if (!fino.matches || quieto.matches) return;
+    var cv = document.createElement('canvas');
+    cv.id = 'tela-estouro';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext('2d');
+    if (!ctx) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), ps = [], rodando = false;
+
+    function ajusta() {
+      cv.width = Math.round(innerWidth * dpr);
+      cv.height = Math.round(innerHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', ajusta, { passive: true });
+    ajusta();
+
+    document.addEventListener('pointerdown', function (e) {
+      var noite = document.body.classList.contains('noite');
+      for (var i = 0; i < 26; i++) {
+        var a = Math.random() * Math.PI * 2, v = 1.6 + Math.random() * 5.2;
+        ps.push({
+          x: e.clientX, y: e.clientY,
+          vx: Math.cos(a) * v, vy: Math.sin(a) * v - 1.2,
+          r: 1 + Math.random() * 2.4, vida: 1,
+          cor: noite ? '74,222,154' : '26,102,68'
+        });
+      }
+      liga();
+    }, { passive: true });
+
+    function quadro() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = ps.length - 1; i >= 0; i--) {
+        var p = ps[i];
+        p.x += p.vx; p.y += p.vy;
+        p.vy += 0.14;            /* gravidade */
+        p.vx *= 0.985; p.vy *= 0.985;
+        p.vida -= 0.019;
+        if (p.vida <= 0) { ps.splice(i, 1); continue; }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * p.vida, 0, 6.283);
+        ctx.fillStyle = 'rgba(' + p.cor + ',' + (p.vida * 0.85).toFixed(3) + ')';
+        ctx.fill();
+      }
+      if (ps.length) requestAnimationFrame(quadro);
+      else { rodando = false; ctx.clearRect(0, 0, innerWidth, innerHeight); }
+    }
+    function liga() { if (!rodando) { rodando = true; requestAnimationFrame(quadro); } }
+  }
+
+  /* ── 10. PARTICULAS DO CTA ── */
+  function particulasCTA() {
+    var cv = document.getElementById('tela-particulas');
+    if (!cv) return;
+    var ctx = cv.getContext('2d');
+    if (!ctx) return;
+    var ps = [], vivo = false, rodando = false;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var QTD = !largo.matches ? 24 : (medio ? 48 : 70);
+
+    function ajusta() {
+      var b = cv.getBoundingClientRect();
+      if (!b.width || !b.height) return;
+      cv.width = Math.round(b.width * dpr);
+      cv.height = Math.round(b.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ps = [];
+      for (var i = 0; i < QTD; i++) {
+        ps.push({
+          x: Math.random() * b.width, y: Math.random() * b.height,
+          vx: (Math.random() - 0.5) * 0.26, vy: (Math.random() - 0.5) * 0.26,
+          r: Math.random() * 1.8 + 0.5, a: Math.random() * 0.42 + 0.12
+        });
+      }
+    }
+    window.addEventListener('resize', ajusta, { passive: true });
+    ajusta();
+
+    function quadro() {
+      if (!vivo) { rodando = false; return; }
+      var b = cv.getBoundingClientRect();
+      ctx.clearRect(0, 0, b.width, b.height);
+      for (var i = 0; i < ps.length; i++) {
+        var p = ps[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = b.width;
+        if (p.x > b.width) p.x = 0;
+        if (p.y < 0) p.y = b.height;
+        if (p.y > b.height) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 6.283);
+        ctx.fillStyle = 'rgba(74,222,154,' + p.a + ')';
+        ctx.fill();
+        /* teias curtas entre vizinhos: da sensacao de rede viva */
+        for (var j = i + 1; j < ps.length; j++) {
+          var o = ps[j], dx = p.x - o.x, dy = p.y - o.y, d2 = dx * dx + dy * dy;
+          if (d2 < 9000) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y); ctx.lineTo(o.x, o.y);
+            ctx.strokeStyle = 'rgba(74,222,154,' + (0.10 * (1 - d2 / 9000)).toFixed(3) + ')';
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(quadro);
+    }
+    function liga() { if (!rodando) { rodando = true; requestAnimationFrame(quadro); } }
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        vivo = es[0].isIntersecting && !document.hidden;
+        cv.classList.toggle('viva', vivo);
+        if (vivo) { ajusta(); liga(); }
+      }, { threshold: 0.05 }).observe(cv);
+    }
+  }
+
+  /* ── LIGAR: depois do conteudo, nunca antes ── */
+  function ligar() {
+    if (quieto.matches) return;
+    if (podePesado()) { hero3D(); estouro(); }
+    particulasCTA();
+  }
+  if ('requestIdleCallback' in window) requestIdleCallback(ligar, { timeout: 1800 });
+  else window.addEventListener('load', function () { setTimeout(ligar, 400); });
+})();
 </script>
 </body>
 </html>
