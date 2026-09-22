@@ -5,138 +5,94 @@ sem estar aqui. Leia antes de criar ou editar qualquer tela.
 
 ---
 
-## 1. Conceito: Amanhecer → Noite
+## 1. Conceito: Palco único, escuro
 
-O site **desce da luz para o escuro** conforme a pessoa rola a página.
+**O site é preto do primeiro ao último pixel.** Não há travessia, não há metade
+clara. Preto-azulado profundo, tipografia clara, e uma única cor viva: ciano
+elétrico.
 
-Abre em off-white editorial — sóbrio, legível, humano: quem é o Sandro.
-Termina em palco preto — imersivo, técnico, luminoso: o que a IA faz.
+A direção não veio de referência de design — veio do repertório do Sandro:
+Matrix, Exterminador do Futuro, sala de servidores, luz ciano no escuro. E bate
+com a marca, que já é preta com azul elétrico e circuitos. A versão anterior
+abria em off-white editorial; era bonita e era de outra pessoa.
 
-A transição não é enfeite, é argumento: reproduz a própria narrativa do site,
-da pessoa para a máquina.
+### O que isso exige
 
-**Isto já existe no site — só não está declarado.** As seções `impacto` e `cta`
-já usam `background: var(--ink)` e já acendem o verde neon `#4ade9a` (contraste
-**11,45:1** sobre esse fundo, excelente). O que falta é tornar o movimento
-deliberado e contínuo, em vez de dois blocos escuros isolados no meio de uma
-página clara.
+Escuro perdoa menos que claro. Três regras que não existiam antes:
 
-Referência de origem: era-residence.com (transição dia/noite por rolagem).
-
-### Mapa dos palcos
-
-| Seção | Palco | Papel |
-|---|---|---|
-| hero, manifesto, sobre | CLARO | Apresentação, leitura confortável |
-| projetos | TRANSIÇÃO | Cruzamento gradual |
-| impacto, diferenciais, visão, cta | ESCURO | Prova, números, imersão |
+1. **Nada de preto puro.** `#070a0e` tem azul dentro. Preto puro num site
+   cheio de luz ciano parece buraco, não profundidade.
+2. **Profundidade por superfície, nunca por sombra.** Três níveis:
+   `--bg` → `--bg2` → `--bg3`. Sombra não existe no escuro.
+3. **Ciano só onde há ação ou dado.** Ciano em tudo vira ruído de neon.
+   Ele marca o que se clica e o que se mede.
 
 ---
 
 ## 2. Paleta
 
-Todo par de texto/fundo abaixo foi calculado pela fórmula WCAG 2.1. Nenhum
-valor entra sem passar em **AA (4,5:1)** para texto corrido.
+Todos os pares foram calculados pela fórmula WCAG 2.1 sobre `--bg` `#070a0e`.
 
-### Palco claro
-
-| Token | Hex | Contraste vs `--bg` | Uso |
+| Token | Hex | Contraste | Uso |
 |---|---|---|---|
-| `--bg` | `#fafaf8` | — | Fundo base |
-| `--bg-2` | `#f3f3f0` | — | Superfície recuada |
-| `--ink` | `#0e0e0c` | **18,49:1** | Títulos, texto principal |
-| `--ink-2` | `#2c2c28` | **13,41:1** | Texto secundário |
-| `--muted` | `#6f6f67` | **4,85:1** | Apoio, legendas |
-| `--green` | `#1a6644` | **6,64:1** | Ação, links, destaque |
-| `--line` | `rgba(14,14,12,0.10)` | — | Divisórias |
+| `--bg` | `#070a0e` | — | Fundo, a página inteira |
+| `--bg2` | `#0c1118` | — | Superfície recuada |
+| `--bg3` | `#131a24` | — | Superfície elevada (hover) |
+| `--ink` | `#eaf2fb` | **17,56:1** | Títulos e corpo |
+| `--ink2` | `#b9c6d6` | **11,44:1** | Texto secundário |
+| `--muted` | `#8fa0b4` | **7,42:1** | Apoio, legendas |
+| `--green` / `--glow` | `#35d6ff` | **11,54:1** | **Ação e dado** |
+| `--border` | `rgba(234,242,251,0.12)` | — | Divisórias |
 
-> **Corrigido:** `--muted` era `#8a8a82` (3,33:1, reprovava em 15 usos).
-> **Removido:** `--muted2` `#b8b8b0` (1,91:1, reprovava em 4 usos).
+> Os nomes `--green` e `--glow` foram mantidos de propósito: são referenciados
+> em dezenas de regras, e o nome descreve o **papel** (cor de ação), não o
+> matiz. Trocar o nome seria refatoração sem ganho.
 
-### Texto translúcido no escuro — opacidade mínima
+Os aliases `--stage`, `--stage2`, `--on-stage` e `--on-stage2` continuam
+existindo e apontam para os mesmos valores: o site todo é palco agora.
 
-Branco translúcido sobre `--ink`/`--stage` é o padrão atual do site, e é onde
-estão as piores falhas medidas:
+### Horizonte, não travessia
 
-| Seletor | Alpha atual | Contraste | Situação |
-|---|---|---|---|
-| `.impacto-l` | `0.38` | 3,46:1 | Reprova |
-| `.impacto-copy .section-label` | `0.35` | 3,11:1 | Reprova |
-| `.cta-tag` | `0.35` | 3,11:1 | Reprova |
-| `.cta-sub` | `0.45` | 4,37:1 | Reprova por pouco |
-
-**Regra: opacidade mínima `0.55`** para qualquer texto sobre palco escuro
-(6,04:1). Abaixo disso, só elemento decorativo sem informação.
-
-### Palco escuro
-
-| Token | Hex | Contraste vs `--stage` | Uso |
-|---|---|---|---|
-| `--stage` | `#0b0b0a` | — | Fundo do palco |
-| `--stage-2` | `#161614` | — | Cartão elevado |
-| `--on-stage` | `#f5f5f0` | **18,00:1** | Títulos no escuro |
-| `--on-stage-2` | `#a8a89e` | **8,21:1** | Texto secundário |
-| `--stage3` | `#1e1e1b` | — | Superfície elevada (hover) |
-| `--glow` | `#4ade9a` | **11,45:1** | Números, dados, sinal vivo |
-| `--line-stage` | `rgba(245,245,240,0.12)` | — | Divisórias |
-| `--dusk` | `#8f8f86` | — | Meio-tom da travessia (só no gradiente) |
-
-### Como a travessia é implementada
-
-**Nunca por porcentagem da página.** Cada seção escura declara o próprio
-`background: var(--stage)`, e uma faixa `.travessia` de altura
-`clamp(120px, 22vh, 260px)` faz o degradê entre `#projetos` e `#impacto`.
-
-Medido: a página tem 8.082px e `#impacto` começa em 5.200px — **64,3%**.
-Um gradiente fixo em 58% escureceria 512px cedo demais e jogaria texto claro
-sobre fundo claro. A posição das seções muda com o conteúdo; a faixa dedicada
-não erra nunca.
-
-**Preto quente, não puro.** `#0b0b0a` em vez de `#000000`: conversa com o
-off-white da marca. Preto puro ao lado de off-white parece erro de impressão.
+A faixa `.travessia` entre `#projetos` e `#impacto` deixou de ser um degradê
+dia→noite. Virou um **horizonte de luz**: um brilho ciano rasante com uma linha
+de 1px, marcando a virada da narrativa sem mudar o palco.
 
 ### Exceção de marca — o azul UltraWork
 
-A logo tem azul elétrico. O site não. Isso **não é um conflito a resolver
-pintando um dos dois**: é a distinção normal entre paleta de marca e paleta
-de produto. O azul entra como exceção documentada.
+A logo tem azul elétrico, distinto do ciano de ação. Continua sendo exceção:
 
 | Token | Hex | Contraste | Onde vive |
 |---|---|---|---|
-| `--marca-azul` | `#0b63d6` | **5,33:1** sobre `--bg` | Logo, palco claro |
-| `--marca-azul-noite` | `#4da6ff` | **7,70:1** sobre `--stage` | Logo, palco escuro |
-| `--marca-grafite` | `#3a3a36` | — | Face esquerda do símbolo |
-| `--marca-prata` | `#c9c9c2` | — | Contorno e brilho metálico |
+| `--marca-azul` | `#4da6ff` | **7,76:1** | Face direita do símbolo, "AI" |
+| `--marca-grafite` | `#6b7787` | — | Face esquerda |
+| `--marca-prata` | `#d7dee8` | — | Contorno metálico |
 | `--marca-circuito` | `#bfe3ff` | — | Traços de circuito |
-| `--marca-no` | `#eaf5ff` | — | Nós do circuito |
 
-**Proibido** usar qualquer um destes em botão, link, fundo, texto corrido ou
-destaque. Eles existem só onde a marca existe: navegação, rodapé e o símbolo
-tridimensional. A cor de ação continua sendo `--green` / `--glow`.
+> **Clareado no escuro.** O grafite era `#3a3a36`, pensado para fundo claro.
+> Sobre `#070a0e` ele sumia. Agora é `#6b7787`.
 
-Nenhum azul único passava em AA nos dois palcos — por isso são dois, espelhando
-o par `--green`/`--glow` que o site já usa.
+**Proibido** usar azul de marca em botão, link ou fundo. Ação é ciano.
 
 ### A marca em três dimensões
 
-O símbolo não é uma imagem colada: é uma das formas da nuvem de partículas do
-hero. Quem chega vê **o "U" montado** à direita, com as duas faces da marca —
-grafite à esquerda, azul à direita, divididas pela mesma diagonal do logotipo.
-Ao rolar, ele se dissolve em torus knot e depois em constelação.
+O símbolo não é imagem colada: é a primeira forma da nuvem de partículas do
+hero. Quem chega vê **o "U" montado** à direita — face esquerda prateada, face
+direita azul, divididas pela mesma diagonal do logotipo. Ao rolar, dissolve em
+torus knot e depois em constelação.
 
 - **Slot `a` do shader** = marca · **`u`** = nó · **`b`** = constelação
-- A geometria vem de amostragem por rejeição no mesmo perfil do SVG
+- Geometria por amostragem de rejeição no mesmo perfil do SVG
   (externo `1.0`, interno `0.60`), extrudada em Z
-- Com a marca montada, a nuvem quase não respira nem gira: marca é para ser
-  lida, não para piscar
+- Partículas ao fundo em `#92a6bf`, na frente em ciano: a profundidade
+  aparece pela cor, não por sombra
 
 **O PNG de 2K da logo (1,78 MB) nunca entra na página** — pesa 20 vezes o site
-inteiro (88 KB) e serrilha ao escalar. Fica em `marca/` como referência. Na tela, a
+inteiro e serrilha ao escalar. Fica em `marca/` como referência. Na tela, a
 marca é SVG (~1,5 KB) e partículas (0 KB de rede).
 
 ### Regras de cor
 
-- `--green` **só** no palco claro. `--glow` **só** no palco escuro. Nunca troque.
+- Ciano (`--green`/`--glow`) só em ação e dado. Nunca como fundo de seção.
 - Acento sinaliza ação ou dado — nunca decora fundo, nunca pinta seção inteira.
 - Sem gradiente em componente de interface. Gradiente só em visual procedural
   (partículas, shader).

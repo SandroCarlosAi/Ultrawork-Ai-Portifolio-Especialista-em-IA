@@ -35,7 +35,8 @@ bundler ou gerenciador de pacotes sem pedir.
 - Adicionar vídeo ou fotografia. O site tem zero `<img>` de propósito; movimento
   vem de geometria procedural na GPU. Veja DESIGN.md §7.
 - Usar o azul da marca (`--marca-azul`, `--marca-azul-noite`) fora da logo.
-  É exceção de marca, não cor de interface. Ação continua sendo `--green`/`--glow`.
+  É exceção de marca, não cor de interface. A cor de ação é o ciano
+  `--green`/`--glow` `#35d6ff` — nome antigo, papel de sempre.
 - Trocar o SVG da marca pelo PNG de `marca/ultrawork-logo.png`. O PNG é
   referência de identidade (1,78 MB); na tela a marca é vetor e partículas.
 - Alterar a geometria do símbolo "U" — nem no SVG, nem na amostragem 3D.
