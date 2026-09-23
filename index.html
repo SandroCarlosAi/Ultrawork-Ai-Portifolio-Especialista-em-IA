@@ -699,8 +699,41 @@ body.noite #progresso { background: var(--glow); }
 .dif-title { font-size: 1.125rem; font-weight: 500; color: var(--on-stage); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
 .dif-desc { font-size: 0.9375rem; color: var(--on-stage2); }
 
-/* ── VISAO (noite) ── */
-#visao { padding: var(--section-y) 0; text-align: center; }
+/* ══════════════════════════════════════════════════════
+   VISAO — a galaxia
+   Fica ATRAS do texto, com um veu radial no centro para a
+   frase nunca disputar leitura com o brilho do nucleo.
+   ══════════════════════════════════════════════════════ */
+#visao {
+  padding: var(--section-y) 0 calc(var(--section-y) + 9rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+#tela-galaxia {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  pointer-events: none;
+}
+#tela-galaxia.viva { opacity: 1; }
+/* Veu radial: escurece o miolo, onde mora a frase */
+#visao::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(7,10,14,0.93) 0%, rgba(7,10,14,0.74) 36%, rgba(7,10,14,0.12) 64%, transparent 100%),
+    radial-gradient(72% 32% at 50% 20%, rgba(7,10,14,0.55), transparent 74%);
+  pointer-events: none;
+}
+#visao .container { position: relative; z-index: 2; }
 .visao-inner { max-width: 54rem; margin: 0 auto; }
 .visao-quote {
   font-family: var(--font-serif);
@@ -851,7 +884,8 @@ footer {
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero-eyebrow, .hero-bottom, .hero-stats, .hero-title .linha > span { opacity: 1 !important; transform: none !important; }
   .marquee-track { animation: none !important; }
-  #tela-hero, #tela-particulas, #tela-manifesto { display: none !important; }
+  #tela-hero, #tela-particulas, #tela-manifesto, #tela-galaxia { display: none !important; }
+  #visao::before { display: none !important; }
   .manifesto-fig.webgl img { opacity: 1 !important; }
   .marca i { transform: none !important; }
   #cursor, #cursor-halo { display: none !important; }
@@ -1893,6 +1927,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
 
 <!-- VISÃO -->
 <section id="visao" class="no-escuro">
+  <canvas id="tela-galaxia" aria-hidden="true"></canvas>
   <div class="container">
     <div class="visao-inner reveal">
       <p class="section-label">Visão de futuro</p>
@@ -2805,6 +2840,204 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
     function liga() { if (!rodando) { rodando = true; requestAnimationFrame(quadro); } }
   }
 
+  /* ════════════════════════════════════════════════════
+     A GALAXIA QUE SE DESFAZ
+     Espiral logaritmica de particulas, com ROTACAO
+     DIFERENCIAL: o miolo gira mais rapido que as bordas,
+     como galaxia de verdade. Por isso os bracos se enrolam
+     sozinhos ao longo do tempo, em vez de girar rigidos.
+
+     A rolagem comanda o desmonte, igual a marca do hero:
+     inteira quando a secao esta no centro da tela, dispersa
+     quando sai — nos dois sentidos.
+     ════════════════════════════════════════════════════ */
+  function galaxia() {
+    var cv = document.getElementById('tela-galaxia');
+    var sec = document.getElementById('visao');
+    if (!cv || !sec) return;
+    var gl;
+    try {
+      gl = cv.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: false })
+        || cv.getContext('experimental-webgl');
+    } catch (e) { return; }
+    if (!gl) return;
+
+    /* algebra 4x4, coluna-maior (a mesma do hero) */
+    function mul(a, b) {
+      var o = new Float32Array(16);
+      for (var c = 0; c < 4; c++) for (var r = 0; r < 4; r++) {
+        o[c*4+r] = a[r]*b[c*4] + a[4+r]*b[c*4+1] + a[8+r]*b[c*4+2] + a[12+r]*b[c*4+3];
+      }
+      return o;
+    }
+    function persp(fov, asp, near, far) {
+      var fo = 1 / Math.tan(fov / 2), nf = 1 / (near - far);
+      return new Float32Array([fo/asp,0,0,0, 0,fo,0,0, 0,0,(far+near)*nf,-1, 0,0,2*far*near*nf,0]);
+    }
+    function rotX(a) { var c = Math.cos(a), s2 = Math.sin(a); return new Float32Array([1,0,0,0, 0,c,s2,0, 0,-s2,c,0, 0,0,0,1]); }
+    function rotZ(a) { var c = Math.cos(a), s2 = Math.sin(a); return new Float32Array([c,s2,0,0, -s2,c,0,0, 0,0,1,0, 0,0,0,1]); }
+    function trans(x, y, z) { return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, x,y,z,1]); }
+
+    var N = fraco ? 6000 : (medio ? 13000 : 22000);
+    var ESP = new Float32Array(N * 3);   // (raio, angulo, z) — polar, para girar no shader
+    var DIS = new Float32Array(N * 3);   // posicao dispersa
+    var SD  = new Float32Array(N);
+
+    var sem = 20260923;
+    function r() { sem = (sem * 9301 + 49297) % 233280; return sem / 233280; }
+    function gauss() { return (r() + r() + r() - 1.5) * 0.9; }
+
+    var BRACOS = 3, ENROLA = 1.95, BOJO = 0.15;
+    for (var i = 0; i < N; i++) {
+      var raio, ang;
+      if (i < N * BOJO) {
+        /* BOJO CENTRAL — sem ele a galaxia vira anel.
+           Gerado como esferoide achatado de verdade: tres gaussianas,
+           a de Z menor que as do plano. Versao anterior sorteava raio
+           quase zero no plano e 0,13 em Z, e o bojo saia como um espeto
+           vertical assim que o disco era inclinado. */
+        var bx = gauss() * 0.18, by = gauss() * 0.18;
+        raio = Math.sqrt(bx * bx + by * by);
+        ang = Math.atan2(by, bx);
+        ESP[i*3+2] = gauss() * 0.075;
+      } else {
+        /* BRACOS — espiral logaritmica */
+        var tr = Math.pow(r(), 0.55);
+        var braco = i % BRACOS;
+        ang = tr * ENROLA * Math.PI * 2 + braco * (Math.PI * 2 / BRACOS);
+        /* o braco abre conforme se afasta do centro */
+        ang += gauss() * (0.16 + tr * 0.40);
+        raio = 0.22 + tr * 1.24 + gauss() * 0.04;
+        ESP[i*3+2] = gauss() * 0.085 * (1.0 - tr * 0.75);
+      }
+
+      ESP[i*3]   = raio;
+      ESP[i*3+1] = ang;
+
+      /* para onde a particula vai quando a galaxia se desfaz */
+      var da = r() * Math.PI * 2, dr = 1.5 + r() * 1.9;
+      DIS[i*3]   = Math.cos(da) * dr;
+      DIS[i*3+1] = Math.sin(da) * dr;
+      DIS[i*3+2] = gauss() * 0.85;
+
+      SD[i] = r();
+    }
+
+    var vs =
+      'attribute vec3 e; attribute vec3 d; attribute float sd;' +
+      'uniform mat4 mvp; uniform float m; uniform float t;' +
+      'varying float vr; varying float vb;' +
+      'void main(){' +
+      /* ROTACAO DIFERENCIAL: velocidade cai com o raio */
+      '  float ang = e.y + t * 0.42 / (e.x + 0.26);' +
+      '  vec3 esp = vec3(cos(ang) * e.x, sin(ang) * e.x, e.z);' +
+      '  vec3 p = mix(esp, d, m);' +
+      '  vec4 pos = mvp * vec4(p, 1.0);' +
+      '  gl_Position = pos;' +
+      '  vr = pow(1.0 - clamp(e.x / 1.44, 0.0, 1.0), 1.15);' +   /* 1 no nucleo, 0 na borda */
+      '  vb = m;' +
+      '  gl_PointSize = (1.5 + vr * 2.2 + sd * 1.5) * (1.0 - m * 0.45);' +
+      '}';
+
+    var fs2 =
+      'precision mediump float;' +
+      'varying float vr; varying float vb;' +
+      'void main(){' +
+      '  vec2 q = gl_PointCoord - 0.5;' +
+      '  float dd = length(q);' +
+      '  float a = smoothstep(0.5, 0.04, dd);' +
+      /* nucleo quase branco, bracos ciano, bordas azul profundo */
+      '  vec3 nucleo = vec3(0.92, 0.98, 1.00);' +
+      '  vec3 braco  = vec3(0.21, 0.84, 1.00);' +
+      '  vec3 borda  = vec3(0.10, 0.30, 0.72);' +
+      '  vec3 cor = mix(borda, braco, smoothstep(0.0, 0.55, vr));' +
+      '  cor = mix(cor, nucleo, smoothstep(0.72, 1.0, vr));' +
+      '  float br = 0.30 + vr * 0.66 - smoothstep(0.80, 1.0, vr) * 0.42;' +
+      '  gl_FragColor = vec4(cor, a * br * (1.0 - vb * 0.55));' +
+      '}';
+
+    function comp(tipo, src) {
+      var sh = gl.createShader(tipo);
+      gl.shaderSource(sh, src); gl.compileShader(sh);
+      return gl.getShaderParameter(sh, gl.COMPILE_STATUS) ? sh : null;
+    }
+    var v1 = comp(gl.VERTEX_SHADER, vs), v2 = comp(gl.FRAGMENT_SHADER, fs2);
+    if (!v1 || !v2) return;
+    var pg = gl.createProgram();
+    gl.attachShader(pg, v1); gl.attachShader(pg, v2); gl.linkProgram(pg);
+    if (!gl.getProgramParameter(pg, gl.LINK_STATUS)) return;
+    gl.useProgram(pg);
+
+    function buf(dados, nome, tam) {
+      var b = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, b);
+      gl.bufferData(gl.ARRAY_BUFFER, dados, gl.STATIC_DRAW);
+      var loc = gl.getAttribLocation(pg, nome);
+      if (loc < 0) return;
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, tam, gl.FLOAT, false, 0, 0);
+    }
+    buf(ESP, 'e', 3); buf(DIS, 'd', 3); buf(SD, 'sd', 1);
+
+    var uMvp = gl.getUniformLocation(pg, 'mvp'),
+        uM = gl.getUniformLocation(pg, 'm'),
+        uT = gl.getUniformLocation(pg, 't');
+
+    gl.enable(gl.BLEND);
+    /* soma em vez de mistura: particula sobre particula vira luz, como estrela */
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+
+    var asp = 1;
+    function ajusta() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+      var b = cv.getBoundingClientRect();
+      if (!b.width || !b.height) return;
+      cv.width = Math.max(1, Math.round(b.width * dpr));
+      cv.height = Math.max(1, Math.round(b.height * dpr));
+      gl.viewport(0, 0, cv.width, cv.height);
+      asp = b.width / Math.max(b.height, 1);
+    }
+    window.addEventListener('resize', ajusta, { passive: true });
+    ajusta();
+    cv.classList.add('viva');
+
+    var vivo = false, rodando = false, t0 = performance.now(), atual = 0;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        vivo = es[0].isIntersecting && !document.hidden;
+        if (vivo) { ajusta(); liga(); }
+      }, { threshold: 0 }).observe(cv);
+    } else vivo = true;
+    document.addEventListener('visibilitychange', function () {
+      vivo = !document.hidden && sec.getBoundingClientRect().bottom > 0;
+      if (vivo) liga();
+    });
+
+    function quadro(now) {
+      if (!vivo) { rodando = false; return; }
+      var tt = (now - t0) / 1000;
+      var b = sec.getBoundingClientRect();
+      /* inteira no centro da tela, dispersa ao sair — nos dois sentidos */
+      var desvio = (b.top + b.height / 2 - innerHeight / 2) / innerHeight;
+      var alvo = Math.min(Math.max(Math.abs(desvio) * 1.5 - 0.18, 0), 1);
+      atual += (alvo - atual) * 0.06;
+
+      var mvp = mul(
+        persp(1.04, asp, 0.1, 100),
+        mul(trans(0, -0.60, -1.74),
+            mul(rotX(0.80 - atual * 0.22), rotZ(tt * 0.04)))
+      );
+      gl.uniformMatrix4fv(uMvp, false, mvp);
+      gl.uniform1f(uM, atual);
+      gl.uniform1f(uT, tt);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.POINTS, 0, N);
+      requestAnimationFrame(quadro);
+    }
+    function liga() { if (!rodando) { rodando = true; requestAnimationFrame(quadro); } }
+    liga();
+  }
+
   /* ── FILTROS DA GALERIA ──
      Esconder por classe, nao remover do DOM: o leitor de tela
      e o botao "voltar" continuam encontrando tudo. */
@@ -2842,7 +3075,7 @@ nav.noite .marca-txt i, .no-escuro .marca-txt i { color: var(--marca-azul-noite)
   /* ── LIGAR: depois do conteudo, nunca antes ── */
   function ligar() {
     if (quieto.matches) return;
-    if (podePesado()) { hero3D(); estouro(); rostoDissolve(); }
+    if (podePesado()) { hero3D(); estouro(); rostoDissolve(); galaxia(); }
     particulasCTA();
   }
   if ('requestIdleCallback' in window) requestIdleCallback(ligar, { timeout: 1800 });
